@@ -1,0 +1,14 @@
+-rootPath
+C:/Users/Server/Documents/Arduino/Projects/Arduino Stream Deck/Arduino_Stream_Deck_Windows
+-cmake-output
+-output-file
+C:/Users/Server/Documents/Arduino/Projects/Arduino Stream Deck/Arduino_Stream_Deck_Windows/build/Desktop_Qt_6_12_0_MinGW_64_bit_Debug/.qt/qml_imports/appArduino_Stream_Deck_Windows_build.cmake
+-importPath
+C:/Users/Server/Documents/Arduino/Projects/Arduino Stream Deck/Arduino_Stream_Deck_Windows/build/Desktop_Qt_6_12_0_MinGW_64_bit_Debug
+-importPath
+C:/Users/Server/Documents/Arduino/Projects/Arduino Stream Deck/Arduino_Stream_Deck_Windows/build/Desktop_Qt_6_12_0_MinGW_64_bit_Debug/Arduino_Stream_Deck_Windows
+-importPath
+C:/Qt/6.12.0/mingw_64/qml
+-qrcFiles
+C:/Users/Server/Documents/Arduino/Projects/Arduino Stream Deck/Arduino_Stream_Deck_Windows/build/Desktop_Qt_6_12_0_MinGW_64_bit_Debug/.qt/rcc/qmake_Arduino_Stream_Deck_Windows.qrc
+C:/Users/Server/Documents/Arduino/Projects/Arduino Stream Deck/Arduino_Stream_Deck_Windows/build/Desktop_Qt_6_12_0_MinGW_64_bit_Debug/.qt/rcc/appArduino_Stream_Deck_Windows_raw_qml_0.qrc

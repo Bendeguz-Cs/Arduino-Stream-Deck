@@ -1,0 +1,41 @@
+file(REMOVE_RECURSE
+  ".qt/rcc/qrc_appArduino_Stream_Deck_Windows_raw_qml_0.cpp"
+  ".qt/rcc/qrc_qmake_Arduino_Stream_Deck_Windows.cpp"
+  ".rcc/qmlcache/appArduino_Stream_Deck_Windows_Main_qml.cpp"
+  ".rcc/qmlcache/appArduino_Stream_Deck_Windows_Main_qml.cpp.aotstats"
+  ".rcc/qmlcache/appArduino_Stream_Deck_Windows_qmlcache_loader.cpp"
+  "Arduino_Stream_Deck_Windows/appArduino_Stream_Deck_Windows.qmltypes"
+  "CMakeFiles/appArduino_Stream_Deck_Windows_autogen.dir/AutogenUsed.txt"
+  "CMakeFiles/appArduino_Stream_Deck_Windows_autogen.dir/ParseCache.txt"
+  "appArduino_Stream_Deck_Windows_autogen"
+  "CMakeFiles/appArduino_Stream_Deck_Windows.dir/84c31975d5476c05ff781b636b743eae/qrc_appArduino_Stream_Deck_Windows_raw_qml_0.cpp.obj"
+  "CMakeFiles/appArduino_Stream_Deck_Windows.dir/84c31975d5476c05ff781b636b743eae/qrc_appArduino_Stream_Deck_Windows_raw_qml_0.cpp.obj.d"
+  "CMakeFiles/appArduino_Stream_Deck_Windows.dir/84c31975d5476c05ff781b636b743eae/qrc_qmake_Arduino_Stream_Deck_Windows.cpp.obj"
+  "CMakeFiles/appArduino_Stream_Deck_Windows.dir/84c31975d5476c05ff781b636b743eae/qrc_qmake_Arduino_Stream_Deck_Windows.cpp.obj.d"
+  "CMakeFiles/appArduino_Stream_Deck_Windows.dir/9ff369ddf8024d3f1f4e32562f5f832f/appArduino_Stream_Deck_Windows_Main_qml.cpp.obj"
+  "CMakeFiles/appArduino_Stream_Deck_Windows.dir/9ff369ddf8024d3f1f4e32562f5f832f/appArduino_Stream_Deck_Windows_Main_qml.cpp.obj.d"
+  "CMakeFiles/appArduino_Stream_Deck_Windows.dir/9ff369ddf8024d3f1f4e32562f5f832f/appArduino_Stream_Deck_Windows_qmlcache_loader.cpp.obj"
+  "CMakeFiles/appArduino_Stream_Deck_Windows.dir/9ff369ddf8024d3f1f4e32562f5f832f/appArduino_Stream_Deck_Windows_qmlcache_loader.cpp.obj.d"
+  "CMakeFiles/appArduino_Stream_Deck_Windows.dir/appArduino_Stream_Deck_Windows_autogen/mocs_compilation.cpp.obj"
+  "CMakeFiles/appArduino_Stream_Deck_Windows.dir/appArduino_Stream_Deck_Windows_autogen/mocs_compilation.cpp.obj.d"
+  "CMakeFiles/appArduino_Stream_Deck_Windows.dir/apparduino_stream_deck_windows_qmltyperegistrations.cpp.obj"
+  "CMakeFiles/appArduino_Stream_Deck_Windows.dir/apparduino_stream_deck_windows_qmltyperegistrations.cpp.obj.d"
+  "CMakeFiles/appArduino_Stream_Deck_Windows.dir/main.cpp.obj"
+  "CMakeFiles/appArduino_Stream_Deck_Windows.dir/main.cpp.obj.d"
+  "appArduino_Stream_Deck_Windows.exe"
+  "appArduino_Stream_Deck_Windows.exe.manifest"
+  "appArduino_Stream_Deck_Windows.pdb"
+  "appArduino_Stream_Deck_Windows_autogen/mocs_compilation.cpp"
+  "appArduino_Stream_Deck_Windows_autogen/timestamp"
+  "apparduino_stream_deck_windows_qmltyperegistrations.cpp"
+  "libappArduino_Stream_Deck_Windows.dll.a"
+  "meta_types/appArduino_Stream_Deck_Windows_json_file_list.txt"
+  "meta_types/appArduino_Stream_Deck_Windows_json_file_list.txt.timestamp"
+  "meta_types/qt6apparduino_stream_deck_windows_metatypes.json"
+  "meta_types/qt6apparduino_stream_deck_windows_metatypes.json.gen"
+)
+
+# Per-language clean rules from dependency scanning.
+foreach(lang CXX)
+  include(CMakeFiles/appArduino_Stream_Deck_Windows.dir/cmake_clean_${lang}.cmake OPTIONAL)
+endforeach()

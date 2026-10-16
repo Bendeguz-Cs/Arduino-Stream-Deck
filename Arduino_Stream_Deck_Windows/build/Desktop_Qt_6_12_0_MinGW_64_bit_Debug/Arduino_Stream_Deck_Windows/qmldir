@@ -1,0 +1,6 @@
+module Arduino_Stream_Deck_Windows
+typeinfo appArduino_Stream_Deck_Windows.qmltypes
+prefer :/qt/qml/Arduino_Stream_Deck_Windows/
+Main 254.0 Main.qml
+depends QtQuick
+
