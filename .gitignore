@@ -1,0 +1,54 @@
+# ==============================
+# Build output
+# ==============================
+/build/
+cmake-build-*/
+
+# ==============================
+# Qt Creator temporary files
+# ==============================
+/.qtcreator/
+/.qtc_clangd/
+*.user
+*.user.*
+
+# Qt Creator generated CMake presets
+/CMakeUserPresets.json
+
+# ==============================
+# CMake generated files
+# ==============================
+CMakeCache.txt
+CMakeFiles/
+cmake_install.cmake
+Makefile
+compile_commands.json
+Testing/
+
+# ==============================
+# Compiled files
+# ==============================
+*.exe
+*.dll
+*.o
+*.obj
+*.a
+*.lib
+*.pdb
+
+# ==============================
+# Logs and temporary files
+# ==============================
+*.log
+*.tmp
+*.bak
+*~
+
+# ==============================
+# Operating system files
+# ==============================
+Thumbs.db
+Desktop.ini
+.DS_Store
+
+/build/Desktop_Qt_6_12_0_MinGW_64_bit_Debug/Testing/Temporary/LastTest.log
