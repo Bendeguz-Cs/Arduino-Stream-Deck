@@ -12,12 +12,12 @@ U8G2_SSD1306_128X64_NONAME_F_HW_I2C u8g2(
 );
 
 void setup() {
-  u8g2.setI2CAddress(0x3C * 2);
+  u8g2.setI2CAddress(0x3C << 1);
   u8g2.begin();
   encoder.LEDRing(8, 20);
   encoder.setLimits(0, 100);   // set the range
   encoder.limits();   // enable limit enforcement
-  encoder.fixedGradientBarPattern(0, 0, 30, 50, 26, 60);
+  encoder.fixedGradientBarPattern(0, 35, 0, 40, 0, 0);
   encoder.begin();
 }
 
