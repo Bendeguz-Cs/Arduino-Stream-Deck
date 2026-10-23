@@ -51,6 +51,8 @@ bool button5        = 0;
 bool button6        = 0;
 bool button7        = 0;
 
+bool changed = true;
+
 Encoder encoder0(pinEncoder0CLK, pinEncoder0DT);
 Encoder encoder1(pinEncoder1CLK, pinEncoder1DT);
 
@@ -120,61 +122,48 @@ void loop() {
   button6     = digitalRead(pinButton6);
   button7     = digitalRead(pinButton7);
 
-  /*//detect any changes
-  if(encoder0val != lastEncoder0val ||
-     encoder1val != lastEncoder1val ||
-     encoder0SW  != lastEncoder0SW  ||
-     encoder1SW  != lastEncoder1SW  ||
-     button0     != lastButton0     ||
-     button1     != lastButton1     ||
-     button2     != lastButton2     ||
-     button3     != lastButton3     ||
-     button4     != lastButton4     ||
-     button5     != lastButton5     ||
-     button6     != lastButton6     ||
-     button7     != lastButton7) {
-    //something has changed
-    Serial.println("change detected");
-  }*/
   if(encoder0val != lastEncoder0val) {
-    Serial.println(String("ENC, 0, ") + encoder0val);
+    changed = true; Serial.println(String("ENC,0,") + encoder0val);
   } else if(encoder1val != lastEncoder1val) {
-    Serial.println(String("ENC, 1, ") + encoder1val);
+    changed = true; Serial.println(String("ENC,1,") + encoder1val);
   } else if(encoder0SW != lastEncoder0SW) {
-    Serial.println(String("ESW, 0, ") + !encoder0SW);
+    changed = true; Serial.println(String("ESW,0,") + !encoder0SW);
   } else if(encoder1SW != lastEncoder1SW) {
-    Serial.println(String("ESW, 1, ") + !encoder1SW);
+    changed = true; Serial.println(String("ESW,1,") + !encoder1SW);
   } else if(button0 != lastButton0) {
-    Serial.println(String("BTN, 0, ") + !button0);
+    changed = true; Serial.println(String("BTN,0,") + !button0);
   } else if(button1 != lastButton1) {
-    Serial.println(String("BTN, 1, ") + !button1);
+    changed = true; Serial.println(String("BTN,1,") + !button1);
   } else if(button2 != lastButton2) {
-    Serial.println(String("BTN, 2, ") + !button2);
+    changed = true; Serial.println(String("BTN,2,") + !button2);
   } else if(button3 != lastButton3) {
-    Serial.println(String("BTN, 3, ") + !button3);
+    changed = true; Serial.println(String("BTN,3,") + !button3);
   } else if(button4 != lastButton4) {
-    Serial.println(String("BTN, 4, ") + !button4);
+    changed = true; Serial.println(String("BTN,4,") + !button4);
   } else if(button5 != lastButton5) {
-    Serial.println(String("BTN, 5, ") + !button5);
+    changed = true; Serial.println(String("BTN,5,") + !button5);
   } else if(button6 != lastButton6) {
-    Serial.println(String("BTN, 6, ") + !button6);
+    changed = true; Serial.println(String("BTN,6,") + !button6);
   } else if(button7 != lastButton7) {
-    Serial.println(String("BTN, 7, ") + !button7);
+    changed = true; Serial.println(String("BTN,7,") + !button7);
   }
-  /*u8g2.clearBuffer();
 
-  // Display test text
-  u8g2.setFont(u8g2_font_6x10_tf);
-  u8g2.drawStr(0, 10, "OLED TEST");
-  u8g2.drawStr(0, 24, "SSD1306 128x64");
-  u8g2.drawStr(0, 38, "I2C: 0x3C");
+  if(changed) {
+    changed = false;
+    u8g2.clearBuffer();
 
-  u8g2.setCursor(0, 55);
-  u8g2.print(encoder0.read());
+    // Display test text
+    u8g2.setFont(u8g2_font_6x10_tf);
+    u8g2.drawStr(0, 10, "OLED TEST");
+    u8g2.drawStr(0, 24, "SSD1306 128x64");
+    u8g2.drawStr(0, 38, "I2C: 0x3C");
 
-  // Send the image to the OLED
-  u8g2.sendBuffer();*/
+    u8g2.setCursor(0, 55);
+    u8g2.print(encoder0val);
 
+    // Send the image to the OLED
+    u8g2.sendBuffer();
+  }
 
   delay(20);
 }
