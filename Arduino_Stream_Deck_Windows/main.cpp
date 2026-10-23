@@ -308,17 +308,29 @@ int main(int argc, char *argv[]) {
     ///////////////////// QSerialPortInfo start
     const auto ports = QSerialPortInfo::availablePorts();
 
+    QSerialPortInfo targetPort;
+    QString targetDescription = "PicoStreamDeck";
+
     for (const QSerialPortInfo &port : ports) {
-        qDebug() << port.portName()
-                 << port.description()
-                 << port.manufacturer();
+        if(port.description() == targetDescription) {
+            targetPort = port;
+            qDebug() << port.portName()
+                     << port.description()
+                     << port.manufacturer();
+            break;
+        }
+    }
+
+    if(targetPort.isNull()) {
+        qWarning() << "Target hardware not found";
+        return -1;
     }
     ///////////////////// QSerialPortInfo end
 
     ///////////////////// QSerialPort start
     QSerialPort serial;
 
-    serial.setPortName(ports.first().portName());
+    serial.setPortName(targetPort.portName());
 
     serial.setBaudRate(QSerialPort::Baud9600);
     serial.setDataBits(QSerialPort::Data8);
