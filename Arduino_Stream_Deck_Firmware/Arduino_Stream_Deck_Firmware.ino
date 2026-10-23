@@ -3,27 +3,56 @@
 #include <U8g2lib.h>
 #include <Wire.h>
 
-const uint8_t displaySDA  = 4;
-const uint8_t displaySCL  = 5;
-const uint8_t encoder0CLK = 6;
-const uint8_t encoder0DT  = 7;
-const uint8_t encoder0SW  = 8;
-const uint8_t encoder0LED = 9;
-const uint8_t encoder1CLK = 10;
-const uint8_t encoder1DT  = 11;
-const uint8_t encoder1SW  = 12;
-const uint8_t encoder1LED = 13;
-const uint8_t button0     = 14;
-const uint8_t button1     = 15;
-const uint8_t button2     = 16;
-const uint8_t button3     = 17;
-const uint8_t button4     = 18;
-const uint8_t button5     = 19;
-const uint8_t button6     = 20;
-const uint8_t button7     = 21;
+//pin definitions
+const uint8_t pinDisplaySDA  = 4;
+const uint8_t pinDisplaySCL  = 5;
+const uint8_t pinEncoder0CLK = 6;
+const uint8_t pinEncoder0DT  = 7;
+const uint8_t pinEncoder0SW  = 8;
+const uint8_t pinEncoder0LED = 9;
+const uint8_t pinEncoder1CLK = 10;
+const uint8_t pinEncoder1DT  = 11;
+const uint8_t pinEncoder1SW  = 12;
+const uint8_t pinEncoder1LED = 13;
+const uint8_t pinButton0     = 14;
+const uint8_t pinButton1     = 15;
+const uint8_t pinButton2     = 16;
+const uint8_t pinButton3     = 17;
+const uint8_t pinButton4     = 18;
+const uint8_t pinButton5     = 19;
+const uint8_t pinButton6     = 20;
+const uint8_t pinButton7     = 21;
 
-Encoder encoder0(encoder0CLK, encoder0DT);
-Encoder encoder1(encoder1CLK, encoder1DT);
+//last cycle states
+uint8_t lastEncoder0val = 0;
+uint8_t lastEncoder1val = 0;
+bool lastEncoder0SW     = 0;
+bool lastEncoder1SW     = 0;
+bool lastButton0        = 0;
+bool lastButton1        = 0;
+bool lastButton2        = 0;
+bool lastButton3        = 0;
+bool lastButton4        = 0;
+bool lastButton5        = 0;
+bool lastButton6        = 0;
+bool lastButton7        = 0;
+
+//current cycle states
+uint8_t encoder0val = 0;
+uint8_t encoder1val = 0;
+bool encoder0SW     = 0;
+bool encoder1SW     = 0;
+bool button0        = 0;
+bool button1        = 0;
+bool button2        = 0;
+bool button3        = 0;
+bool button4        = 0;
+bool button5        = 0;
+bool button6        = 0;
+bool button7        = 0;
+
+Encoder encoder0(pinEncoder0CLK, pinEncoder0DT);
+Encoder encoder1(pinEncoder1CLK, pinEncoder1DT);
 
 // Initialize the 128x64 SSD1306 I2C OLED
 U8G2_SSD1306_128X64_NONAME_F_HW_I2C u8g2(
@@ -37,33 +66,77 @@ void setup() {
   u8g2.begin();
   u8g2.setDisplayRotation(U8G2_R2);
 
-  encoder0.LEDRing(encoder0LED, 20);
+  encoder0.LEDRing(pinEncoder0LED, 20);
   encoder0.setLimits(0, 100);   // set the range
   encoder0.limits();   // enable limit enforcement
   encoder0.fixedGradientBarPattern(0, 35, 0, 40, 0, 0);
   encoder0.begin();
 
-  encoder1.LEDRing(encoder1LED, 20);
+  encoder1.LEDRing(pinEncoder1LED, 20);
   encoder1.setLimits(0, 100);   // set the range
   encoder1.limits();   // enable limit enforcement
   encoder1.fixedGradientBarPattern(0, 35, 0, 40, 0, 0);
   encoder1.begin();
 
-  pinMode(encoder0SW, INPUT_PULLUP);
-  pinMode(encoder1SW, INPUT_PULLUP);
+  pinMode(pinEncoder0SW, INPUT_PULLUP);
+  pinMode(pinEncoder1SW, INPUT_PULLUP);
 
-  pinMode(button0, INPUT_PULLUP);
-  pinMode(button1, INPUT_PULLUP);
-  pinMode(button2, INPUT_PULLUP);
-  pinMode(button3, INPUT_PULLUP);
-  pinMode(button4, INPUT_PULLUP);
-  pinMode(button5, INPUT_PULLUP);
-  pinMode(button6, INPUT_PULLUP);
-  pinMode(button7, INPUT_PULLUP);
+  pinMode(pinButton0, INPUT_PULLUP);
+  pinMode(pinButton1, INPUT_PULLUP);
+  pinMode(pinButton2, INPUT_PULLUP);
+  pinMode(pinButton3, INPUT_PULLUP);
+  pinMode(pinButton4, INPUT_PULLUP);
+  pinMode(pinButton5, INPUT_PULLUP);
+  pinMode(pinButton6, INPUT_PULLUP);
+  pinMode(pinButton7, INPUT_PULLUP);
 }
 
 void loop() {
-  u8g2.clearBuffer();
+  //update last cycle values
+  lastEncoder0val = encoder0val;
+  lastEncoder1val = encoder1val;
+  lastEncoder0SW  = encoder0SW;
+  lastEncoder1SW  = encoder1SW;
+  lastButton0     = button0;
+  lastButton1     = button1;
+  lastButton2     = button2;
+  lastButton3     = button3;
+  lastButton4     = button4;
+  lastButton5     = button5;
+  lastButton6     = button6;
+  lastButton7     = button7;
+ 
+  //update current values
+  encoder0val = encoder0.read();
+  encoder1val = encoder1.read();
+  encoder0SW  = digitalRead(pinEncoder0SW);
+  encoder1SW  = digitalRead(pinEncoder1SW);
+  button0     = digitalRead(pinButton0);
+  button1     = digitalRead(pinButton1);
+  button2     = digitalRead(pinButton2);
+  button3     = digitalRead(pinButton3);
+  button4     = digitalRead(pinButton4);
+  button5     = digitalRead(pinButton5);
+  button6     = digitalRead(pinButton6);
+  button7     = digitalRead(pinButton7);
+
+  //detect any changes
+  if(encoder0val != lastEncoder0val ||
+     encoder1val != lastEncoder1val ||
+     encoder0SW  != lastEncoder0SW  ||
+     encoder1SW  != lastEncoder1SW  ||
+     button0     != lastButton0     ||
+     button1     != lastButton1     ||
+     button2     != lastButton2     ||
+     button3     != lastButton3     ||
+     button4     != lastButton4     ||
+     button5     != lastButton5     ||
+     button6     != lastButton6     ||
+     button7     != lastButton7) {
+    //something has changed
+    Serial.println("change detected");
+  }
+  /*u8g2.clearBuffer();
 
   // Display test text
   u8g2.setFont(u8g2_font_6x10_tf);
@@ -75,9 +148,9 @@ void loop() {
   u8g2.print(encoder0.read());
 
   // Send the image to the OLED
-  u8g2.sendBuffer();
+  u8g2.sendBuffer();*/
 
-  Serial.print(encoder0.read());
+  /*Serial.print(encoder0.read());
   Serial.print(", ");
   Serial.print(encoder1.read());
   Serial.print(", ");
@@ -99,7 +172,7 @@ void loop() {
   Serial.print(", ");
   Serial.print(digitalRead(button6));
   Serial.print(", ");
-  Serial.println(digitalRead(button7));
+  Serial.println(digitalRead(button7));*/
 
-  delay(30);
+  //delay(5);
 }
