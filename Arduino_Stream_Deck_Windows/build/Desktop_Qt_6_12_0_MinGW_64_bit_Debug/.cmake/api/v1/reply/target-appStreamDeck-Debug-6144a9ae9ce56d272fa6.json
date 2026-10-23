@@ -27,9 +27,9 @@
 			"qt6_add_qml_module",
 			"qt_add_qml_module",
 			"add_dependencies",
-			"_qt_internal_write_qmldir_part",
 			"_qt_internal_write_deferred_qmlls_build_ini_file",
 			"_qt_internal_qml_copy_files_to_build_dir",
+			"_qt_internal_write_qmldir_part",
 			"_qt_internal_scan_qml_imports",
 			"_qt_internal_generate_deploy_qml_imports_script",
 			"cmake_language",
@@ -73,8 +73,8 @@
 			"C:/Qt/6.12.0/mingw_64/lib/cmake/Qt6EntryPointPrivate/Qt6EntryPointPrivateTargets.cmake",
 			"C:/Qt/6.12.0/mingw_64/lib/cmake/Qt6EntryPointPrivate/Qt6EntryPointPrivateConfig.cmake",
 			"C:/Qt/6.12.0/mingw_64/lib/cmake/Qt6Core/Qt6CoreDependencies.cmake",
-			"C:/Qt/6.12.0/mingw_64/lib/cmake/Qt6Qml/Qt6QmlMacros.cmake:1246:EVAL",
 			"C:/Qt/6.12.0/mingw_64/lib/cmake/Qt6Qml/Qt6QmlMacros.cmake:1189:EVAL",
+			"C:/Qt/6.12.0/mingw_64/lib/cmake/Qt6Qml/Qt6QmlMacros.cmake:1246:EVAL",
 			"C:/Qt/6.12.0/mingw_64/lib/cmake/Qt6Core/Qt6CoreMacros.cmake:881:EVAL",
 			"build/Desktop_Qt_6_12_0_MinGW_64_bit_Debug/.qtcreator/cmake-helper/qtcreator-project.cmake",
 			"C:/Qt/6.12.0/mingw_64/lib/cmake/Qt6/QtPublicWindowsHelpers.cmake"
@@ -111,7 +111,7 @@
 			{
 				"command" : 4,
 				"file" : 1,
-				"line" : 43,
+				"line" : 46,
 				"parent" : 0
 			},
 			{
@@ -422,18 +422,6 @@
 			{
 				"command" : 14,
 				"file" : 21,
-				"line" : 2,
-				"parent" : 61
-			},
-			{
-				"command" : 13,
-				"file" : 10,
-				"line" : 312,
-				"parent" : 62
-			},
-			{
-				"command" : 15,
-				"file" : 22,
 				"line" : 1,
 				"parent" : 61
 			},
@@ -441,10 +429,22 @@
 				"command" : 13,
 				"file" : 10,
 				"line" : 1474,
+				"parent" : 62
+			},
+			{
+				"command" : 15,
+				"file" : 10,
+				"line" : 1049,
+				"parent" : 24
+			},
+			{
+				"command" : 13,
+				"file" : 10,
+				"line" : 3335,
 				"parent" : 64
 			},
 			{
-				"command" : 16,
+				"command" : 15,
 				"file" : 10,
 				"line" : 1055,
 				"parent" : 24
@@ -456,6 +456,18 @@
 				"parent" : 66
 			},
 			{
+				"command" : 16,
+				"file" : 22,
+				"line" : 2,
+				"parent" : 61
+			},
+			{
+				"command" : 13,
+				"file" : 10,
+				"line" : 312,
+				"parent" : 68
+			},
+			{
 				"command" : 21,
 				"file" : 23,
 				"line" : 1,
@@ -465,42 +477,30 @@
 				"command" : 20,
 				"file" : 0,
 				"line" : 915,
-				"parent" : 68
+				"parent" : 70
 			},
 			{
 				"command" : 19,
 				"file" : 0,
 				"line" : 832,
-				"parent" : 69
+				"parent" : 71
 			},
 			{
 				"command" : 18,
 				"file" : 0,
 				"line" : 832,
-				"parent" : 70
+				"parent" : 72
 			},
 			{
 				"command" : 17,
 				"file" : 10,
 				"line" : 5126,
-				"parent" : 71
+				"parent" : 73
 			},
 			{
 				"command" : 13,
 				"file" : 10,
 				"line" : 4911,
-				"parent" : 72
-			},
-			{
-				"command" : 16,
-				"file" : 10,
-				"line" : 1049,
-				"parent" : 24
-			},
-			{
-				"command" : 13,
-				"file" : 10,
-				"line" : 3335,
 				"parent" : 74
 			},
 			{
@@ -643,7 +643,7 @@
 				"command" : 34,
 				"file" : 0,
 				"line" : 906,
-				"parent" : 68
+				"parent" : 70
 			},
 			{
 				"command" : 26,
@@ -655,7 +655,7 @@
 				"command" : 35,
 				"file" : 0,
 				"line" : 849,
-				"parent" : 69
+				"parent" : 71
 			},
 			{
 				"command" : 26,
@@ -971,10 +971,6 @@
 	[
 		{
 			"backtrace" : 63,
-			"id" : "generate_finalqtconf_appStreamDeck::@6890427a1f51a3e7e1df"
-		},
-		{
-			"backtrace" : 65,
 			"id" : "generate_qmlls_build_ini_file::@6890427a1f51a3e7e1df"
 		},
 		{
@@ -982,19 +978,23 @@
 			"id" : "appStreamDeck_autogen::@6890427a1f51a3e7e1df"
 		},
 		{
+			"backtrace" : 65,
+			"id" : "appStreamDeck_copy_qml::@6890427a1f51a3e7e1df"
+		},
+		{
 			"backtrace" : 67,
 			"id" : "appStreamDeck_copy_res::@6890427a1f51a3e7e1df"
 		},
 		{
-			"id" : "appStreamDeck_autogen_timestamp_deps::@6890427a1f51a3e7e1df"
-		},
-		{
-			"backtrace" : 73,
-			"id" : "appStreamDeck_qmlimportscan::@6890427a1f51a3e7e1df"
+			"backtrace" : 69,
+			"id" : "generate_finalqtconf_appStreamDeck::@6890427a1f51a3e7e1df"
 		},
 		{
 			"backtrace" : 75,
-			"id" : "appStreamDeck_copy_qml::@6890427a1f51a3e7e1df"
+			"id" : "appStreamDeck_qmlimportscan::@6890427a1f51a3e7e1df"
+		},
+		{
+			"id" : "appStreamDeck_autogen_timestamp_deps::@6890427a1f51a3e7e1df"
 		}
 	],
 	"id" : "appStreamDeck::@6890427a1f51a3e7e1df",
@@ -1032,6 +1032,16 @@
 			{
 				"backtrace" : 6,
 				"fragment" : "C:\\Qt\\6.12.0\\mingw_64\\lib\\libQt6SerialPort.a",
+				"role" : "libraries"
+			},
+			{
+				"backtrace" : 6,
+				"fragment" : "-lole32",
+				"role" : "libraries"
+			},
+			{
+				"backtrace" : 6,
+				"fragment" : "-luuid",
 				"role" : "libraries"
 			},
 			{
@@ -1223,7 +1233,7 @@
 			"backtrace" : 89,
 			"compileGroupIndex" : 0,
 			"isGenerated" : true,
-			"path" : "build/Desktop_Qt_6_12_0_MinGW_64_bit_Debug/.qt/rcc/qrc_qmake_appQSerialURI.cpp",
+			"path" : "build/Desktop_Qt_6_12_0_MinGW_64_bit_Debug/.qt/rcc/qrc_qmake_appStreamDeckURI.cpp",
 			"sourceGroupIndex" : 0
 		},
 		{
@@ -1255,13 +1265,13 @@
 		{
 			"backtrace" : 100,
 			"isGenerated" : true,
-			"path" : "build/Desktop_Qt_6_12_0_MinGW_64_bit_Debug/.qt/rcc/qmake_appQSerialURI.qrc",
+			"path" : "build/Desktop_Qt_6_12_0_MinGW_64_bit_Debug/.qt/rcc/qmake_appStreamDeckURI.qrc",
 			"sourceGroupIndex" : 0
 		},
 		{
 			"backtrace" : 100,
 			"isGenerated" : true,
-			"path" : "build/Desktop_Qt_6_12_0_MinGW_64_bit_Debug/appQSerialURI/qmldir",
+			"path" : "build/Desktop_Qt_6_12_0_MinGW_64_bit_Debug/appStreamDeckURI/qmldir",
 			"sourceGroupIndex" : 2
 		},
 		{
@@ -1296,7 +1306,7 @@
 		{
 			"backtrace" : 0,
 			"isGenerated" : true,
-			"path" : "build/Desktop_Qt_6_12_0_MinGW_64_bit_Debug/.qt/rcc/qrc_qmake_appQSerialURI.cpp.rule",
+			"path" : "build/Desktop_Qt_6_12_0_MinGW_64_bit_Debug/.qt/rcc/qrc_qmake_appStreamDeckURI.cpp.rule",
 			"sourceGroupIndex" : 4
 		},
 		{

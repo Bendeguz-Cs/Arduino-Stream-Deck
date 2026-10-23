@@ -37,7 +37,10 @@ set_target_properties(appStreamDeck PROPERTIES
 )
 
 target_link_libraries(appStreamDeck
-    PRIVATE Qt6::Quick Qt6::SerialPort
+    PRIVATE Qt6::Quick
+    Qt6::SerialPort
+    ole32
+    uuid
 )
 
 install(TARGETS appStreamDeck

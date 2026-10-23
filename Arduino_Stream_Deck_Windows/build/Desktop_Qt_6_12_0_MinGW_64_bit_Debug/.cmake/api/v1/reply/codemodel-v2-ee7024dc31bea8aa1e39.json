@@ -7,7 +7,7 @@
 				{
 					"build" : ".",
 					"hasInstallRule" : true,
-					"jsonFile" : "directory-.-Debug-23d1832f25d3367427e9.json",
+					"jsonFile" : "directory-.-Debug-0562f61bf746463b3fd1.json",
 					"minimumCMakeVersion" : 
 					{
 						"string" : "3.16"
@@ -80,7 +80,7 @@
 				{
 					"directoryIndex" : 0,
 					"id" : "all_aotstats::@6890427a1f51a3e7e1df",
-					"jsonFile" : "target-all_aotstats-Debug-05b721a8441abcde2bce.json",
+					"jsonFile" : "target-all_aotstats-Debug-c8ae437729ee4bfc9962.json",
 					"name" : "all_aotstats",
 					"projectIndex" : 0
 				},
@@ -115,7 +115,7 @@
 				{
 					"directoryIndex" : 0,
 					"id" : "appStreamDeck::@6890427a1f51a3e7e1df",
-					"jsonFile" : "target-appStreamDeck-Debug-ee7390d6eafb282f35f0.json",
+					"jsonFile" : "target-appStreamDeck-Debug-6144a9ae9ce56d272fa6.json",
 					"name" : "appStreamDeck",
 					"projectIndex" : 0
 				},
@@ -129,7 +129,7 @@
 				{
 					"directoryIndex" : 0,
 					"id" : "appStreamDeck_autogen_timestamp_deps::@6890427a1f51a3e7e1df",
-					"jsonFile" : "target-appStreamDeck_autogen_timestamp_deps-Debug-08339fb76a14295a78c1.json",
+					"jsonFile" : "target-appStreamDeck_autogen_timestamp_deps-Debug-cc102809ba5793b79f80.json",
 					"name" : "appStreamDeck_autogen_timestamp_deps",
 					"projectIndex" : 0
 				},
@@ -220,7 +220,7 @@
 				{
 					"directoryIndex" : 0,
 					"id" : "module_appStreamDeck_aotstats_target::@6890427a1f51a3e7e1df",
-					"jsonFile" : "target-module_appStreamDeck_aotstats_target-Debug-7489cbc7a3e994e0bfc5.json",
+					"jsonFile" : "target-module_appStreamDeck_aotstats_target-Debug-dc31c0181937d46ed06b.json",
 					"name" : "module_appStreamDeck_aotstats_target",
 					"projectIndex" : 0
 				}

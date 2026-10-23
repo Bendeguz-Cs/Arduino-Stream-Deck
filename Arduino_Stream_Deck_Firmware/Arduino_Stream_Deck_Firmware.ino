@@ -2,6 +2,7 @@
 #include <Rotary_encoder.h>
 #include <U8g2lib.h>
 #include <Wire.h>
+#include <USB.h>
 
 //pin definitions
 const uint8_t pinDisplaySDA  = 4;
@@ -63,6 +64,14 @@ U8G2_SSD1306_128X64_NONAME_F_HW_I2C u8g2(
 );
 
 void setup() {
+  USB.disconnect();
+
+  USB.setProduct("PicoStreamDeck");
+  //USB.setManufacturer("MyProject");
+  //USB.setSerialNumber("PICO_QT_01");
+
+  USB.connect();
+
   Serial.begin(9600);
   u8g2.setI2CAddress(0x3C << 1);
   u8g2.begin();
