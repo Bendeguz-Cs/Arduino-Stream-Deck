@@ -161,30 +161,30 @@ depend:
 .PHONY : depend
 
 #=============================================================================
-# Target rules for targets named appArduino_Stream_Deck_Windows
+# Target rules for targets named appStreamDeck
 
 # Build rule for target.
-appArduino_Stream_Deck_Windows: cmake_check_build_system
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\Makefile2 appArduino_Stream_Deck_Windows
-.PHONY : appArduino_Stream_Deck_Windows
+appStreamDeck: cmake_check_build_system
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\Makefile2 appStreamDeck
+.PHONY : appStreamDeck
 
 # fast build rule for target.
-appArduino_Stream_Deck_Windows/fast:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\appArduino_Stream_Deck_Windows.dir\build.make CMakeFiles/appArduino_Stream_Deck_Windows.dir/build
-.PHONY : appArduino_Stream_Deck_Windows/fast
+appStreamDeck/fast:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\appStreamDeck.dir\build.make CMakeFiles/appStreamDeck.dir/build
+.PHONY : appStreamDeck/fast
 
 #=============================================================================
-# Target rules for targets named appArduino_Stream_Deck_Windows_qmltyperegistration
+# Target rules for targets named appStreamDeck_qmltyperegistration
 
 # Build rule for target.
-appArduino_Stream_Deck_Windows_qmltyperegistration: cmake_check_build_system
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\Makefile2 appArduino_Stream_Deck_Windows_qmltyperegistration
-.PHONY : appArduino_Stream_Deck_Windows_qmltyperegistration
+appStreamDeck_qmltyperegistration: cmake_check_build_system
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\Makefile2 appStreamDeck_qmltyperegistration
+.PHONY : appStreamDeck_qmltyperegistration
 
 # fast build rule for target.
-appArduino_Stream_Deck_Windows_qmltyperegistration/fast:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\appArduino_Stream_Deck_Windows_qmltyperegistration.dir\build.make CMakeFiles/appArduino_Stream_Deck_Windows_qmltyperegistration.dir/build
-.PHONY : appArduino_Stream_Deck_Windows_qmltyperegistration/fast
+appStreamDeck_qmltyperegistration/fast:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\appStreamDeck_qmltyperegistration.dir\build.make CMakeFiles/appStreamDeck_qmltyperegistration.dir/build
+.PHONY : appStreamDeck_qmltyperegistration/fast
 
 #=============================================================================
 # Target rules for targets named all_qmltyperegistrations
@@ -200,43 +200,43 @@ all_qmltyperegistrations/fast:
 .PHONY : all_qmltyperegistrations/fast
 
 #=============================================================================
-# Target rules for targets named appArduino_Stream_Deck_Windows_qmllint
+# Target rules for targets named appStreamDeck_qmllint
 
 # Build rule for target.
-appArduino_Stream_Deck_Windows_qmllint: cmake_check_build_system
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\Makefile2 appArduino_Stream_Deck_Windows_qmllint
-.PHONY : appArduino_Stream_Deck_Windows_qmllint
+appStreamDeck_qmllint: cmake_check_build_system
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\Makefile2 appStreamDeck_qmllint
+.PHONY : appStreamDeck_qmllint
 
 # fast build rule for target.
-appArduino_Stream_Deck_Windows_qmllint/fast:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\appArduino_Stream_Deck_Windows_qmllint.dir\build.make CMakeFiles/appArduino_Stream_Deck_Windows_qmllint.dir/build
-.PHONY : appArduino_Stream_Deck_Windows_qmllint/fast
+appStreamDeck_qmllint/fast:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\appStreamDeck_qmllint.dir\build.make CMakeFiles/appStreamDeck_qmllint.dir/build
+.PHONY : appStreamDeck_qmllint/fast
 
 #=============================================================================
-# Target rules for targets named appArduino_Stream_Deck_Windows_qmllint_json
+# Target rules for targets named appStreamDeck_qmllint_json
 
 # Build rule for target.
-appArduino_Stream_Deck_Windows_qmllint_json: cmake_check_build_system
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\Makefile2 appArduino_Stream_Deck_Windows_qmllint_json
-.PHONY : appArduino_Stream_Deck_Windows_qmllint_json
+appStreamDeck_qmllint_json: cmake_check_build_system
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\Makefile2 appStreamDeck_qmllint_json
+.PHONY : appStreamDeck_qmllint_json
 
 # fast build rule for target.
-appArduino_Stream_Deck_Windows_qmllint_json/fast:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\appArduino_Stream_Deck_Windows_qmllint_json.dir\build.make CMakeFiles/appArduino_Stream_Deck_Windows_qmllint_json.dir/build
-.PHONY : appArduino_Stream_Deck_Windows_qmllint_json/fast
+appStreamDeck_qmllint_json/fast:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\appStreamDeck_qmllint_json.dir\build.make CMakeFiles/appStreamDeck_qmllint_json.dir/build
+.PHONY : appStreamDeck_qmllint_json/fast
 
 #=============================================================================
-# Target rules for targets named appArduino_Stream_Deck_Windows_qmllint_module
+# Target rules for targets named appStreamDeck_qmllint_module
 
 # Build rule for target.
-appArduino_Stream_Deck_Windows_qmllint_module: cmake_check_build_system
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\Makefile2 appArduino_Stream_Deck_Windows_qmllint_module
-.PHONY : appArduino_Stream_Deck_Windows_qmllint_module
+appStreamDeck_qmllint_module: cmake_check_build_system
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\Makefile2 appStreamDeck_qmllint_module
+.PHONY : appStreamDeck_qmllint_module
 
 # fast build rule for target.
-appArduino_Stream_Deck_Windows_qmllint_module/fast:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\appArduino_Stream_Deck_Windows_qmllint_module.dir\build.make CMakeFiles/appArduino_Stream_Deck_Windows_qmllint_module.dir/build
-.PHONY : appArduino_Stream_Deck_Windows_qmllint_module/fast
+appStreamDeck_qmllint_module/fast:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\appStreamDeck_qmllint_module.dir\build.make CMakeFiles/appStreamDeck_qmllint_module.dir/build
+.PHONY : appStreamDeck_qmllint_module/fast
 
 #=============================================================================
 # Target rules for targets named all_qmllint
@@ -304,43 +304,43 @@ clean_qml_context_properties/fast:
 .PHONY : clean_qml_context_properties/fast
 
 #=============================================================================
-# Target rules for targets named appArduino_Stream_Deck_Windows_qmlpreview
+# Target rules for targets named appStreamDeck_qmlpreview
 
 # Build rule for target.
-appArduino_Stream_Deck_Windows_qmlpreview: cmake_check_build_system
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\Makefile2 appArduino_Stream_Deck_Windows_qmlpreview
-.PHONY : appArduino_Stream_Deck_Windows_qmlpreview
+appStreamDeck_qmlpreview: cmake_check_build_system
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\Makefile2 appStreamDeck_qmlpreview
+.PHONY : appStreamDeck_qmlpreview
 
 # fast build rule for target.
-appArduino_Stream_Deck_Windows_qmlpreview/fast:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\appArduino_Stream_Deck_Windows_qmlpreview.dir\build.make CMakeFiles/appArduino_Stream_Deck_Windows_qmlpreview.dir/build
-.PHONY : appArduino_Stream_Deck_Windows_qmlpreview/fast
+appStreamDeck_qmlpreview/fast:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\appStreamDeck_qmlpreview.dir\build.make CMakeFiles/appStreamDeck_qmlpreview.dir/build
+.PHONY : appStreamDeck_qmlpreview/fast
 
 #=============================================================================
-# Target rules for targets named appArduino_Stream_Deck_Windows_copy_qml
+# Target rules for targets named appStreamDeck_copy_qml
 
 # Build rule for target.
-appArduino_Stream_Deck_Windows_copy_qml: cmake_check_build_system
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\Makefile2 appArduino_Stream_Deck_Windows_copy_qml
-.PHONY : appArduino_Stream_Deck_Windows_copy_qml
+appStreamDeck_copy_qml: cmake_check_build_system
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\Makefile2 appStreamDeck_copy_qml
+.PHONY : appStreamDeck_copy_qml
 
 # fast build rule for target.
-appArduino_Stream_Deck_Windows_copy_qml/fast:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\appArduino_Stream_Deck_Windows_copy_qml.dir\build.make CMakeFiles/appArduino_Stream_Deck_Windows_copy_qml.dir/build
-.PHONY : appArduino_Stream_Deck_Windows_copy_qml/fast
+appStreamDeck_copy_qml/fast:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\appStreamDeck_copy_qml.dir\build.make CMakeFiles/appStreamDeck_copy_qml.dir/build
+.PHONY : appStreamDeck_copy_qml/fast
 
 #=============================================================================
-# Target rules for targets named appArduino_Stream_Deck_Windows_copy_res
+# Target rules for targets named appStreamDeck_copy_res
 
 # Build rule for target.
-appArduino_Stream_Deck_Windows_copy_res: cmake_check_build_system
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\Makefile2 appArduino_Stream_Deck_Windows_copy_res
-.PHONY : appArduino_Stream_Deck_Windows_copy_res
+appStreamDeck_copy_res: cmake_check_build_system
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\Makefile2 appStreamDeck_copy_res
+.PHONY : appStreamDeck_copy_res
 
 # fast build rule for target.
-appArduino_Stream_Deck_Windows_copy_res/fast:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\appArduino_Stream_Deck_Windows_copy_res.dir\build.make CMakeFiles/appArduino_Stream_Deck_Windows_copy_res.dir/build
-.PHONY : appArduino_Stream_Deck_Windows_copy_res/fast
+appStreamDeck_copy_res/fast:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\appStreamDeck_copy_res.dir\build.make CMakeFiles/appStreamDeck_copy_res.dir/build
+.PHONY : appStreamDeck_copy_res/fast
 
 #=============================================================================
 # Target rules for targets named generate_qmlls_build_ini_file
@@ -356,30 +356,30 @@ generate_qmlls_build_ini_file/fast:
 .PHONY : generate_qmlls_build_ini_file/fast
 
 #=============================================================================
-# Target rules for targets named generate_finalqtconf_appArduino_Stream_Deck_Windows
+# Target rules for targets named generate_finalqtconf_appStreamDeck
 
 # Build rule for target.
-generate_finalqtconf_appArduino_Stream_Deck_Windows: cmake_check_build_system
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\Makefile2 generate_finalqtconf_appArduino_Stream_Deck_Windows
-.PHONY : generate_finalqtconf_appArduino_Stream_Deck_Windows
+generate_finalqtconf_appStreamDeck: cmake_check_build_system
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\Makefile2 generate_finalqtconf_appStreamDeck
+.PHONY : generate_finalqtconf_appStreamDeck
 
 # fast build rule for target.
-generate_finalqtconf_appArduino_Stream_Deck_Windows/fast:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\generate_finalqtconf_appArduino_Stream_Deck_Windows.dir\build.make CMakeFiles/generate_finalqtconf_appArduino_Stream_Deck_Windows.dir/build
-.PHONY : generate_finalqtconf_appArduino_Stream_Deck_Windows/fast
+generate_finalqtconf_appStreamDeck/fast:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\generate_finalqtconf_appStreamDeck.dir\build.make CMakeFiles/generate_finalqtconf_appStreamDeck.dir/build
+.PHONY : generate_finalqtconf_appStreamDeck/fast
 
 #=============================================================================
-# Target rules for targets named module_appArduino_Stream_Deck_Windows_aotstats_target
+# Target rules for targets named module_appStreamDeck_aotstats_target
 
 # Build rule for target.
-module_appArduino_Stream_Deck_Windows_aotstats_target: cmake_check_build_system
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\Makefile2 module_appArduino_Stream_Deck_Windows_aotstats_target
-.PHONY : module_appArduino_Stream_Deck_Windows_aotstats_target
+module_appStreamDeck_aotstats_target: cmake_check_build_system
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\Makefile2 module_appStreamDeck_aotstats_target
+.PHONY : module_appStreamDeck_aotstats_target
 
 # fast build rule for target.
-module_appArduino_Stream_Deck_Windows_aotstats_target/fast:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\module_appArduino_Stream_Deck_Windows_aotstats_target.dir\build.make CMakeFiles/module_appArduino_Stream_Deck_Windows_aotstats_target.dir/build
-.PHONY : module_appArduino_Stream_Deck_Windows_aotstats_target/fast
+module_appStreamDeck_aotstats_target/fast:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\module_appStreamDeck_aotstats_target.dir\build.make CMakeFiles/module_appStreamDeck_aotstats_target.dir/build
+.PHONY : module_appStreamDeck_aotstats_target/fast
 
 #=============================================================================
 # Target rules for targets named all_aotstats
@@ -395,194 +395,194 @@ all_aotstats/fast:
 .PHONY : all_aotstats/fast
 
 #=============================================================================
-# Target rules for targets named appArduino_Stream_Deck_Windows_qmlimportscan
+# Target rules for targets named appStreamDeck_qmlimportscan
 
 # Build rule for target.
-appArduino_Stream_Deck_Windows_qmlimportscan: cmake_check_build_system
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\Makefile2 appArduino_Stream_Deck_Windows_qmlimportscan
-.PHONY : appArduino_Stream_Deck_Windows_qmlimportscan
+appStreamDeck_qmlimportscan: cmake_check_build_system
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\Makefile2 appStreamDeck_qmlimportscan
+.PHONY : appStreamDeck_qmlimportscan
 
 # fast build rule for target.
-appArduino_Stream_Deck_Windows_qmlimportscan/fast:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\appArduino_Stream_Deck_Windows_qmlimportscan.dir\build.make CMakeFiles/appArduino_Stream_Deck_Windows_qmlimportscan.dir/build
-.PHONY : appArduino_Stream_Deck_Windows_qmlimportscan/fast
+appStreamDeck_qmlimportscan/fast:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\appStreamDeck_qmlimportscan.dir\build.make CMakeFiles/appStreamDeck_qmlimportscan.dir/build
+.PHONY : appStreamDeck_qmlimportscan/fast
 
 #=============================================================================
-# Target rules for targets named appArduino_Stream_Deck_Windows_autogen_timestamp_deps
+# Target rules for targets named appStreamDeck_autogen_timestamp_deps
 
 # Build rule for target.
-appArduino_Stream_Deck_Windows_autogen_timestamp_deps: cmake_check_build_system
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\Makefile2 appArduino_Stream_Deck_Windows_autogen_timestamp_deps
-.PHONY : appArduino_Stream_Deck_Windows_autogen_timestamp_deps
+appStreamDeck_autogen_timestamp_deps: cmake_check_build_system
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\Makefile2 appStreamDeck_autogen_timestamp_deps
+.PHONY : appStreamDeck_autogen_timestamp_deps
 
 # fast build rule for target.
-appArduino_Stream_Deck_Windows_autogen_timestamp_deps/fast:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\appArduino_Stream_Deck_Windows_autogen_timestamp_deps.dir\build.make CMakeFiles/appArduino_Stream_Deck_Windows_autogen_timestamp_deps.dir/build
-.PHONY : appArduino_Stream_Deck_Windows_autogen_timestamp_deps/fast
+appStreamDeck_autogen_timestamp_deps/fast:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\appStreamDeck_autogen_timestamp_deps.dir\build.make CMakeFiles/appStreamDeck_autogen_timestamp_deps.dir/build
+.PHONY : appStreamDeck_autogen_timestamp_deps/fast
 
 #=============================================================================
-# Target rules for targets named appArduino_Stream_Deck_Windows_autogen
+# Target rules for targets named appStreamDeck_autogen
 
 # Build rule for target.
-appArduino_Stream_Deck_Windows_autogen: cmake_check_build_system
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\Makefile2 appArduino_Stream_Deck_Windows_autogen
-.PHONY : appArduino_Stream_Deck_Windows_autogen
+appStreamDeck_autogen: cmake_check_build_system
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\Makefile2 appStreamDeck_autogen
+.PHONY : appStreamDeck_autogen
 
 # fast build rule for target.
-appArduino_Stream_Deck_Windows_autogen/fast:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\appArduino_Stream_Deck_Windows_autogen.dir\build.make CMakeFiles/appArduino_Stream_Deck_Windows_autogen.dir/build
-.PHONY : appArduino_Stream_Deck_Windows_autogen/fast
+appStreamDeck_autogen/fast:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\appStreamDeck_autogen.dir\build.make CMakeFiles/appStreamDeck_autogen.dir/build
+.PHONY : appStreamDeck_autogen/fast
 
-84c31975d5476c05ff781b636b743eae/qrc_appArduino_Stream_Deck_Windows_raw_qml_0.obj: 84c31975d5476c05ff781b636b743eae/qrc_appArduino_Stream_Deck_Windows_raw_qml_0.cpp.obj
-.PHONY : 84c31975d5476c05ff781b636b743eae/qrc_appArduino_Stream_Deck_Windows_raw_qml_0.obj
-
-# target to build an object file
-84c31975d5476c05ff781b636b743eae/qrc_appArduino_Stream_Deck_Windows_raw_qml_0.cpp.obj:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\appArduino_Stream_Deck_Windows.dir\build.make CMakeFiles/appArduino_Stream_Deck_Windows.dir/84c31975d5476c05ff781b636b743eae/qrc_appArduino_Stream_Deck_Windows_raw_qml_0.cpp.obj
-.PHONY : 84c31975d5476c05ff781b636b743eae/qrc_appArduino_Stream_Deck_Windows_raw_qml_0.cpp.obj
-
-84c31975d5476c05ff781b636b743eae/qrc_appArduino_Stream_Deck_Windows_raw_qml_0.i: 84c31975d5476c05ff781b636b743eae/qrc_appArduino_Stream_Deck_Windows_raw_qml_0.cpp.i
-.PHONY : 84c31975d5476c05ff781b636b743eae/qrc_appArduino_Stream_Deck_Windows_raw_qml_0.i
-
-# target to preprocess a source file
-84c31975d5476c05ff781b636b743eae/qrc_appArduino_Stream_Deck_Windows_raw_qml_0.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\appArduino_Stream_Deck_Windows.dir\build.make CMakeFiles/appArduino_Stream_Deck_Windows.dir/84c31975d5476c05ff781b636b743eae/qrc_appArduino_Stream_Deck_Windows_raw_qml_0.cpp.i
-.PHONY : 84c31975d5476c05ff781b636b743eae/qrc_appArduino_Stream_Deck_Windows_raw_qml_0.cpp.i
-
-84c31975d5476c05ff781b636b743eae/qrc_appArduino_Stream_Deck_Windows_raw_qml_0.s: 84c31975d5476c05ff781b636b743eae/qrc_appArduino_Stream_Deck_Windows_raw_qml_0.cpp.s
-.PHONY : 84c31975d5476c05ff781b636b743eae/qrc_appArduino_Stream_Deck_Windows_raw_qml_0.s
-
-# target to generate assembly for a file
-84c31975d5476c05ff781b636b743eae/qrc_appArduino_Stream_Deck_Windows_raw_qml_0.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\appArduino_Stream_Deck_Windows.dir\build.make CMakeFiles/appArduino_Stream_Deck_Windows.dir/84c31975d5476c05ff781b636b743eae/qrc_appArduino_Stream_Deck_Windows_raw_qml_0.cpp.s
-.PHONY : 84c31975d5476c05ff781b636b743eae/qrc_appArduino_Stream_Deck_Windows_raw_qml_0.cpp.s
-
-84c31975d5476c05ff781b636b743eae/qrc_qmake_Arduino_Stream_Deck_Windows.obj: 84c31975d5476c05ff781b636b743eae/qrc_qmake_Arduino_Stream_Deck_Windows.cpp.obj
-.PHONY : 84c31975d5476c05ff781b636b743eae/qrc_qmake_Arduino_Stream_Deck_Windows.obj
+26f2acbe261b9c32c87e94a8ea60d88b/.rcc/qmlcache/appStreamDeck_qmlcache_loader.obj: 26f2acbe261b9c32c87e94a8ea60d88b/.rcc/qmlcache/appStreamDeck_qmlcache_loader.cpp.obj
+.PHONY : 26f2acbe261b9c32c87e94a8ea60d88b/.rcc/qmlcache/appStreamDeck_qmlcache_loader.obj
 
 # target to build an object file
-84c31975d5476c05ff781b636b743eae/qrc_qmake_Arduino_Stream_Deck_Windows.cpp.obj:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\appArduino_Stream_Deck_Windows.dir\build.make CMakeFiles/appArduino_Stream_Deck_Windows.dir/84c31975d5476c05ff781b636b743eae/qrc_qmake_Arduino_Stream_Deck_Windows.cpp.obj
-.PHONY : 84c31975d5476c05ff781b636b743eae/qrc_qmake_Arduino_Stream_Deck_Windows.cpp.obj
+26f2acbe261b9c32c87e94a8ea60d88b/.rcc/qmlcache/appStreamDeck_qmlcache_loader.cpp.obj:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\appStreamDeck.dir\build.make CMakeFiles/appStreamDeck.dir/26f2acbe261b9c32c87e94a8ea60d88b/.rcc/qmlcache/appStreamDeck_qmlcache_loader.cpp.obj
+.PHONY : 26f2acbe261b9c32c87e94a8ea60d88b/.rcc/qmlcache/appStreamDeck_qmlcache_loader.cpp.obj
 
-84c31975d5476c05ff781b636b743eae/qrc_qmake_Arduino_Stream_Deck_Windows.i: 84c31975d5476c05ff781b636b743eae/qrc_qmake_Arduino_Stream_Deck_Windows.cpp.i
-.PHONY : 84c31975d5476c05ff781b636b743eae/qrc_qmake_Arduino_Stream_Deck_Windows.i
+26f2acbe261b9c32c87e94a8ea60d88b/.rcc/qmlcache/appStreamDeck_qmlcache_loader.i: 26f2acbe261b9c32c87e94a8ea60d88b/.rcc/qmlcache/appStreamDeck_qmlcache_loader.cpp.i
+.PHONY : 26f2acbe261b9c32c87e94a8ea60d88b/.rcc/qmlcache/appStreamDeck_qmlcache_loader.i
 
 # target to preprocess a source file
-84c31975d5476c05ff781b636b743eae/qrc_qmake_Arduino_Stream_Deck_Windows.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\appArduino_Stream_Deck_Windows.dir\build.make CMakeFiles/appArduino_Stream_Deck_Windows.dir/84c31975d5476c05ff781b636b743eae/qrc_qmake_Arduino_Stream_Deck_Windows.cpp.i
-.PHONY : 84c31975d5476c05ff781b636b743eae/qrc_qmake_Arduino_Stream_Deck_Windows.cpp.i
+26f2acbe261b9c32c87e94a8ea60d88b/.rcc/qmlcache/appStreamDeck_qmlcache_loader.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\appStreamDeck.dir\build.make CMakeFiles/appStreamDeck.dir/26f2acbe261b9c32c87e94a8ea60d88b/.rcc/qmlcache/appStreamDeck_qmlcache_loader.cpp.i
+.PHONY : 26f2acbe261b9c32c87e94a8ea60d88b/.rcc/qmlcache/appStreamDeck_qmlcache_loader.cpp.i
 
-84c31975d5476c05ff781b636b743eae/qrc_qmake_Arduino_Stream_Deck_Windows.s: 84c31975d5476c05ff781b636b743eae/qrc_qmake_Arduino_Stream_Deck_Windows.cpp.s
-.PHONY : 84c31975d5476c05ff781b636b743eae/qrc_qmake_Arduino_Stream_Deck_Windows.s
+26f2acbe261b9c32c87e94a8ea60d88b/.rcc/qmlcache/appStreamDeck_qmlcache_loader.s: 26f2acbe261b9c32c87e94a8ea60d88b/.rcc/qmlcache/appStreamDeck_qmlcache_loader.cpp.s
+.PHONY : 26f2acbe261b9c32c87e94a8ea60d88b/.rcc/qmlcache/appStreamDeck_qmlcache_loader.s
 
 # target to generate assembly for a file
-84c31975d5476c05ff781b636b743eae/qrc_qmake_Arduino_Stream_Deck_Windows.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\appArduino_Stream_Deck_Windows.dir\build.make CMakeFiles/appArduino_Stream_Deck_Windows.dir/84c31975d5476c05ff781b636b743eae/qrc_qmake_Arduino_Stream_Deck_Windows.cpp.s
-.PHONY : 84c31975d5476c05ff781b636b743eae/qrc_qmake_Arduino_Stream_Deck_Windows.cpp.s
+26f2acbe261b9c32c87e94a8ea60d88b/.rcc/qmlcache/appStreamDeck_qmlcache_loader.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\appStreamDeck.dir\build.make CMakeFiles/appStreamDeck.dir/26f2acbe261b9c32c87e94a8ea60d88b/.rcc/qmlcache/appStreamDeck_qmlcache_loader.cpp.s
+.PHONY : 26f2acbe261b9c32c87e94a8ea60d88b/.rcc/qmlcache/appStreamDeck_qmlcache_loader.cpp.s
 
-9ff369ddf8024d3f1f4e32562f5f832f/appArduino_Stream_Deck_Windows_Main_qml.obj: 9ff369ddf8024d3f1f4e32562f5f832f/appArduino_Stream_Deck_Windows_Main_qml.cpp.obj
-.PHONY : 9ff369ddf8024d3f1f4e32562f5f832f/appArduino_Stream_Deck_Windows_Main_qml.obj
+appStreamDeck_autogen/mocs_compilation.obj: appStreamDeck_autogen/mocs_compilation.cpp.obj
+.PHONY : appStreamDeck_autogen/mocs_compilation.obj
 
 # target to build an object file
-9ff369ddf8024d3f1f4e32562f5f832f/appArduino_Stream_Deck_Windows_Main_qml.cpp.obj:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\appArduino_Stream_Deck_Windows.dir\build.make CMakeFiles/appArduino_Stream_Deck_Windows.dir/9ff369ddf8024d3f1f4e32562f5f832f/appArduino_Stream_Deck_Windows_Main_qml.cpp.obj
-.PHONY : 9ff369ddf8024d3f1f4e32562f5f832f/appArduino_Stream_Deck_Windows_Main_qml.cpp.obj
+appStreamDeck_autogen/mocs_compilation.cpp.obj:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\appStreamDeck.dir\build.make CMakeFiles/appStreamDeck.dir/appStreamDeck_autogen/mocs_compilation.cpp.obj
+.PHONY : appStreamDeck_autogen/mocs_compilation.cpp.obj
 
-9ff369ddf8024d3f1f4e32562f5f832f/appArduino_Stream_Deck_Windows_Main_qml.i: 9ff369ddf8024d3f1f4e32562f5f832f/appArduino_Stream_Deck_Windows_Main_qml.cpp.i
-.PHONY : 9ff369ddf8024d3f1f4e32562f5f832f/appArduino_Stream_Deck_Windows_Main_qml.i
+appStreamDeck_autogen/mocs_compilation.i: appStreamDeck_autogen/mocs_compilation.cpp.i
+.PHONY : appStreamDeck_autogen/mocs_compilation.i
 
 # target to preprocess a source file
-9ff369ddf8024d3f1f4e32562f5f832f/appArduino_Stream_Deck_Windows_Main_qml.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\appArduino_Stream_Deck_Windows.dir\build.make CMakeFiles/appArduino_Stream_Deck_Windows.dir/9ff369ddf8024d3f1f4e32562f5f832f/appArduino_Stream_Deck_Windows_Main_qml.cpp.i
-.PHONY : 9ff369ddf8024d3f1f4e32562f5f832f/appArduino_Stream_Deck_Windows_Main_qml.cpp.i
+appStreamDeck_autogen/mocs_compilation.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\appStreamDeck.dir\build.make CMakeFiles/appStreamDeck.dir/appStreamDeck_autogen/mocs_compilation.cpp.i
+.PHONY : appStreamDeck_autogen/mocs_compilation.cpp.i
 
-9ff369ddf8024d3f1f4e32562f5f832f/appArduino_Stream_Deck_Windows_Main_qml.s: 9ff369ddf8024d3f1f4e32562f5f832f/appArduino_Stream_Deck_Windows_Main_qml.cpp.s
-.PHONY : 9ff369ddf8024d3f1f4e32562f5f832f/appArduino_Stream_Deck_Windows_Main_qml.s
+appStreamDeck_autogen/mocs_compilation.s: appStreamDeck_autogen/mocs_compilation.cpp.s
+.PHONY : appStreamDeck_autogen/mocs_compilation.s
 
 # target to generate assembly for a file
-9ff369ddf8024d3f1f4e32562f5f832f/appArduino_Stream_Deck_Windows_Main_qml.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\appArduino_Stream_Deck_Windows.dir\build.make CMakeFiles/appArduino_Stream_Deck_Windows.dir/9ff369ddf8024d3f1f4e32562f5f832f/appArduino_Stream_Deck_Windows_Main_qml.cpp.s
-.PHONY : 9ff369ddf8024d3f1f4e32562f5f832f/appArduino_Stream_Deck_Windows_Main_qml.cpp.s
+appStreamDeck_autogen/mocs_compilation.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\appStreamDeck.dir\build.make CMakeFiles/appStreamDeck.dir/appStreamDeck_autogen/mocs_compilation.cpp.s
+.PHONY : appStreamDeck_autogen/mocs_compilation.cpp.s
 
-9ff369ddf8024d3f1f4e32562f5f832f/appArduino_Stream_Deck_Windows_qmlcache_loader.obj: 9ff369ddf8024d3f1f4e32562f5f832f/appArduino_Stream_Deck_Windows_qmlcache_loader.cpp.obj
-.PHONY : 9ff369ddf8024d3f1f4e32562f5f832f/appArduino_Stream_Deck_Windows_qmlcache_loader.obj
+appstreamdeck_qmltyperegistrations.obj: appstreamdeck_qmltyperegistrations.cpp.obj
+.PHONY : appstreamdeck_qmltyperegistrations.obj
 
 # target to build an object file
-9ff369ddf8024d3f1f4e32562f5f832f/appArduino_Stream_Deck_Windows_qmlcache_loader.cpp.obj:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\appArduino_Stream_Deck_Windows.dir\build.make CMakeFiles/appArduino_Stream_Deck_Windows.dir/9ff369ddf8024d3f1f4e32562f5f832f/appArduino_Stream_Deck_Windows_qmlcache_loader.cpp.obj
-.PHONY : 9ff369ddf8024d3f1f4e32562f5f832f/appArduino_Stream_Deck_Windows_qmlcache_loader.cpp.obj
+appstreamdeck_qmltyperegistrations.cpp.obj:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\appStreamDeck.dir\build.make CMakeFiles/appStreamDeck.dir/appstreamdeck_qmltyperegistrations.cpp.obj
+.PHONY : appstreamdeck_qmltyperegistrations.cpp.obj
 
-9ff369ddf8024d3f1f4e32562f5f832f/appArduino_Stream_Deck_Windows_qmlcache_loader.i: 9ff369ddf8024d3f1f4e32562f5f832f/appArduino_Stream_Deck_Windows_qmlcache_loader.cpp.i
-.PHONY : 9ff369ddf8024d3f1f4e32562f5f832f/appArduino_Stream_Deck_Windows_qmlcache_loader.i
+appstreamdeck_qmltyperegistrations.i: appstreamdeck_qmltyperegistrations.cpp.i
+.PHONY : appstreamdeck_qmltyperegistrations.i
 
 # target to preprocess a source file
-9ff369ddf8024d3f1f4e32562f5f832f/appArduino_Stream_Deck_Windows_qmlcache_loader.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\appArduino_Stream_Deck_Windows.dir\build.make CMakeFiles/appArduino_Stream_Deck_Windows.dir/9ff369ddf8024d3f1f4e32562f5f832f/appArduino_Stream_Deck_Windows_qmlcache_loader.cpp.i
-.PHONY : 9ff369ddf8024d3f1f4e32562f5f832f/appArduino_Stream_Deck_Windows_qmlcache_loader.cpp.i
+appstreamdeck_qmltyperegistrations.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\appStreamDeck.dir\build.make CMakeFiles/appStreamDeck.dir/appstreamdeck_qmltyperegistrations.cpp.i
+.PHONY : appstreamdeck_qmltyperegistrations.cpp.i
 
-9ff369ddf8024d3f1f4e32562f5f832f/appArduino_Stream_Deck_Windows_qmlcache_loader.s: 9ff369ddf8024d3f1f4e32562f5f832f/appArduino_Stream_Deck_Windows_qmlcache_loader.cpp.s
-.PHONY : 9ff369ddf8024d3f1f4e32562f5f832f/appArduino_Stream_Deck_Windows_qmlcache_loader.s
+appstreamdeck_qmltyperegistrations.s: appstreamdeck_qmltyperegistrations.cpp.s
+.PHONY : appstreamdeck_qmltyperegistrations.s
 
 # target to generate assembly for a file
-9ff369ddf8024d3f1f4e32562f5f832f/appArduino_Stream_Deck_Windows_qmlcache_loader.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\appArduino_Stream_Deck_Windows.dir\build.make CMakeFiles/appArduino_Stream_Deck_Windows.dir/9ff369ddf8024d3f1f4e32562f5f832f/appArduino_Stream_Deck_Windows_qmlcache_loader.cpp.s
-.PHONY : 9ff369ddf8024d3f1f4e32562f5f832f/appArduino_Stream_Deck_Windows_qmlcache_loader.cpp.s
+appstreamdeck_qmltyperegistrations.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\appStreamDeck.dir\build.make CMakeFiles/appStreamDeck.dir/appstreamdeck_qmltyperegistrations.cpp.s
+.PHONY : appstreamdeck_qmltyperegistrations.cpp.s
 
-appArduino_Stream_Deck_Windows_autogen/mocs_compilation.obj: appArduino_Stream_Deck_Windows_autogen/mocs_compilation.cpp.obj
-.PHONY : appArduino_Stream_Deck_Windows_autogen/mocs_compilation.obj
+build/Desktop_Qt_6_12_0_MinGW_64_bit_Debug/.qt/rcc/qrc_appStreamDeck_raw_qml_0.obj: build/Desktop_Qt_6_12_0_MinGW_64_bit_Debug/.qt/rcc/qrc_appStreamDeck_raw_qml_0.cpp.obj
+.PHONY : build/Desktop_Qt_6_12_0_MinGW_64_bit_Debug/.qt/rcc/qrc_appStreamDeck_raw_qml_0.obj
 
 # target to build an object file
-appArduino_Stream_Deck_Windows_autogen/mocs_compilation.cpp.obj:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\appArduino_Stream_Deck_Windows.dir\build.make CMakeFiles/appArduino_Stream_Deck_Windows.dir/appArduino_Stream_Deck_Windows_autogen/mocs_compilation.cpp.obj
-.PHONY : appArduino_Stream_Deck_Windows_autogen/mocs_compilation.cpp.obj
+build/Desktop_Qt_6_12_0_MinGW_64_bit_Debug/.qt/rcc/qrc_appStreamDeck_raw_qml_0.cpp.obj:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\appStreamDeck.dir\build.make CMakeFiles/appStreamDeck.dir/build/Desktop_Qt_6_12_0_MinGW_64_bit_Debug/.qt/rcc/qrc_appStreamDeck_raw_qml_0.cpp.obj
+.PHONY : build/Desktop_Qt_6_12_0_MinGW_64_bit_Debug/.qt/rcc/qrc_appStreamDeck_raw_qml_0.cpp.obj
 
-appArduino_Stream_Deck_Windows_autogen/mocs_compilation.i: appArduino_Stream_Deck_Windows_autogen/mocs_compilation.cpp.i
-.PHONY : appArduino_Stream_Deck_Windows_autogen/mocs_compilation.i
+build/Desktop_Qt_6_12_0_MinGW_64_bit_Debug/.qt/rcc/qrc_appStreamDeck_raw_qml_0.i: build/Desktop_Qt_6_12_0_MinGW_64_bit_Debug/.qt/rcc/qrc_appStreamDeck_raw_qml_0.cpp.i
+.PHONY : build/Desktop_Qt_6_12_0_MinGW_64_bit_Debug/.qt/rcc/qrc_appStreamDeck_raw_qml_0.i
 
 # target to preprocess a source file
-appArduino_Stream_Deck_Windows_autogen/mocs_compilation.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\appArduino_Stream_Deck_Windows.dir\build.make CMakeFiles/appArduino_Stream_Deck_Windows.dir/appArduino_Stream_Deck_Windows_autogen/mocs_compilation.cpp.i
-.PHONY : appArduino_Stream_Deck_Windows_autogen/mocs_compilation.cpp.i
+build/Desktop_Qt_6_12_0_MinGW_64_bit_Debug/.qt/rcc/qrc_appStreamDeck_raw_qml_0.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\appStreamDeck.dir\build.make CMakeFiles/appStreamDeck.dir/build/Desktop_Qt_6_12_0_MinGW_64_bit_Debug/.qt/rcc/qrc_appStreamDeck_raw_qml_0.cpp.i
+.PHONY : build/Desktop_Qt_6_12_0_MinGW_64_bit_Debug/.qt/rcc/qrc_appStreamDeck_raw_qml_0.cpp.i
 
-appArduino_Stream_Deck_Windows_autogen/mocs_compilation.s: appArduino_Stream_Deck_Windows_autogen/mocs_compilation.cpp.s
-.PHONY : appArduino_Stream_Deck_Windows_autogen/mocs_compilation.s
+build/Desktop_Qt_6_12_0_MinGW_64_bit_Debug/.qt/rcc/qrc_appStreamDeck_raw_qml_0.s: build/Desktop_Qt_6_12_0_MinGW_64_bit_Debug/.qt/rcc/qrc_appStreamDeck_raw_qml_0.cpp.s
+.PHONY : build/Desktop_Qt_6_12_0_MinGW_64_bit_Debug/.qt/rcc/qrc_appStreamDeck_raw_qml_0.s
 
 # target to generate assembly for a file
-appArduino_Stream_Deck_Windows_autogen/mocs_compilation.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\appArduino_Stream_Deck_Windows.dir\build.make CMakeFiles/appArduino_Stream_Deck_Windows.dir/appArduino_Stream_Deck_Windows_autogen/mocs_compilation.cpp.s
-.PHONY : appArduino_Stream_Deck_Windows_autogen/mocs_compilation.cpp.s
+build/Desktop_Qt_6_12_0_MinGW_64_bit_Debug/.qt/rcc/qrc_appStreamDeck_raw_qml_0.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\appStreamDeck.dir\build.make CMakeFiles/appStreamDeck.dir/build/Desktop_Qt_6_12_0_MinGW_64_bit_Debug/.qt/rcc/qrc_appStreamDeck_raw_qml_0.cpp.s
+.PHONY : build/Desktop_Qt_6_12_0_MinGW_64_bit_Debug/.qt/rcc/qrc_appStreamDeck_raw_qml_0.cpp.s
 
-apparduino_stream_deck_windows_qmltyperegistrations.obj: apparduino_stream_deck_windows_qmltyperegistrations.cpp.obj
-.PHONY : apparduino_stream_deck_windows_qmltyperegistrations.obj
+build/Desktop_Qt_6_12_0_MinGW_64_bit_Debug/.qt/rcc/qrc_qmake_appStreamDeckURI.obj: build/Desktop_Qt_6_12_0_MinGW_64_bit_Debug/.qt/rcc/qrc_qmake_appStreamDeckURI.cpp.obj
+.PHONY : build/Desktop_Qt_6_12_0_MinGW_64_bit_Debug/.qt/rcc/qrc_qmake_appStreamDeckURI.obj
 
 # target to build an object file
-apparduino_stream_deck_windows_qmltyperegistrations.cpp.obj:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\appArduino_Stream_Deck_Windows.dir\build.make CMakeFiles/appArduino_Stream_Deck_Windows.dir/apparduino_stream_deck_windows_qmltyperegistrations.cpp.obj
-.PHONY : apparduino_stream_deck_windows_qmltyperegistrations.cpp.obj
+build/Desktop_Qt_6_12_0_MinGW_64_bit_Debug/.qt/rcc/qrc_qmake_appStreamDeckURI.cpp.obj:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\appStreamDeck.dir\build.make CMakeFiles/appStreamDeck.dir/build/Desktop_Qt_6_12_0_MinGW_64_bit_Debug/.qt/rcc/qrc_qmake_appStreamDeckURI.cpp.obj
+.PHONY : build/Desktop_Qt_6_12_0_MinGW_64_bit_Debug/.qt/rcc/qrc_qmake_appStreamDeckURI.cpp.obj
 
-apparduino_stream_deck_windows_qmltyperegistrations.i: apparduino_stream_deck_windows_qmltyperegistrations.cpp.i
-.PHONY : apparduino_stream_deck_windows_qmltyperegistrations.i
+build/Desktop_Qt_6_12_0_MinGW_64_bit_Debug/.qt/rcc/qrc_qmake_appStreamDeckURI.i: build/Desktop_Qt_6_12_0_MinGW_64_bit_Debug/.qt/rcc/qrc_qmake_appStreamDeckURI.cpp.i
+.PHONY : build/Desktop_Qt_6_12_0_MinGW_64_bit_Debug/.qt/rcc/qrc_qmake_appStreamDeckURI.i
 
 # target to preprocess a source file
-apparduino_stream_deck_windows_qmltyperegistrations.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\appArduino_Stream_Deck_Windows.dir\build.make CMakeFiles/appArduino_Stream_Deck_Windows.dir/apparduino_stream_deck_windows_qmltyperegistrations.cpp.i
-.PHONY : apparduino_stream_deck_windows_qmltyperegistrations.cpp.i
+build/Desktop_Qt_6_12_0_MinGW_64_bit_Debug/.qt/rcc/qrc_qmake_appStreamDeckURI.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\appStreamDeck.dir\build.make CMakeFiles/appStreamDeck.dir/build/Desktop_Qt_6_12_0_MinGW_64_bit_Debug/.qt/rcc/qrc_qmake_appStreamDeckURI.cpp.i
+.PHONY : build/Desktop_Qt_6_12_0_MinGW_64_bit_Debug/.qt/rcc/qrc_qmake_appStreamDeckURI.cpp.i
 
-apparduino_stream_deck_windows_qmltyperegistrations.s: apparduino_stream_deck_windows_qmltyperegistrations.cpp.s
-.PHONY : apparduino_stream_deck_windows_qmltyperegistrations.s
+build/Desktop_Qt_6_12_0_MinGW_64_bit_Debug/.qt/rcc/qrc_qmake_appStreamDeckURI.s: build/Desktop_Qt_6_12_0_MinGW_64_bit_Debug/.qt/rcc/qrc_qmake_appStreamDeckURI.cpp.s
+.PHONY : build/Desktop_Qt_6_12_0_MinGW_64_bit_Debug/.qt/rcc/qrc_qmake_appStreamDeckURI.s
 
 # target to generate assembly for a file
-apparduino_stream_deck_windows_qmltyperegistrations.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\appArduino_Stream_Deck_Windows.dir\build.make CMakeFiles/appArduino_Stream_Deck_Windows.dir/apparduino_stream_deck_windows_qmltyperegistrations.cpp.s
-.PHONY : apparduino_stream_deck_windows_qmltyperegistrations.cpp.s
+build/Desktop_Qt_6_12_0_MinGW_64_bit_Debug/.qt/rcc/qrc_qmake_appStreamDeckURI.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\appStreamDeck.dir\build.make CMakeFiles/appStreamDeck.dir/build/Desktop_Qt_6_12_0_MinGW_64_bit_Debug/.qt/rcc/qrc_qmake_appStreamDeckURI.cpp.s
+.PHONY : build/Desktop_Qt_6_12_0_MinGW_64_bit_Debug/.qt/rcc/qrc_qmake_appStreamDeckURI.cpp.s
+
+build/Desktop_Qt_6_12_0_MinGW_64_bit_Debug/.rcc/qmlcache/appStreamDeck_Main_qml.obj: build/Desktop_Qt_6_12_0_MinGW_64_bit_Debug/.rcc/qmlcache/appStreamDeck_Main_qml.cpp.obj
+.PHONY : build/Desktop_Qt_6_12_0_MinGW_64_bit_Debug/.rcc/qmlcache/appStreamDeck_Main_qml.obj
+
+# target to build an object file
+build/Desktop_Qt_6_12_0_MinGW_64_bit_Debug/.rcc/qmlcache/appStreamDeck_Main_qml.cpp.obj:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\appStreamDeck.dir\build.make CMakeFiles/appStreamDeck.dir/build/Desktop_Qt_6_12_0_MinGW_64_bit_Debug/.rcc/qmlcache/appStreamDeck_Main_qml.cpp.obj
+.PHONY : build/Desktop_Qt_6_12_0_MinGW_64_bit_Debug/.rcc/qmlcache/appStreamDeck_Main_qml.cpp.obj
+
+build/Desktop_Qt_6_12_0_MinGW_64_bit_Debug/.rcc/qmlcache/appStreamDeck_Main_qml.i: build/Desktop_Qt_6_12_0_MinGW_64_bit_Debug/.rcc/qmlcache/appStreamDeck_Main_qml.cpp.i
+.PHONY : build/Desktop_Qt_6_12_0_MinGW_64_bit_Debug/.rcc/qmlcache/appStreamDeck_Main_qml.i
+
+# target to preprocess a source file
+build/Desktop_Qt_6_12_0_MinGW_64_bit_Debug/.rcc/qmlcache/appStreamDeck_Main_qml.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\appStreamDeck.dir\build.make CMakeFiles/appStreamDeck.dir/build/Desktop_Qt_6_12_0_MinGW_64_bit_Debug/.rcc/qmlcache/appStreamDeck_Main_qml.cpp.i
+.PHONY : build/Desktop_Qt_6_12_0_MinGW_64_bit_Debug/.rcc/qmlcache/appStreamDeck_Main_qml.cpp.i
+
+build/Desktop_Qt_6_12_0_MinGW_64_bit_Debug/.rcc/qmlcache/appStreamDeck_Main_qml.s: build/Desktop_Qt_6_12_0_MinGW_64_bit_Debug/.rcc/qmlcache/appStreamDeck_Main_qml.cpp.s
+.PHONY : build/Desktop_Qt_6_12_0_MinGW_64_bit_Debug/.rcc/qmlcache/appStreamDeck_Main_qml.s
+
+# target to generate assembly for a file
+build/Desktop_Qt_6_12_0_MinGW_64_bit_Debug/.rcc/qmlcache/appStreamDeck_Main_qml.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\appStreamDeck.dir\build.make CMakeFiles/appStreamDeck.dir/build/Desktop_Qt_6_12_0_MinGW_64_bit_Debug/.rcc/qmlcache/appStreamDeck_Main_qml.cpp.s
+.PHONY : build/Desktop_Qt_6_12_0_MinGW_64_bit_Debug/.rcc/qmlcache/appStreamDeck_Main_qml.cpp.s
 
 main.obj: main.cpp.obj
 .PHONY : main.obj
 
 # target to build an object file
 main.cpp.obj:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\appArduino_Stream_Deck_Windows.dir\build.make CMakeFiles/appArduino_Stream_Deck_Windows.dir/main.cpp.obj
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\appStreamDeck.dir\build.make CMakeFiles/appStreamDeck.dir/main.cpp.obj
 .PHONY : main.cpp.obj
 
 main.i: main.cpp.i
@@ -590,7 +590,7 @@ main.i: main.cpp.i
 
 # target to preprocess a source file
 main.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\appArduino_Stream_Deck_Windows.dir\build.make CMakeFiles/appArduino_Stream_Deck_Windows.dir/main.cpp.i
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\appStreamDeck.dir\build.make CMakeFiles/appStreamDeck.dir/main.cpp.i
 .PHONY : main.cpp.i
 
 main.s: main.cpp.s
@@ -598,7 +598,7 @@ main.s: main.cpp.s
 
 # target to generate assembly for a file
 main.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\appArduino_Stream_Deck_Windows.dir\build.make CMakeFiles/appArduino_Stream_Deck_Windows.dir/main.cpp.s
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\appStreamDeck.dir\build.make CMakeFiles/appStreamDeck.dir/main.cpp.s
 .PHONY : main.cpp.s
 
 # Help Target
@@ -618,40 +618,40 @@ help:
 	@echo ... all_qmllint_json
 	@echo ... all_qmllint_module
 	@echo ... all_qmltyperegistrations
-	@echo ... appArduino_Stream_Deck_Windows_autogen
-	@echo ... appArduino_Stream_Deck_Windows_autogen_timestamp_deps
-	@echo ... appArduino_Stream_Deck_Windows_copy_qml
-	@echo ... appArduino_Stream_Deck_Windows_copy_res
-	@echo ... appArduino_Stream_Deck_Windows_qmlimportscan
-	@echo ... appArduino_Stream_Deck_Windows_qmllint
-	@echo ... appArduino_Stream_Deck_Windows_qmllint_json
-	@echo ... appArduino_Stream_Deck_Windows_qmllint_module
-	@echo ... appArduino_Stream_Deck_Windows_qmlpreview
-	@echo ... appArduino_Stream_Deck_Windows_qmltyperegistration
+	@echo ... appStreamDeck_autogen
+	@echo ... appStreamDeck_autogen_timestamp_deps
+	@echo ... appStreamDeck_copy_qml
+	@echo ... appStreamDeck_copy_res
+	@echo ... appStreamDeck_qmlimportscan
+	@echo ... appStreamDeck_qmllint
+	@echo ... appStreamDeck_qmllint_json
+	@echo ... appStreamDeck_qmllint_module
+	@echo ... appStreamDeck_qmlpreview
+	@echo ... appStreamDeck_qmltyperegistration
 	@echo ... clean_qml_context_properties
 	@echo ... dump_qml_context_properties
-	@echo ... generate_finalqtconf_appArduino_Stream_Deck_Windows
+	@echo ... generate_finalqtconf_appStreamDeck
 	@echo ... generate_qmlls_build_ini_file
-	@echo ... module_appArduino_Stream_Deck_Windows_aotstats_target
-	@echo ... appArduino_Stream_Deck_Windows
-	@echo ... 84c31975d5476c05ff781b636b743eae/qrc_appArduino_Stream_Deck_Windows_raw_qml_0.obj
-	@echo ... 84c31975d5476c05ff781b636b743eae/qrc_appArduino_Stream_Deck_Windows_raw_qml_0.i
-	@echo ... 84c31975d5476c05ff781b636b743eae/qrc_appArduino_Stream_Deck_Windows_raw_qml_0.s
-	@echo ... 84c31975d5476c05ff781b636b743eae/qrc_qmake_Arduino_Stream_Deck_Windows.obj
-	@echo ... 84c31975d5476c05ff781b636b743eae/qrc_qmake_Arduino_Stream_Deck_Windows.i
-	@echo ... 84c31975d5476c05ff781b636b743eae/qrc_qmake_Arduino_Stream_Deck_Windows.s
-	@echo ... 9ff369ddf8024d3f1f4e32562f5f832f/appArduino_Stream_Deck_Windows_Main_qml.obj
-	@echo ... 9ff369ddf8024d3f1f4e32562f5f832f/appArduino_Stream_Deck_Windows_Main_qml.i
-	@echo ... 9ff369ddf8024d3f1f4e32562f5f832f/appArduino_Stream_Deck_Windows_Main_qml.s
-	@echo ... 9ff369ddf8024d3f1f4e32562f5f832f/appArduino_Stream_Deck_Windows_qmlcache_loader.obj
-	@echo ... 9ff369ddf8024d3f1f4e32562f5f832f/appArduino_Stream_Deck_Windows_qmlcache_loader.i
-	@echo ... 9ff369ddf8024d3f1f4e32562f5f832f/appArduino_Stream_Deck_Windows_qmlcache_loader.s
-	@echo ... appArduino_Stream_Deck_Windows_autogen/mocs_compilation.obj
-	@echo ... appArduino_Stream_Deck_Windows_autogen/mocs_compilation.i
-	@echo ... appArduino_Stream_Deck_Windows_autogen/mocs_compilation.s
-	@echo ... apparduino_stream_deck_windows_qmltyperegistrations.obj
-	@echo ... apparduino_stream_deck_windows_qmltyperegistrations.i
-	@echo ... apparduino_stream_deck_windows_qmltyperegistrations.s
+	@echo ... module_appStreamDeck_aotstats_target
+	@echo ... appStreamDeck
+	@echo ... 26f2acbe261b9c32c87e94a8ea60d88b/.rcc/qmlcache/appStreamDeck_qmlcache_loader.obj
+	@echo ... 26f2acbe261b9c32c87e94a8ea60d88b/.rcc/qmlcache/appStreamDeck_qmlcache_loader.i
+	@echo ... 26f2acbe261b9c32c87e94a8ea60d88b/.rcc/qmlcache/appStreamDeck_qmlcache_loader.s
+	@echo ... appStreamDeck_autogen/mocs_compilation.obj
+	@echo ... appStreamDeck_autogen/mocs_compilation.i
+	@echo ... appStreamDeck_autogen/mocs_compilation.s
+	@echo ... appstreamdeck_qmltyperegistrations.obj
+	@echo ... appstreamdeck_qmltyperegistrations.i
+	@echo ... appstreamdeck_qmltyperegistrations.s
+	@echo ... build/Desktop_Qt_6_12_0_MinGW_64_bit_Debug/.qt/rcc/qrc_appStreamDeck_raw_qml_0.obj
+	@echo ... build/Desktop_Qt_6_12_0_MinGW_64_bit_Debug/.qt/rcc/qrc_appStreamDeck_raw_qml_0.i
+	@echo ... build/Desktop_Qt_6_12_0_MinGW_64_bit_Debug/.qt/rcc/qrc_appStreamDeck_raw_qml_0.s
+	@echo ... build/Desktop_Qt_6_12_0_MinGW_64_bit_Debug/.qt/rcc/qrc_qmake_appStreamDeckURI.obj
+	@echo ... build/Desktop_Qt_6_12_0_MinGW_64_bit_Debug/.qt/rcc/qrc_qmake_appStreamDeckURI.i
+	@echo ... build/Desktop_Qt_6_12_0_MinGW_64_bit_Debug/.qt/rcc/qrc_qmake_appStreamDeckURI.s
+	@echo ... build/Desktop_Qt_6_12_0_MinGW_64_bit_Debug/.rcc/qmlcache/appStreamDeck_Main_qml.obj
+	@echo ... build/Desktop_Qt_6_12_0_MinGW_64_bit_Debug/.rcc/qmlcache/appStreamDeck_Main_qml.i
+	@echo ... build/Desktop_Qt_6_12_0_MinGW_64_bit_Debug/.rcc/qmlcache/appStreamDeck_Main_qml.s
 	@echo ... main.obj
 	@echo ... main.i
 	@echo ... main.s

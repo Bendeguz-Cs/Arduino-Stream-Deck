@@ -1,0 +1,16 @@
+--bare
+-I
+C:/Users/Server/Documents/Arduino/Projects/Arduino Stream Deck/Arduino_Stream_Deck_Windows/build/Desktop_Qt_6_12_0_MinGW_64_bit_Debug
+-I
+C:/Users/Server/Documents/Arduino/Projects/Arduino Stream Deck/Arduino_Stream_Deck_Windows/build/Desktop_Qt_6_12_0_MinGW_64_bit_Debug/appQSerialURI
+-I
+C:/Users/Server/Documents/Arduino/Projects/Arduino Stream Deck/Arduino_Stream_Deck_Windows/build/Desktop_Qt_6_12_0_MinGW_64_bit_Debug
+-I
+C:/Qt/6.12.0/mingw_64/qml
+--resource
+C:/Users/Server/Documents/Arduino/Projects/Arduino Stream Deck/Arduino_Stream_Deck_Windows/build/Desktop_Qt_6_12_0_MinGW_64_bit_Debug/.qt/rcc/qmake_appQSerialURI.qrc
+--resource
+C:/Users/Server/Documents/Arduino/Projects/Arduino Stream Deck/Arduino_Stream_Deck_Windows/build/Desktop_Qt_6_12_0_MinGW_64_bit_Debug/.qt/rcc/appQSerial_raw_qml_0.qrc
+C:/Users/Server/Documents/Arduino/Projects/Arduino Stream Deck/Arduino_Stream_Deck_Windows/Main.qml
+--json
+C:/Users/Server/Documents/Arduino/Projects/Arduino Stream Deck/Arduino_Stream_Deck_Windows/build/Desktop_Qt_6_12_0_MinGW_64_bit_Debug/appQSerial_qmllint.json

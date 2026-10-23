@@ -120,7 +120,7 @@ void loop() {
   button6     = digitalRead(pinButton6);
   button7     = digitalRead(pinButton7);
 
-  //detect any changes
+  /*//detect any changes
   if(encoder0val != lastEncoder0val ||
      encoder1val != lastEncoder1val ||
      encoder0SW  != lastEncoder0SW  ||
@@ -135,6 +135,31 @@ void loop() {
      button7     != lastButton7) {
     //something has changed
     Serial.println("change detected");
+  }*/
+  if(encoder0val != lastEncoder0val) {
+    Serial.println(String("ENC, 0, ") + encoder0val);
+  } else if(encoder1val != lastEncoder1val) {
+    Serial.println(String("ENC, 1, ") + encoder1val);
+  } else if(encoder0SW != lastEncoder0SW) {
+    Serial.println(String("ESW, 0, ") + !encoder0SW);
+  } else if(encoder1SW != lastEncoder1SW) {
+    Serial.println(String("ESW, 1, ") + !encoder1SW);
+  } else if(button0 != lastButton0) {
+    Serial.println(String("BTN, 0, ") + !button0);
+  } else if(button1 != lastButton1) {
+    Serial.println(String("BTN, 1, ") + !button1);
+  } else if(button2 != lastButton2) {
+    Serial.println(String("BTN, 2, ") + !button2);
+  } else if(button3 != lastButton3) {
+    Serial.println(String("BTN, 3, ") + !button3);
+  } else if(button4 != lastButton4) {
+    Serial.println(String("BTN, 4, ") + !button4);
+  } else if(button5 != lastButton5) {
+    Serial.println(String("BTN, 5, ") + !button5);
+  } else if(button6 != lastButton6) {
+    Serial.println(String("BTN, 6, ") + !button6);
+  } else if(button7 != lastButton7) {
+    Serial.println(String("BTN, 7, ") + !button7);
   }
   /*u8g2.clearBuffer();
 
@@ -150,29 +175,6 @@ void loop() {
   // Send the image to the OLED
   u8g2.sendBuffer();*/
 
-  /*Serial.print(encoder0.read());
-  Serial.print(", ");
-  Serial.print(encoder1.read());
-  Serial.print(", ");
-  Serial.print(digitalRead(encoder0SW));
-  Serial.print(", ");
-  Serial.print(digitalRead(encoder1SW));
-  Serial.print(", ");
-  Serial.print(digitalRead(button0));
-  Serial.print(", ");
-  Serial.print(digitalRead(button1));
-  Serial.print(", ");
-  Serial.print(digitalRead(button2));
-  Serial.print(", ");
-  Serial.print(digitalRead(button3));
-  Serial.print(", ");
-  Serial.print(digitalRead(button4));
-  Serial.print(", ");
-  Serial.print(digitalRead(button5));
-  Serial.print(", ");
-  Serial.print(digitalRead(button6));
-  Serial.print(", ");
-  Serial.println(digitalRead(button7));*/
 
-  //delay(5);
+  delay(20);
 }

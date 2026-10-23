@@ -68,7 +68,7 @@ include CMakeFiles/all_aotstats.dir/progress.make
 CMakeFiles/all_aotstats: .rcc/qmlcache/all_aotstats.txt
 	C:\Qt\Tools\CMake_64\bin\cmake.exe -E cat "C:/Users/Server/Documents/Arduino/Projects/Arduino Stream Deck/Arduino_Stream_Deck_Windows/build/Desktop_Qt_6_12_0_MinGW_64_bit_Debug/.rcc/qmlcache/all_aotstats.txt"
 
-.rcc/qmlcache/all_aotstats.aotstats: .rcc/qmlcache/module_appArduino_Stream_Deck_Windows.aotstats
+.rcc/qmlcache/all_aotstats.aotstats: .rcc/qmlcache/module_appStreamDeck.aotstats
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --blue --bold --progress-dir="C:\Users\Server\Documents\Arduino\Projects\Arduino Stream Deck\Arduino_Stream_Deck_Windows\build\Desktop_Qt_6_12_0_MinGW_64_bit_Debug\CMakeFiles" --progress-num=$(CMAKE_PROGRESS_1) "Generating .rcc/qmlcache/all_aotstats.aotstats, .rcc/qmlcache/all_aotstats.txt"
 	call .qt\bin\qt_setup_tool_path.bat C:/Qt/6.12.0/mingw_64/bin/qmlaotstats.exe aggregate "C:/Users/Server/Documents/Arduino/Projects/Arduino Stream Deck/Arduino_Stream_Deck_Windows/build/Desktop_Qt_6_12_0_MinGW_64_bit_Debug/.rcc/qmlcache/all_aotstats.aotstatslist" "C:/Users/Server/Documents/Arduino/Projects/Arduino Stream Deck/Arduino_Stream_Deck_Windows/build/Desktop_Qt_6_12_0_MinGW_64_bit_Debug/.rcc/qmlcache/all_aotstats.aotstats"
 	call .qt\bin\qt_setup_tool_path.bat C:/Qt/6.12.0/mingw_64/bin/qmlaotstats.exe format "C:/Users/Server/Documents/Arduino/Projects/Arduino Stream Deck/Arduino_Stream_Deck_Windows/build/Desktop_Qt_6_12_0_MinGW_64_bit_Debug/.rcc/qmlcache/all_aotstats.aotstats" "C:/Users/Server/Documents/Arduino/Projects/Arduino Stream Deck/Arduino_Stream_Deck_Windows/build/Desktop_Qt_6_12_0_MinGW_64_bit_Debug/.rcc/qmlcache/all_aotstats.txt"

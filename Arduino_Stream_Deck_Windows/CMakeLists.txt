@@ -1,10 +1,10 @@
 cmake_minimum_required(VERSION 3.16)
 
-project(Arduino_Stream_Deck_Windows VERSION 0.1 LANGUAGES CXX)
+project(Arduino_Stream_deck_desktop VERSION 0.1 LANGUAGES CXX)
 
 set(CMAKE_CXX_STANDARD_REQUIRED ON)
 
-find_package(Qt6 REQUIRED COMPONENTS Quick)
+find_package(Qt6 REQUIRED COMPONENTS Quick SerialPort)
 
 qt_standard_project_setup(REQUIRES 6.10)
 
@@ -13,12 +13,14 @@ if (EXISTS "${CMAKE_CURRENT_LIST_DIR}/importedcontent/CMakeLists.txt")
     add_subdirectory(${CMAKE_CURRENT_LIST_DIR}/importedcontent)
 endif()
 
-qt_add_executable(appArduino_Stream_Deck_Windows
+set(CMAKE_AUTOMOC, ON)
+
+qt_add_executable(appStreamDeck
     main.cpp
 )
 
-qt_add_qml_module(appArduino_Stream_Deck_Windows
-    URI Arduino_Stream_Deck_Windows
+qt_add_qml_module(appStreamDeck
+    URI appStreamDeckURI
     QML_FILES
         Main.qml
 )
@@ -26,19 +28,19 @@ qt_add_qml_module(appArduino_Stream_Deck_Windows
 # Qt for iOS sets MACOSX_BUNDLE_GUI_IDENTIFIER automatically since Qt 6.1.
 # If you are developing for iOS or macOS you should consider setting an
 # explicit, fixed bundle identifier manually though.
-set_target_properties(appArduino_Stream_Deck_Windows PROPERTIES
-#    MACOSX_BUNDLE_GUI_IDENTIFIER com.example.appArduino_Stream_Deck_Windows
+set_target_properties(appStreamDeck PROPERTIES
+#    MACOSX_BUNDLE_GUI_IDENTIFIER com.example.appContext
     MACOSX_BUNDLE_BUNDLE_VERSION ${PROJECT_VERSION}
     MACOSX_BUNDLE_SHORT_VERSION_STRING ${PROJECT_VERSION_MAJOR}.${PROJECT_VERSION_MINOR}
     MACOSX_BUNDLE TRUE
     WIN32_EXECUTABLE TRUE
 )
 
-target_link_libraries(appArduino_Stream_Deck_Windows
-    PRIVATE Qt6::Quick
+target_link_libraries(appStreamDeck
+    PRIVATE Qt6::Quick Qt6::SerialPort
 )
 
-install(TARGETS appArduino_Stream_Deck_Windows
+install(TARGETS appStreamDeck
     BUNDLE DESTINATION .
     LIBRARY DESTINATION ${CMAKE_INSTALL_LIBDIR}
     RUNTIME DESTINATION ${CMAKE_INSTALL_BINDIR}

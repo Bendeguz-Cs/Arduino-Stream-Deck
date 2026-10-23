@@ -1,0 +1,6 @@
+module appStreamDeckURI
+typeinfo appStreamDeck.qmltypes
+prefer :/qt/qml/appStreamDeckURI/
+Main 254.0 Main.qml
+depends QtQuick
+

@@ -1,0 +1,6 @@
+module appQSerialURI
+typeinfo appStreamDeck.qmltypes
+prefer :/qt/qml/appQSerialURI/
+Main 254.0 Main.qml
+depends QtQuick
+
