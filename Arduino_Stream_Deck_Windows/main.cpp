@@ -2,6 +2,7 @@
 #include <QQmlApplicationEngine>
 #include <QSerialPortInfo>
 #include <QSerialPort>
+#include <QTimer>
 #include <QTime>
 #include <QDebug>
 #include <windows.h>
@@ -306,6 +307,14 @@ int main(int argc, char *argv[]) {
     engine.loadFromModule("AppStreamDeckURI", "Main");
     ///////////////////// Qml steps end
 
+    ///////////////////// Connection
+    /*QTimer reconnectTimer;
+    reconnectTimer.setInterval(5000);
+
+    QObject::connect(&reconnectTimer, &QTimer::timeout, [&]() {
+
+    })*/
+
     ///////////////////// QSerialPortInfo start
     const auto ports = QSerialPortInfo::availablePorts();
 
@@ -345,79 +354,77 @@ int main(int argc, char *argv[]) {
     //single line current line
     QByteArray message;
 
-    //handle the data stream
-    QObject::connect(&serial, &QSerialPort::readyRead, [&serial, &buffer, &message]()
-                     {
-                         buffer += serial.readAll(); //store in buffer
+    //handle serial communication
+    QObject::connect(&serial, &QSerialPort::readyRead, [&serial, &buffer, &message]() {
+        buffer += serial.readAll(); //store in buffer
 
-                         while (buffer.contains('\n')) { //only print when the buffer has line end
-                             message = buffer.left(buffer.indexOf('\n'));
-                             buffer.remove(0, buffer.indexOf('\n') + 1);
+        while (buffer.contains('\n')) { //only print when the buffer has line end
+            message = buffer.left(buffer.indexOf('\n'));
+            buffer.remove(0, buffer.indexOf('\n') + 1);
 
-                             qDebug() << "Original message: " << message.trimmed(); //remove any unnecessary characters and print
+            qDebug() << "Original message: " << message.trimmed(); //remove any unnecessary characters and print
 
-                             QList<QByteArray> messageParts = message.split(',');
+            QList<QByteArray> messageParts = message.split(',');
 
-                             QByteArray inputType    = 0;
-                             unsigned int inputID    = 0;
-                             unsigned int inputValue = 0;
+            QByteArray inputType    = 0;
+            unsigned int inputID    = 0;
+            unsigned int inputValue = 0;
 
-                             if(messageParts.size() == 3) {
-                                 inputType  = messageParts[0].trimmed();
-                                 inputID    = messageParts[1].trimmed().toUInt();
-                                 inputValue = messageParts[2].trimmed().toUInt();
-                                 qDebug() << "Separated parts: " << inputType << inputID << inputValue;
-                             }
+            if(messageParts.size() == 3) {
+                inputType  = messageParts[0].trimmed();
+                inputID    = messageParts[1].trimmed().toUInt();
+                inputValue = messageParts[2].trimmed().toUInt();
+                qDebug() << "Separated parts: " << inputType << inputID << inputValue;
+            }
 
-                             qDebug() << QTime::currentTime().hour() << ":" << QTime::currentTime().minute() << ":" << QTime::currentTime().second();
+            qDebug() << QTime::currentTime().hour() << ":" << QTime::currentTime().minute() << ":" << QTime::currentTime().second();
 
-                             ///Input actions handling
-                             if(inputType == "ENC") {
-                                 if(inputID == 0) {
-                                     //change microphone volume
-                                     setMicVolume(inputValue);
-                                 } else if(inputID == 1) {
-                                     //change speaker volume
-                                     setVolume(inputValue);
-                                 }
-                             } else if(inputType == "ESW") {
-                                 if(inputID == 0 && inputValue == 1) {
-                                     //toggle microphone mute
-                                     qDebug() << "mic mute toggle triggered" << inputType << inputID << inputValue;
-                                     setMicMute(!getMicMute());
-                                     QString message = "MMUTE," + QString::number(getMicMute());
-                                     serial.write(message.toUtf8());
-                                 } else if(inputID == 1 && inputValue == 1) {
-                                     //toggle speaker mute
-                                     qDebug() << "mute toggle triggered" << inputType << inputID << inputValue;
-                                     setMute(!getMute());
-                                     QString message = "SMUTE," + QString::number(getMute());
-                                     serial.write(message.toUtf8());
-                                 }
-                             } else if(inputType == "BTN") {
-                                 if(inputID == 0 && inputValue == 1) {
-                                     //button0
-                                 } else if(inputID == 1 && inputValue == 1) {
-                                     //button1
-                                 } else if(inputID == 2 && inputValue == 1) {
-                                     //button2
-                                 } else if(inputID == 3 && inputValue == 1) {
-                                     //button3
-                                 } else if(inputID == 4 && inputValue == 1) {
-                                     //button4
-                                 } else if(inputID == 5 && inputValue == 1) {
-                                     //button5
-                                 } else if(inputID == 6 && inputValue == 1) {
-                                     //button6
-                                 } else if(inputID == 7 && inputValue == 1) {
-                                     //button7
-                                 }
-                             } else {
-                                 //invalid ID
-                             }
-                         }
-
-                     });
+            ///Input actions handling
+            if(inputType == "ENC") {
+                if(inputID == 0) {
+                    //change microphone volume
+                    setMicVolume(inputValue);
+                } else if(inputID == 1) {
+                    //change speaker volume
+                    setVolume(inputValue);
+                }
+            } else if(inputType == "ESW") {
+                if(inputID == 0 && inputValue == 1) {
+                    //toggle microphone mute
+                    qDebug() << "mic mute toggle triggered" << inputType << inputID << inputValue;
+                    setMicMute(!getMicMute());
+                    QString message = "MMUTE," + QString::number(getMicMute());
+                    serial.write(message.toUtf8());
+                } else if(inputID == 1 && inputValue == 1) {
+                    //toggle speaker mute
+                    qDebug() << "mute toggle triggered" << inputType << inputID << inputValue;
+                    setMute(!getMute());
+                    QString message = "SMUTE," + QString::number(getMute());
+                    serial.write(message.toUtf8());
+                }
+            } else if(inputType == "BTN") {
+                if(inputID == 0 && inputValue == 1) {
+                    //button0
+                } else if(inputID == 1 && inputValue == 1) {
+                    //button1
+                } else if(inputID == 2 && inputValue == 1) {
+                    //button2
+                } else if(inputID == 3 && inputValue == 1) {
+                    //button3
+                } else if(inputID == 4 && inputValue == 1) {
+                    //button4
+                } else if(inputID == 5 && inputValue == 1) {
+                    //button5
+                } else if(inputID == 6 && inputValue == 1) {
+                    //button6
+                } else if(inputID == 7 && inputValue == 1) {
+                    //button7
+                }
+            } else {
+                //invalid ID
+            }
+        }
+    });
 
     //open port
     if (serial.open(QIODevice::ReadWrite)) {
@@ -427,7 +434,7 @@ int main(int argc, char *argv[]) {
         qDebug() << "DTR set:" << dtrSet;
         qDebug() << "Serial error:" << serial.errorString();
 
-        QString message = "SVOL," + QString::number(getVolume()) + "\nMVOL," + QString::number(getMicVolume()) + "\nSMUTE," + QString::number(getMute()) + "\nMMUTE," + QString::number(getMicMute());
+        QString message = "SVOL," + QString::number(getVolume()) + "\nMVOL," + QString::number(getMicVolume()) + "\nSMUTE," + QString::number(getMute()) + "\nMMUTE," + QString::number(getMicMute()) + "\n";
         serial.write(message.toUtf8());
     } else {
         qWarning() << "Failed:" << serial.errorString();
