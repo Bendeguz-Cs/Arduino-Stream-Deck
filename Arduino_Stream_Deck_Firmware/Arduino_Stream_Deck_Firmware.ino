@@ -54,6 +54,8 @@ bool button7        = 0;
 
 bool changed = true;
 
+String timeString = "XX:XX";
+
 Encoder encoder0(pinEncoder0CLK, pinEncoder0DT);
 Encoder encoder1(pinEncoder1CLK, pinEncoder1DT);
 
@@ -177,13 +179,24 @@ void loop() {
     u8g2.clearBuffer();
 
     // Display test text
-    u8g2.setFont(u8g2_font_6x10_tf);
-    u8g2.drawStr(0, 10, "OLED TEST");
-    u8g2.drawStr(0, 24, "SSD1306 128x64");
-    u8g2.drawStr(0, 38, "I2C: 0x3C");
+    u8g2.setFont(u8g2_font_t0_18_tr);
 
-    u8g2.setCursor(0, 55);
-    u8g2.print(encoder0val);
+    u8g2.setCursor(0, 50);
+    u8g2.print("Mic:");
+    u8g2.setCursor(0, 64);
+    String micValue = String(encoder0val) + "%";
+    u8g2.print(micValue);
+
+    u8g2.setCursor(60, 50);
+    u8g2.print("Speaker:");
+    u8g2.setCursor(92, 64);
+    String spkValue = String(encoder1val) + "%";
+    u8g2.print(spkValue);
+
+    u8g2.setFont(u8g2_font_profont29_tr);
+
+    u8g2.setCursor(25, 20);
+    u8g2.print(timeString);
 
     // Send the image to the OLED
     u8g2.sendBuffer();
@@ -228,6 +241,8 @@ void loop() {
       } else if(messageType == "TIME") {
         //update stored time
         Serial.println(messageContent);
+        timeString = messageContent;
+        changed = true;
       }
     } else {
       //invalid message

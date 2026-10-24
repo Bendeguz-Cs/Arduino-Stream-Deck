@@ -1,9 +1,14 @@
-#include <QGuiApplication>
+#include <QApplication>
 #include <QQmlApplicationEngine>
 #include <QSerialPortInfo>
 #include <QSerialPort>
 #include <QTimer>
 #include <QTime>
+#include <QFont>
+#include <QMenu>
+#include <QSystemTrayIcon>
+#include <QQuickWindow>
+#include <QStyle>
 #include <QDebug>
 #include <windows.h>
 #include <mmdeviceapi.h>
@@ -299,12 +304,42 @@ bool getMicMute() {
     return muted;
 }
 
+int lastMinute = -1;
+
 int main(int argc, char *argv[]) {
     ///////////////////// Qml steps start
-    QGuiApplication app(argc, argv);
+    QApplication app(argc, argv);
+    app.setQuitOnLastWindowClosed(false);
 
     QQmlApplicationEngine engine;
     engine.loadFromModule("AppStreamDeckURI", "Main");
+
+    auto *window = qobject_cast<QQuickWindow *>(engine.rootObjects().first());
+
+    auto *tray = new QSystemTrayIcon(
+        QApplication::style()->standardIcon(QStyle::SP_ComputerIcon), &app);
+    auto *menu = new QMenu();
+
+    auto *title = menu->addAction("Stream Deck");
+    QFont font = title->font();
+    font.setBold(true);
+    title->setFont(font);
+    title->setEnabled(false);
+
+    menu->addSeparator();
+
+    menu->addAction("Open", window, [window] {
+        window->show();
+        window->raise();
+        window->requestActivate();
+    });
+    menu->addAction("Quit", &app, &QCoreApplication::quit);
+
+    tray->setContextMenu(menu);
+    tray->show();
+    qDebug() << "Tray available:" << QSystemTrayIcon::isSystemTrayAvailable();
+    qDebug() << "Tray icon visible:" << tray->isVisible();
+    qDebug() << "Icon loaded:" << !tray->icon().isNull();
     ///////////////////// Qml steps end
 
     ///////////////////// Connection
@@ -387,7 +422,7 @@ int main(int argc, char *argv[]) {
             message = buffer.left(buffer.indexOf('\n'));
             buffer.remove(0, buffer.indexOf('\n') + 1);
 
-            qDebug() << "Original message: " << message.trimmed(); //remove any unnecessary characters and print
+            //qDebug() << "Original message: " << message.trimmed(); //remove any unnecessary characters and print
 
             QList<QByteArray> messageParts = message.split(',');
 
@@ -399,10 +434,10 @@ int main(int argc, char *argv[]) {
                 inputType  = messageParts[0].trimmed();
                 inputID    = messageParts[1].trimmed().toUInt();
                 inputValue = messageParts[2].trimmed().toUInt();
-                qDebug() << "Separated parts: " << inputType << inputID << inputValue;
+                //qDebug() << "Separated parts: " << inputType << inputID << inputValue;
             }
 
-            qDebug() << QTime::currentTime().hour() << ":" << QTime::currentTime().minute() << ":" << QTime::currentTime().second();
+            //qDebug() << QTime::currentTime().hour() << ":" << QTime::currentTime().minute() << ":" << QTime::currentTime().second();
 
             ///Input actions handling
             if(inputType == "ENC") {
@@ -416,13 +451,13 @@ int main(int argc, char *argv[]) {
             } else if(inputType == "ESW") {
                 if(inputID == 0 && inputValue == 1) {
                     //toggle microphone mute
-                    qDebug() << "mic mute toggle triggered" << inputType << inputID << inputValue;
+                    //qDebug() << "mic mute toggle triggered" << inputType << inputID << inputValue;
                     setMicMute(!getMicMute());
                     QString message = "MMUTE," + QString::number(getMicMute());
                     serial.write(message.toUtf8());
                 } else if(inputID == 1 && inputValue == 1) {
                     //toggle speaker mute
-                    qDebug() << "mute toggle triggered" << inputType << inputID << inputValue;
+                    //qDebug() << "mute toggle triggered" << inputType << inputID << inputValue;
                     setMute(!getMute());
                     QString message = "SMUTE," + QString::number(getMute());
                     serial.write(message.toUtf8());
@@ -448,6 +483,28 @@ int main(int argc, char *argv[]) {
             } else {
                 //invalid ID
             }
+        }
+    });
+
+    QTimer everySecond;
+    everySecond.setInterval(1000);
+    everySecond.start();
+
+    QObject::connect(&serial, &QSerialPort::errorOccurred,
+                     [&](QSerialPort::SerialPortError error) {
+                         if (error == QSerialPort::ResourceError) {
+                             qDebug() << "Serial port disconnected";
+                             serial.close();
+                             reconnectTimer.start();
+                         }
+                     });
+
+    QObject::connect(&everySecond, &QTimer::timeout, [&]() {
+        if(QTime::currentTime().minute() != lastMinute) {
+            lastMinute = QTime::currentTime().minute();
+            QString message = "TIME," + QString::number(QTime::currentTime().hour()) + ":" + QString::number(QTime::currentTime().minute());
+            serial.write(message.toUtf8());
+            qDebug() << message;
         }
     });
 
