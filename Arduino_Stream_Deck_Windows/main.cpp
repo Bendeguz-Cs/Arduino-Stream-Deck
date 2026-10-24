@@ -337,9 +337,7 @@ int main(int argc, char *argv[]) {
 
     tray->setContextMenu(menu);
     tray->show();
-    qDebug() << "Tray available:" << QSystemTrayIcon::isSystemTrayAvailable();
-    qDebug() << "Tray icon visible:" << tray->isVisible();
-    qDebug() << "Icon loaded:" << !tray->icon().isNull();
+    //window->hide();
     ///////////////////// Qml steps end
 
     ///////////////////// Connection
@@ -364,9 +362,9 @@ int main(int argc, char *argv[]) {
         for (const QSerialPortInfo &port : ports) {
             if(port.description() == targetDescription) {
                 targetPort = port;
-                qDebug() << port.portName()
+                /*qDebug() << port.portName()
                          << port.description()
-                         << port.manufacturer();
+                         << port.manufacturer();*/
                 break;
             }
         }
@@ -388,13 +386,15 @@ int main(int argc, char *argv[]) {
 
         //Open port
         if (serial.open(QIODevice::ReadWrite)) {
-            qDebug() << "Port opened!";
+            //qDebug() << "Port opened!";
 
             const bool dtrSet = serial.setDataTerminalReady(true);
-            qDebug() << "DTR set:" << dtrSet;
+            //qDebug() << "DTR set:" << dtrSet;
 
             QString message = "SVOL," + QString::number(getVolume()) + "\nMVOL," + QString::number(getMicVolume()) + "\nSMUTE," + QString::number(getMute()) + "\nMMUTE," + QString::number(getMicMute()) + "\n";
             serial.write(message.toUtf8());
+
+            lastMinute = -1; //guaranteed time refresh
 
             reconnectTimer.stop();
         } else {
@@ -464,20 +464,28 @@ int main(int argc, char *argv[]) {
             } else if(inputType == "BTN") {
                 if(inputID == 0 && inputValue == 1) {
                     //button0
+                    qDebug() << "button0";
                 } else if(inputID == 1 && inputValue == 1) {
                     //button1
+                    qDebug() << "button1";
                 } else if(inputID == 2 && inputValue == 1) {
                     //button2
+                    qDebug() << "button2";
                 } else if(inputID == 3 && inputValue == 1) {
                     //button3
+                    qDebug() << "button3";
                 } else if(inputID == 4 && inputValue == 1) {
                     //button4
+                    qDebug() << "button4";
                 } else if(inputID == 5 && inputValue == 1) {
                     //button5
+                    qDebug() << "button5";
                 } else if(inputID == 6 && inputValue == 1) {
                     //button6
+                    qDebug() << "button6";
                 } else if(inputID == 7 && inputValue == 1) {
                     //button7
+                    qDebug() << "button7";
                 }
             } else {
                 //invalid ID
@@ -492,7 +500,7 @@ int main(int argc, char *argv[]) {
     QObject::connect(&serial, &QSerialPort::errorOccurred,
         [&](QSerialPort::SerialPortError error) {
             if (error == QSerialPort::ResourceError) {
-                qDebug() << "Serial port disconnected";
+                qWarning() << "Serial port disconnected";
                 serial.close();
                 reconnectTimer.start();
             }
@@ -506,7 +514,7 @@ int main(int argc, char *argv[]) {
                 .arg(QTime::currentTime().hour(), 2, 10, QChar('0'))
                 .arg(QTime::currentTime().minute(), 2, 10, QChar('0'));
             serial.write(message.toUtf8());
-            qDebug() << message;
+            //qDebug() << message;
         }
     });
 
