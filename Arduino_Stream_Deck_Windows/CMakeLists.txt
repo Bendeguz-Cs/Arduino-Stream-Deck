@@ -17,12 +17,16 @@ set(CMAKE_AUTOMOC, ON)
 
 qt_add_executable(appStreamDeck
     main.cpp
+    actionHandler.h
+    actionHandler.cpp
 )
 
 qt_add_qml_module(appStreamDeck
     URI appStreamDeckURI
     QML_FILES
         Main.qml
+        SOURCES actionhandler.h actionhandler.cpp
+        SOURCES configManager.h
 )
 
 # Qt for iOS sets MACOSX_BUNDLE_GUI_IDENTIFIER automatically since Qt 6.1.
@@ -42,6 +46,7 @@ target_link_libraries(appStreamDeck
     Qt6::Widgets
     ole32
     uuid
+    shell32
 )
 
 install(TARGETS appStreamDeck

@@ -24,6 +24,46 @@ ApplicationWindow {
     property color lightText: "#e0e0e0"
     property color buttonLight: "#000000"
 
+    property int selectedIndex: 0
+
+    property var buttonConfigs: [
+        { action: "none", value: "" },
+        { action: "none", value: "" },
+        { action: "none", value: "" },
+        { action: "none", value: "" },
+        { action: "none", value: "" },
+        { action: "none", value: "" },
+        { action: "none", value: "" },
+        { action: "none", value: "" }
+    ]
+
+    Component.onCompleted: {
+        buttonConfigs = configManager.load()
+    }
+
+    function setAction(action) {
+        var updated = buttonConfigs.slice()
+        updated[selectedIndex] = {
+            action: action,
+            value: updated[selectedIndex].value
+        }
+        buttonConfigs = updated
+        saveConfigs()
+    }
+
+    function setValue(value) {
+        var updated = buttonConfigs.slice()
+        updated[selectedIndex] = {
+            action: updated[selectedIndex].action,
+            value: value
+        }
+        buttonConfigs = updated
+        saveConfigs()
+    }
+    function saveConfigs() {
+        configManager.save(buttonConfigs)
+    }
+
     onClosing: function(close) {
         close.accepted = false
         hide()
@@ -94,19 +134,52 @@ ApplicationWindow {
         anchors.top: titleBar.bottom
         width: parent.width * 0.65
 
-        Label {
-            id: sysTime
-            anchors.left: parent.left
-            anchors.top: parent.top
-            text: Qt.formatTime(new Date(), "hh:mm:ss")
+        RowLayout {
+            anchors.fill: parent
+            spacing: 12
 
-            Timer {
-                interval: 1000
-                running: true
-                repeat: true
+            // Main content area
+            ColumnLayout {
+                Layout.fillWidth: true
+                Layout.fillHeight: true
+                Layout.margins: 12
 
-                onTriggered: {
-                    sysTime.text = Qt.formatTime(new Date, "hh:mm:ss")
+                GridLayout {
+                    columns: 4
+                    rowSpacing: 8
+                    columnSpacing: 8
+                    Layout.alignment: Qt.AlignTop
+
+                    ButtonGroup {
+                        id: buttonGroup
+                        exclusive: true
+                    }
+
+                    Repeater {
+                        model: [
+                            "Button 1", "Button 2",
+                            "Button 3", "Button 4",
+                            "Button 5", "Button 6",
+                            "Button 7", "Button 8"
+                        ]
+
+                        Button {
+                            required property int index
+                            required property string modelData
+
+                            text: modelData
+                            checkable: true
+                            checked: index === selectedIndex
+
+                            ButtonGroup.group: buttonGroup
+
+                            onClicked: {
+                                selectedIndex = index
+                            }
+
+                            Layout.fillWidth: true
+                        }
+                    }
                 }
             }
         }
@@ -119,5 +192,198 @@ ApplicationWindow {
         anchors.top: titleBar.bottom
         anchors.right: parent.right
         anchors.bottom: parent.bottom
+
+
+        Frame {
+            anchors.fill: parent
+            anchors.margins: 12
+
+            ScrollView {
+                anchors.fill: parent
+                clip: true
+                contentWidth: availableWidth
+                ScrollBar.vertical.policy: ScrollBar.AsNeeded
+
+                ColumnLayout {
+                    anchors.fill: parent
+                    spacing: 12
+
+                    Label {
+                        text: "Button " + (window.selectedIndex + 1)
+                              + " Settings"
+                        font.pixelSize: 22
+                        font.bold: true
+                    }
+
+                    Label {
+                        text: "Choose an action"
+                        font.bold: true
+                    }
+
+                    ButtonGroup {
+                        id: actionGroup
+                        exclusive: true
+                    }
+
+                    RadioButton {
+                        text: "Do nothing"
+                        ButtonGroup.group: actionGroup
+                        checked: window.buttonConfigs[window.selectedIndex].action
+                                 === "none"
+                        onClicked: window.setAction("none")
+                    }
+
+                    RadioButton {
+                        text: "Open application"
+                        ButtonGroup.group: actionGroup
+                        checked: window.buttonConfigs[window.selectedIndex].action
+                                 === "application"
+                        onClicked: window.setAction("application")
+                    }
+
+                    RadioButton {
+                        text: "Open website"
+                        ButtonGroup.group: actionGroup
+                        checked: window.buttonConfigs[window.selectedIndex].action
+                                 === "website"
+                        onClicked: window.setAction("website")
+                    }
+
+                    RadioButton {
+                        text: "Copy"
+                        ButtonGroup.group: actionGroup
+                        checked: window.buttonConfigs[window.selectedIndex].action
+                                 === "copy"
+                        onClicked: window.setAction("copy")
+                    }
+
+                    RadioButton {
+                        text: "Cut"
+                        ButtonGroup.group: actionGroup
+                        checked: window.buttonConfigs[window.selectedIndex].action
+                                 === "cut"
+                        onClicked: window.setAction("cut")
+                    }
+
+                    RadioButton {
+                        text: "Paste"
+                        ButtonGroup.group: actionGroup
+                        checked: window.buttonConfigs[window.selectedIndex].action
+                                 === "paste"
+                        onClicked: window.setAction("paste")
+                    }
+
+                    RadioButton {
+                        text: "Screenshot"
+                        ButtonGroup.group: actionGroup
+                        checked: window.buttonConfigs[window.selectedIndex].action
+                                 === "screenshot"
+                        onClicked: window.setAction("screenshot")
+                    }
+
+                    RadioButton {
+                        text: "Play / pause"
+                        ButtonGroup.group: actionGroup
+                        checked: window.buttonConfigs[window.selectedIndex].action
+                                 === "playPause"
+                        onClicked: window.setAction("playPause")
+                    }
+
+                    RadioButton {
+                        text: "Lock PC"
+                        ButtonGroup.group: actionGroup
+                        checked: window.buttonConfigs[window.selectedIndex].action
+                                 === "lock"
+                        onClicked: window.setAction("lock")
+                    }
+
+                    RadioButton {
+                        text: "Forward"
+                        ButtonGroup.group: actionGroup
+                        checked: window.buttonConfigs[window.selectedIndex].action
+                                 === "forward"
+                        onClicked: window.setAction("forward")
+                    }
+
+                    RadioButton {
+                        text: "Backward"
+                        ButtonGroup.group: actionGroup
+                        checked: window.buttonConfigs[window.selectedIndex].action
+                                 === "backward"
+                        onClicked: window.setAction("backward")
+                    }
+
+
+                    // Extra settings: only show the field for the selected action.
+
+
+                    ColumnLayout {
+                        id: applicationSettings
+
+                        Layout.fillWidth: true
+                        spacing: 6
+
+                        visible: window.buttonConfigs[window.selectedIndex].action
+                                 === "application"
+
+                        ComboBox {
+                            id: applicationCombo
+
+                            Layout.fillWidth: true
+
+                            model: configManager.availableApplications()
+
+                            textRole: "name"
+                            valueRole: "path"
+
+                            // Restore the saved selection for this button.
+                            currentIndex: indexOfValue(
+                                window.buttonConfigs[window.selectedIndex].value
+                            )
+
+                            displayText: currentIndex >= 0
+                                         ? currentText
+                                         : "Select an application..."
+
+                            onActivated: function(index) {
+                                window.setValue(valueAt(index))
+                            }
+
+                            // Keep the dropdown usable if the list is empty.
+                            enabled: count > 0
+                        }
+
+                        Label {
+                            Layout.fillWidth: true
+
+                            visible: applicationCombo.count === 0
+
+                            text: "No Start Menu shortcuts found."
+                            wrapMode: Text.WordWrap
+                            opacity: 0.7
+                        }
+                    }
+
+                    // Website URL
+                    TextField {
+                        id: websiteUrlField
+
+                        Layout.fillWidth: true
+
+                        visible: window.buttonConfigs[window.selectedIndex].action
+                                 === "website"
+
+                        placeholderText: "https://example.com"
+
+                        text: window.buttonConfigs[window.selectedIndex].action
+                              === "website"
+                              ? window.buttonConfigs[window.selectedIndex].value
+                              : ""
+
+                        onTextEdited: window.setValue(text)
+                    }
+                }
+            }
+        }
     }
 }

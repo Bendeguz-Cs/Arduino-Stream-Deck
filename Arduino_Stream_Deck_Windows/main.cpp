@@ -1,5 +1,6 @@
 #include <QApplication>
 #include <QQmlApplicationEngine>
+#include <QQmlContext>
 #include <QSerialPortInfo>
 #include <QSerialPort>
 #include <QTimer>
@@ -13,6 +14,9 @@
 #include <windows.h>
 #include <mmdeviceapi.h>
 #include <endpointvolume.h>
+
+#include "actionhandler.h"
+#include "configManager.h"
 
 int getVolume() {
     CoInitializeEx(nullptr, COINIT_APARTMENTTHREADED);
@@ -309,9 +313,20 @@ int lastMinute = -1;
 int main(int argc, char *argv[]) {
     ///////////////////// Qml steps start
     QApplication app(argc, argv);
+
+    QCoreApplication::setOrganizationName("PicoStreamDeck");
+    QCoreApplication::setApplicationName("ArduinoStreamDeck");
+
     app.setQuitOnLastWindowClosed(false);
 
     QQmlApplicationEngine engine;
+
+    ConfigManager configManager;
+    engine.rootContext()->setContextProperty("configManager", &configManager);
+
+    ActionHandler actionHandler;
+    engine.rootContext()->setContextProperty("actionHandler", &actionHandler);
+
     engine.loadFromModule("AppStreamDeckURI", "Main");
 
     auto *window = qobject_cast<QQuickWindow *>(engine.rootObjects().first());
@@ -414,7 +429,7 @@ int main(int argc, char *argv[]) {
     QByteArray message;
 
     //handle serial communication
-    QObject::connect(&serial, &QSerialPort::readyRead, [&serial, &buffer, &message]() {
+    QObject::connect(&serial, &QSerialPort::readyRead, [&serial, &buffer, &message, &actionHandler, &configManager]() {
         buffer += serial.readAll(); //store in buffer
 
         while (buffer.contains('\n')) { //only print when the buffer has line end
@@ -461,32 +476,28 @@ int main(int argc, char *argv[]) {
                     QString message = "SMUTE," + QString::number(getMute());
                     serial.write(message.toUtf8());
                 }
-            } else if(inputType == "BTN") {
-                if(inputID == 0 && inputValue == 1) {
-                    //button0
-                    qDebug() << "button0";
-                } else if(inputID == 1 && inputValue == 1) {
-                    //button1
-                    qDebug() << "button1";
-                } else if(inputID == 2 && inputValue == 1) {
-                    //button2
-                    qDebug() << "button2";
-                } else if(inputID == 3 && inputValue == 1) {
-                    //button3
-                    qDebug() << "button3";
-                } else if(inputID == 4 && inputValue == 1) {
-                    //button4
-                    qDebug() << "button4";
-                } else if(inputID == 5 && inputValue == 1) {
-                    //button5
-                    qDebug() << "button5";
-                } else if(inputID == 6 && inputValue == 1) {
-                    //button6
-                    qDebug() << "button6";
-                } else if(inputID == 7 && inputValue == 1) {
-                    //button7
-                    qDebug() << "button7";
+            } else if (inputType == "BTN" && inputValue == 1) {
+                // Make sure the physical button ID is valid.
+                if (inputID >= 8) {
+                    qWarning() << "Invalid button ID:" << inputID;
+                    continue;
                 }
+
+                // Load the latest saved button configurations.
+                const QVariantList configs = configManager.load();
+
+                // Arduino IDs are 0-7; QML configuration indices are 0-7.
+                const QVariantMap config = configs.at(inputID).toMap();
+
+                const QString action = config.value("action").toString();
+                const QString value = config.value("value").toString();
+
+                qDebug() << "Button pressed:" << inputID
+                         << "Action:" << action
+                         << "Value:" << value;
+
+                // Execute the action selected in the QML configuration.
+                actionHandler.executeAction(action, value);
             } else {
                 //invalid ID
             }
