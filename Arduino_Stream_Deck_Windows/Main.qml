@@ -18,6 +18,11 @@ ApplicationWindow {
     property color reallyLight: "#e7e7e7"
     property color light: "#e0e0e0"
 
+    onClosing: function(close) {
+        close.accepted = false
+        hide()
+    }
+
     Rectangle {
         id: titleBar
         color: window.lightMode ? window.reallyLight : window.reallyDark
