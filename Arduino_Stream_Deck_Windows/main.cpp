@@ -491,18 +491,21 @@ int main(int argc, char *argv[]) {
     everySecond.start();
 
     QObject::connect(&serial, &QSerialPort::errorOccurred,
-                     [&](QSerialPort::SerialPortError error) {
-                         if (error == QSerialPort::ResourceError) {
-                             qDebug() << "Serial port disconnected";
-                             serial.close();
-                             reconnectTimer.start();
-                         }
-                     });
+        [&](QSerialPort::SerialPortError error) {
+            if (error == QSerialPort::ResourceError) {
+                qDebug() << "Serial port disconnected";
+                serial.close();
+                reconnectTimer.start();
+            }
+        });
 
     QObject::connect(&everySecond, &QTimer::timeout, [&]() {
         if(QTime::currentTime().minute() != lastMinute) {
             lastMinute = QTime::currentTime().minute();
-            QString message = "TIME," + QString::number(QTime::currentTime().hour()) + ":" + QString::number(QTime::currentTime().minute());
+            QString message = "TIME," +
+            QString("%1:%2")
+                .arg(QTime::currentTime().hour(), 2, 10, QChar('0'))
+                .arg(QTime::currentTime().minute(), 2, 10, QChar('0'));
             serial.write(message.toUtf8());
             qDebug() << message;
         }
