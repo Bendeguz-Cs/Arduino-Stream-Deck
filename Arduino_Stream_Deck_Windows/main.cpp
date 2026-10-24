@@ -392,7 +392,6 @@ int main(int argc, char *argv[]) {
 
             const bool dtrSet = serial.setDataTerminalReady(true);
             qDebug() << "DTR set:" << dtrSet;
-            qDebug() << "Serial error:" << serial.errorString();
 
             QString message = "SVOL," + QString::number(getVolume()) + "\nMVOL," + QString::number(getMicVolume()) + "\nSMUTE," + QString::number(getMute()) + "\nMMUTE," + QString::number(getMicMute()) + "\n";
             serial.write(message.toUtf8());
