@@ -2,6 +2,7 @@
 #include <QQmlApplicationEngine>
 #include <QSerialPortInfo>
 #include <QSerialPort>
+#include <QTime>
 #include <QDebug>
 #include <windows.h>
 #include <mmdeviceapi.h>
@@ -368,6 +369,8 @@ int main(int argc, char *argv[]) {
                                  qDebug() << "Separated parts: " << inputType << inputID << inputValue;
                              }
 
+                             qDebug() << QTime::currentTime().hour() << ":" << QTime::currentTime().minute() << ":" << QTime::currentTime().second();
+
                              ///Input actions handling
                              if(inputType == "ENC") {
                                  if(inputID == 0) {
@@ -411,8 +414,6 @@ int main(int argc, char *argv[]) {
                          }
 
                      });
-
-
 
     //open port
     if (serial.open(QIODevice::ReadWrite))

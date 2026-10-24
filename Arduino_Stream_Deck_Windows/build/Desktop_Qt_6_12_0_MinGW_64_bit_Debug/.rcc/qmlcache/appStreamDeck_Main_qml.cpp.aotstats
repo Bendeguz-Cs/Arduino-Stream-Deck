@@ -8,7 +8,7 @@
                         {
                             "codegenResult": 0,
                             "column": 12,
-                            "durationMicroseconds": 0,
+                            "durationMicroseconds": 3000,
                             "functionName": "color",
                             "line": 14,
                             "message": ""
@@ -224,7 +224,7 @@
                         {
                             "codegenResult": 0,
                             "column": 19,
-                            "durationMicroseconds": 1000,
+                            "durationMicroseconds": 0,
                             "functionName": "text",
                             "line": 69,
                             "message": ""
@@ -254,7 +254,7 @@
                             "message": ""
                         }
                     ],
-                    "filePath": "C:/Users/Server/Documents/Arduino/Projects/Arduino Stream Deck/Arduino_Stream_Deck_Windows/Main.qml"
+                    "filePath": "C:/Users/User/Documents/Arduino/Arduino-Stream-Deck/Arduino_Stream_Deck_Windows/Main.qml"
                 }
             ],
             "moduleId": "appStreamDeckURI(appStreamDeck)"

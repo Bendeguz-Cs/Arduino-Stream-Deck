@@ -52,10 +52,10 @@ RM = C:\Qt\Tools\CMake_64\bin\cmake.exe -E rm -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = "C:\Users\Server\Documents\Arduino\Projects\Arduino Stream Deck\Arduino_Stream_Deck_Windows"
+CMAKE_SOURCE_DIR = C:\Users\User\Documents\Arduino\Arduino-Stream-Deck\Arduino_Stream_Deck_Windows
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = "C:\Users\Server\Documents\Arduino\Projects\Arduino Stream Deck\Arduino_Stream_Deck_Windows\build\Desktop_Qt_6_12_0_MinGW_64_bit_Debug"
+CMAKE_BINARY_DIR = C:\Users\User\Documents\Arduino\Arduino-Stream-Deck\Arduino_Stream_Deck_Windows\build\Desktop_Qt_6_12_0_MinGW_64_bit_Debug
 
 # Utility rule file for all_qmllint.
 
@@ -77,6 +77,6 @@ CMakeFiles/all_qmllint.dir/clean:
 .PHONY : CMakeFiles/all_qmllint.dir/clean
 
 CMakeFiles/all_qmllint.dir/depend:
-	$(CMAKE_COMMAND) -E cmake_depends "MinGW Makefiles" "C:\Users\Server\Documents\Arduino\Projects\Arduino Stream Deck\Arduino_Stream_Deck_Windows" "C:\Users\Server\Documents\Arduino\Projects\Arduino Stream Deck\Arduino_Stream_Deck_Windows" "C:\Users\Server\Documents\Arduino\Projects\Arduino Stream Deck\Arduino_Stream_Deck_Windows\build\Desktop_Qt_6_12_0_MinGW_64_bit_Debug" "C:\Users\Server\Documents\Arduino\Projects\Arduino Stream Deck\Arduino_Stream_Deck_Windows\build\Desktop_Qt_6_12_0_MinGW_64_bit_Debug" "C:\Users\Server\Documents\Arduino\Projects\Arduino Stream Deck\Arduino_Stream_Deck_Windows\build\Desktop_Qt_6_12_0_MinGW_64_bit_Debug\CMakeFiles\all_qmllint.dir\DependInfo.cmake" "--color=$(COLOR)"
+	$(CMAKE_COMMAND) -E cmake_depends "MinGW Makefiles" C:\Users\User\Documents\Arduino\Arduino-Stream-Deck\Arduino_Stream_Deck_Windows C:\Users\User\Documents\Arduino\Arduino-Stream-Deck\Arduino_Stream_Deck_Windows C:\Users\User\Documents\Arduino\Arduino-Stream-Deck\Arduino_Stream_Deck_Windows\build\Desktop_Qt_6_12_0_MinGW_64_bit_Debug C:\Users\User\Documents\Arduino\Arduino-Stream-Deck\Arduino_Stream_Deck_Windows\build\Desktop_Qt_6_12_0_MinGW_64_bit_Debug C:\Users\User\Documents\Arduino\Arduino-Stream-Deck\Arduino_Stream_Deck_Windows\build\Desktop_Qt_6_12_0_MinGW_64_bit_Debug\CMakeFiles\all_qmllint.dir\DependInfo.cmake "--color=$(COLOR)"
 .PHONY : CMakeFiles/all_qmllint.dir/depend
 

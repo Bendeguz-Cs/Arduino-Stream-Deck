@@ -1,6 +1,0 @@
-<RCC>
-  <qresource prefix="/qt/qml/appQSerialURI">
-    <file alias="qmldir">C:/Users/Server/Documents/Arduino/Projects/Arduino Stream Deck/Arduino_Stream_Deck_Windows/build/Desktop_Qt_6_12_0_MinGW_64_bit_Debug/appQSerialURI/qmldir</file>
-  </qresource>
-</RCC>
-

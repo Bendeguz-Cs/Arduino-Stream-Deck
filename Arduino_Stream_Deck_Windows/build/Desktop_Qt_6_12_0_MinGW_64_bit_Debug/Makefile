@@ -56,10 +56,10 @@ RM = C:\Qt\Tools\CMake_64\bin\cmake.exe -E rm -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = "C:\Users\Server\Documents\Arduino\Projects\Arduino Stream Deck\Arduino_Stream_Deck_Windows"
+CMAKE_SOURCE_DIR = C:\Users\User\Documents\Arduino\Arduino-Stream-Deck\Arduino_Stream_Deck_Windows
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = "C:\Users\Server\Documents\Arduino\Projects\Arduino Stream Deck\Arduino_Stream_Deck_Windows\build\Desktop_Qt_6_12_0_MinGW_64_bit_Debug"
+CMAKE_BINARY_DIR = C:\Users\User\Documents\Arduino\Arduino-Stream-Deck\Arduino_Stream_Deck_Windows\build\Desktop_Qt_6_12_0_MinGW_64_bit_Debug
 
 #=============================================================================
 # Targets provided globally by CMake.
@@ -131,9 +131,9 @@ install/strip/fast: preinstall/fast
 
 # The main all target
 all: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start "C:\Users\Server\Documents\Arduino\Projects\Arduino Stream Deck\Arduino_Stream_Deck_Windows\build\Desktop_Qt_6_12_0_MinGW_64_bit_Debug\CMakeFiles" "C:\Users\Server\Documents\Arduino\Projects\Arduino Stream Deck\Arduino_Stream_Deck_Windows\build\Desktop_Qt_6_12_0_MinGW_64_bit_Debug\\CMakeFiles\progress.marks"
+	$(CMAKE_COMMAND) -E cmake_progress_start C:\Users\User\Documents\Arduino\Arduino-Stream-Deck\Arduino_Stream_Deck_Windows\build\Desktop_Qt_6_12_0_MinGW_64_bit_Debug\CMakeFiles C:\Users\User\Documents\Arduino\Arduino-Stream-Deck\Arduino_Stream_Deck_Windows\build\Desktop_Qt_6_12_0_MinGW_64_bit_Debug\\CMakeFiles\progress.marks
 	$(MAKE) $(MAKESILENT) -f CMakeFiles\Makefile2 all
-	$(CMAKE_COMMAND) -E cmake_progress_start "C:\Users\Server\Documents\Arduino\Projects\Arduino Stream Deck\Arduino_Stream_Deck_Windows\build\Desktop_Qt_6_12_0_MinGW_64_bit_Debug\CMakeFiles" 0
+	$(CMAKE_COMMAND) -E cmake_progress_start C:\Users\User\Documents\Arduino\Arduino-Stream-Deck\Arduino_Stream_Deck_Windows\build\Desktop_Qt_6_12_0_MinGW_64_bit_Debug\CMakeFiles 0
 .PHONY : all
 
 # The main clean target
@@ -433,30 +433,6 @@ appStreamDeck_autogen/fast:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles\appStreamDeck_autogen.dir\build.make CMakeFiles/appStreamDeck_autogen.dir/build
 .PHONY : appStreamDeck_autogen/fast
 
-26f2acbe261b9c32c87e94a8ea60d88b/.rcc/qmlcache/appStreamDeck_qmlcache_loader.obj: 26f2acbe261b9c32c87e94a8ea60d88b/.rcc/qmlcache/appStreamDeck_qmlcache_loader.cpp.obj
-.PHONY : 26f2acbe261b9c32c87e94a8ea60d88b/.rcc/qmlcache/appStreamDeck_qmlcache_loader.obj
-
-# target to build an object file
-26f2acbe261b9c32c87e94a8ea60d88b/.rcc/qmlcache/appStreamDeck_qmlcache_loader.cpp.obj:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\appStreamDeck.dir\build.make CMakeFiles/appStreamDeck.dir/26f2acbe261b9c32c87e94a8ea60d88b/.rcc/qmlcache/appStreamDeck_qmlcache_loader.cpp.obj
-.PHONY : 26f2acbe261b9c32c87e94a8ea60d88b/.rcc/qmlcache/appStreamDeck_qmlcache_loader.cpp.obj
-
-26f2acbe261b9c32c87e94a8ea60d88b/.rcc/qmlcache/appStreamDeck_qmlcache_loader.i: 26f2acbe261b9c32c87e94a8ea60d88b/.rcc/qmlcache/appStreamDeck_qmlcache_loader.cpp.i
-.PHONY : 26f2acbe261b9c32c87e94a8ea60d88b/.rcc/qmlcache/appStreamDeck_qmlcache_loader.i
-
-# target to preprocess a source file
-26f2acbe261b9c32c87e94a8ea60d88b/.rcc/qmlcache/appStreamDeck_qmlcache_loader.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\appStreamDeck.dir\build.make CMakeFiles/appStreamDeck.dir/26f2acbe261b9c32c87e94a8ea60d88b/.rcc/qmlcache/appStreamDeck_qmlcache_loader.cpp.i
-.PHONY : 26f2acbe261b9c32c87e94a8ea60d88b/.rcc/qmlcache/appStreamDeck_qmlcache_loader.cpp.i
-
-26f2acbe261b9c32c87e94a8ea60d88b/.rcc/qmlcache/appStreamDeck_qmlcache_loader.s: 26f2acbe261b9c32c87e94a8ea60d88b/.rcc/qmlcache/appStreamDeck_qmlcache_loader.cpp.s
-.PHONY : 26f2acbe261b9c32c87e94a8ea60d88b/.rcc/qmlcache/appStreamDeck_qmlcache_loader.s
-
-# target to generate assembly for a file
-26f2acbe261b9c32c87e94a8ea60d88b/.rcc/qmlcache/appStreamDeck_qmlcache_loader.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\appStreamDeck.dir\build.make CMakeFiles/appStreamDeck.dir/26f2acbe261b9c32c87e94a8ea60d88b/.rcc/qmlcache/appStreamDeck_qmlcache_loader.cpp.s
-.PHONY : 26f2acbe261b9c32c87e94a8ea60d88b/.rcc/qmlcache/appStreamDeck_qmlcache_loader.cpp.s
-
 appStreamDeck_autogen/mocs_compilation.obj: appStreamDeck_autogen/mocs_compilation.cpp.obj
 .PHONY : appStreamDeck_autogen/mocs_compilation.obj
 
@@ -577,6 +553,30 @@ build/Desktop_Qt_6_12_0_MinGW_64_bit_Debug/.rcc/qmlcache/appStreamDeck_Main_qml.
 	$(MAKE) $(MAKESILENT) -f CMakeFiles\appStreamDeck.dir\build.make CMakeFiles/appStreamDeck.dir/build/Desktop_Qt_6_12_0_MinGW_64_bit_Debug/.rcc/qmlcache/appStreamDeck_Main_qml.cpp.s
 .PHONY : build/Desktop_Qt_6_12_0_MinGW_64_bit_Debug/.rcc/qmlcache/appStreamDeck_Main_qml.cpp.s
 
+build/Desktop_Qt_6_12_0_MinGW_64_bit_Debug/.rcc/qmlcache/appStreamDeck_qmlcache_loader.obj: build/Desktop_Qt_6_12_0_MinGW_64_bit_Debug/.rcc/qmlcache/appStreamDeck_qmlcache_loader.cpp.obj
+.PHONY : build/Desktop_Qt_6_12_0_MinGW_64_bit_Debug/.rcc/qmlcache/appStreamDeck_qmlcache_loader.obj
+
+# target to build an object file
+build/Desktop_Qt_6_12_0_MinGW_64_bit_Debug/.rcc/qmlcache/appStreamDeck_qmlcache_loader.cpp.obj:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\appStreamDeck.dir\build.make CMakeFiles/appStreamDeck.dir/build/Desktop_Qt_6_12_0_MinGW_64_bit_Debug/.rcc/qmlcache/appStreamDeck_qmlcache_loader.cpp.obj
+.PHONY : build/Desktop_Qt_6_12_0_MinGW_64_bit_Debug/.rcc/qmlcache/appStreamDeck_qmlcache_loader.cpp.obj
+
+build/Desktop_Qt_6_12_0_MinGW_64_bit_Debug/.rcc/qmlcache/appStreamDeck_qmlcache_loader.i: build/Desktop_Qt_6_12_0_MinGW_64_bit_Debug/.rcc/qmlcache/appStreamDeck_qmlcache_loader.cpp.i
+.PHONY : build/Desktop_Qt_6_12_0_MinGW_64_bit_Debug/.rcc/qmlcache/appStreamDeck_qmlcache_loader.i
+
+# target to preprocess a source file
+build/Desktop_Qt_6_12_0_MinGW_64_bit_Debug/.rcc/qmlcache/appStreamDeck_qmlcache_loader.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\appStreamDeck.dir\build.make CMakeFiles/appStreamDeck.dir/build/Desktop_Qt_6_12_0_MinGW_64_bit_Debug/.rcc/qmlcache/appStreamDeck_qmlcache_loader.cpp.i
+.PHONY : build/Desktop_Qt_6_12_0_MinGW_64_bit_Debug/.rcc/qmlcache/appStreamDeck_qmlcache_loader.cpp.i
+
+build/Desktop_Qt_6_12_0_MinGW_64_bit_Debug/.rcc/qmlcache/appStreamDeck_qmlcache_loader.s: build/Desktop_Qt_6_12_0_MinGW_64_bit_Debug/.rcc/qmlcache/appStreamDeck_qmlcache_loader.cpp.s
+.PHONY : build/Desktop_Qt_6_12_0_MinGW_64_bit_Debug/.rcc/qmlcache/appStreamDeck_qmlcache_loader.s
+
+# target to generate assembly for a file
+build/Desktop_Qt_6_12_0_MinGW_64_bit_Debug/.rcc/qmlcache/appStreamDeck_qmlcache_loader.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\appStreamDeck.dir\build.make CMakeFiles/appStreamDeck.dir/build/Desktop_Qt_6_12_0_MinGW_64_bit_Debug/.rcc/qmlcache/appStreamDeck_qmlcache_loader.cpp.s
+.PHONY : build/Desktop_Qt_6_12_0_MinGW_64_bit_Debug/.rcc/qmlcache/appStreamDeck_qmlcache_loader.cpp.s
+
 main.obj: main.cpp.obj
 .PHONY : main.obj
 
@@ -634,9 +634,6 @@ help:
 	@echo ... generate_qmlls_build_ini_file
 	@echo ... module_appStreamDeck_aotstats_target
 	@echo ... appStreamDeck
-	@echo ... 26f2acbe261b9c32c87e94a8ea60d88b/.rcc/qmlcache/appStreamDeck_qmlcache_loader.obj
-	@echo ... 26f2acbe261b9c32c87e94a8ea60d88b/.rcc/qmlcache/appStreamDeck_qmlcache_loader.i
-	@echo ... 26f2acbe261b9c32c87e94a8ea60d88b/.rcc/qmlcache/appStreamDeck_qmlcache_loader.s
 	@echo ... appStreamDeck_autogen/mocs_compilation.obj
 	@echo ... appStreamDeck_autogen/mocs_compilation.i
 	@echo ... appStreamDeck_autogen/mocs_compilation.s
@@ -652,6 +649,9 @@ help:
 	@echo ... build/Desktop_Qt_6_12_0_MinGW_64_bit_Debug/.rcc/qmlcache/appStreamDeck_Main_qml.obj
 	@echo ... build/Desktop_Qt_6_12_0_MinGW_64_bit_Debug/.rcc/qmlcache/appStreamDeck_Main_qml.i
 	@echo ... build/Desktop_Qt_6_12_0_MinGW_64_bit_Debug/.rcc/qmlcache/appStreamDeck_Main_qml.s
+	@echo ... build/Desktop_Qt_6_12_0_MinGW_64_bit_Debug/.rcc/qmlcache/appStreamDeck_qmlcache_loader.obj
+	@echo ... build/Desktop_Qt_6_12_0_MinGW_64_bit_Debug/.rcc/qmlcache/appStreamDeck_qmlcache_loader.i
+	@echo ... build/Desktop_Qt_6_12_0_MinGW_64_bit_Debug/.rcc/qmlcache/appStreamDeck_qmlcache_loader.s
 	@echo ... main.obj
 	@echo ... main.i
 	@echo ... main.s

@@ -52,10 +52,10 @@ RM = C:\Qt\Tools\CMake_64\bin\cmake.exe -E rm -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = "C:\Users\Server\Documents\Arduino\Projects\Arduino Stream Deck\Arduino_Stream_Deck_Windows"
+CMAKE_SOURCE_DIR = C:\Users\User\Documents\Arduino\Arduino-Stream-Deck\Arduino_Stream_Deck_Windows
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = "C:\Users\Server\Documents\Arduino\Projects\Arduino Stream Deck\Arduino_Stream_Deck_Windows\build\Desktop_Qt_6_12_0_MinGW_64_bit_Debug"
+CMAKE_BINARY_DIR = C:\Users\User\Documents\Arduino\Arduino-Stream-Deck\Arduino_Stream_Deck_Windows\build\Desktop_Qt_6_12_0_MinGW_64_bit_Debug
 
 # Utility rule file for clean_qml_context_properties.
 
@@ -66,8 +66,8 @@ include CMakeFiles/clean_qml_context_properties.dir/compiler_depend.make
 include CMakeFiles/clean_qml_context_properties.dir/progress.make
 
 CMakeFiles/clean_qml_context_properties:
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --blue --bold --progress-dir="C:\Users\Server\Documents\Arduino\Projects\Arduino Stream Deck\Arduino_Stream_Deck_Windows\build\Desktop_Qt_6_12_0_MinGW_64_bit_Debug\CMakeFiles" --progress-num=$(CMAKE_PROGRESS_1) "Removing C:/Users/Server/Documents/Arduino/Projects/Arduino Stream Deck/Arduino_Stream_Deck_Windows/build/Desktop_Qt_6_12_0_MinGW_64_bit_Debug/.qt/contextPropertyDump.ini file"
-	C:\Qt\Tools\CMake_64\bin\cmake.exe -E rm "C:/Users/Server/Documents/Arduino/Projects/Arduino Stream Deck/Arduino_Stream_Deck_Windows/build/Desktop_Qt_6_12_0_MinGW_64_bit_Debug/.qt/contextPropertyDump.ini"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --blue --bold --progress-dir=C:\Users\User\Documents\Arduino\Arduino-Stream-Deck\Arduino_Stream_Deck_Windows\build\Desktop_Qt_6_12_0_MinGW_64_bit_Debug\CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Removing C:/Users/User/Documents/Arduino/Arduino-Stream-Deck/Arduino_Stream_Deck_Windows/build/Desktop_Qt_6_12_0_MinGW_64_bit_Debug/.qt/contextPropertyDump.ini file"
+	C:\Qt\Tools\CMake_64\bin\cmake.exe -E rm C:/Users/User/Documents/Arduino/Arduino-Stream-Deck/Arduino_Stream_Deck_Windows/build/Desktop_Qt_6_12_0_MinGW_64_bit_Debug/.qt/contextPropertyDump.ini
 
 clean_qml_context_properties: CMakeFiles/clean_qml_context_properties
 clean_qml_context_properties: CMakeFiles/clean_qml_context_properties.dir/build.make
@@ -82,6 +82,6 @@ CMakeFiles/clean_qml_context_properties.dir/clean:
 .PHONY : CMakeFiles/clean_qml_context_properties.dir/clean
 
 CMakeFiles/clean_qml_context_properties.dir/depend:
-	$(CMAKE_COMMAND) -E cmake_depends "MinGW Makefiles" "C:\Users\Server\Documents\Arduino\Projects\Arduino Stream Deck\Arduino_Stream_Deck_Windows" "C:\Users\Server\Documents\Arduino\Projects\Arduino Stream Deck\Arduino_Stream_Deck_Windows" "C:\Users\Server\Documents\Arduino\Projects\Arduino Stream Deck\Arduino_Stream_Deck_Windows\build\Desktop_Qt_6_12_0_MinGW_64_bit_Debug" "C:\Users\Server\Documents\Arduino\Projects\Arduino Stream Deck\Arduino_Stream_Deck_Windows\build\Desktop_Qt_6_12_0_MinGW_64_bit_Debug" "C:\Users\Server\Documents\Arduino\Projects\Arduino Stream Deck\Arduino_Stream_Deck_Windows\build\Desktop_Qt_6_12_0_MinGW_64_bit_Debug\CMakeFiles\clean_qml_context_properties.dir\DependInfo.cmake" "--color=$(COLOR)"
+	$(CMAKE_COMMAND) -E cmake_depends "MinGW Makefiles" C:\Users\User\Documents\Arduino\Arduino-Stream-Deck\Arduino_Stream_Deck_Windows C:\Users\User\Documents\Arduino\Arduino-Stream-Deck\Arduino_Stream_Deck_Windows C:\Users\User\Documents\Arduino\Arduino-Stream-Deck\Arduino_Stream_Deck_Windows\build\Desktop_Qt_6_12_0_MinGW_64_bit_Debug C:\Users\User\Documents\Arduino\Arduino-Stream-Deck\Arduino_Stream_Deck_Windows\build\Desktop_Qt_6_12_0_MinGW_64_bit_Debug C:\Users\User\Documents\Arduino\Arduino-Stream-Deck\Arduino_Stream_Deck_Windows\build\Desktop_Qt_6_12_0_MinGW_64_bit_Debug\CMakeFiles\clean_qml_context_properties.dir\DependInfo.cmake "--color=$(COLOR)"
 .PHONY : CMakeFiles/clean_qml_context_properties.dir/depend
 

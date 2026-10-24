@@ -72,7 +72,7 @@ void setup() {
 
   USB.connect();
 
-  Serial.begin(9600);
+  Serial.begin(115200);
   u8g2.setI2CAddress(0x3C << 1);
   u8g2.begin();
   u8g2.setDisplayRotation(U8G2_R2);
@@ -172,6 +172,47 @@ void loop() {
 
     // Send the image to the OLED
     u8g2.sendBuffer();
+  }
+
+  String buffer;
+  if(Serial.available() > 0) {
+    buffer += Serial.readStringUntil('\n');
+    buffer.trim();
+    Serial.println(buffer);
+  }
+
+  if(!buffer.isEmpty()) {
+    int8_t commaPos = buffer.indexOf(',');
+    if(commaPos != -1) {
+      String messageType    = buffer.substring(0, commaPos);
+      String messageContent = buffer.substring(commaPos + 1);
+
+      //process message
+      if(messageType == "SMUTE") {
+        if(messageContent == "true") {
+          encoder1.fillBarPattern(15, 0, 0);
+        } else if(messageContent == "false") {
+          encoder1.fixedGradientBarPattern(0, 35, 0, 40, 0, 0);
+        }
+      } else if(messageType == "MMUTE") {
+        if(messageContent == "true") {
+          encoder0.fillBarPattern(15, 0, 0);
+        } else if(messageContent == "false") {
+          encoder0.fixedGradientBarPattern(0, 35, 0, 40, 0, 0);
+        }
+      } else if(messageType == "SVOL") {
+        encoder1.setPosition(messageContent.toInt());
+        encoder1.updatePattern();
+      } else if(messageType == "MVOL") {
+        encoder0.setPosition(messageContent.toInt());
+        encoder0.updatePattern();
+      } else if(messageType == "TIME") {
+        //update stored time
+        Serial.println(messageContent);
+      }
+    } else {
+      //invalid message
+    }
   }
 
   delay(20);

@@ -1,6 +1,0 @@
-<RCC>
-  <qresource prefix="/qt/qml/Arduino_Stream_Deck_Windows/">
-    <file alias="Main.qml">C:/Users/Server/Documents/Arduino/Projects/Arduino Stream Deck/Arduino_Stream_Deck_Windows/Main.qml</file>
-  </qresource>
-</RCC>
-

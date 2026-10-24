@@ -1,8 +1,8 @@
-# Install script for directory: C:/Users/Server/Documents/Arduino/Projects/Arduino Stream Deck/Arduino_Stream_Deck_Windows
+# Install script for directory: C:/Users/User/Documents/Arduino/Arduino-Stream-Deck/Arduino_Stream_Deck_Windows
 
 # Set the install prefix
 if(NOT DEFINED CMAKE_INSTALL_PREFIX)
-  set(CMAKE_INSTALL_PREFIX "C:/Program Files (x86)/Arduino_Stream_Deck_Windows")
+  set(CMAKE_INSTALL_PREFIX "C:/Program Files (x86)/Arduino_Stream_deck_desktop")
 endif()
 string(REGEX REPLACE "/$" "" CMAKE_INSTALL_PREFIX "${CMAKE_INSTALL_PREFIX}")
 
@@ -38,7 +38,7 @@ if(NOT DEFINED CMAKE_OBJDUMP)
 endif()
 
 if(CMAKE_INSTALL_COMPONENT STREQUAL "Unspecified" OR NOT CMAKE_INSTALL_COMPONENT)
-  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/bin" TYPE EXECUTABLE FILES "C:/Users/Server/Documents/Arduino/Projects/Arduino Stream Deck/Arduino_Stream_Deck_Windows/build/Desktop_Qt_6_12_0_MinGW_64_bit_Debug/appStreamDeck.exe")
+  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/bin" TYPE EXECUTABLE FILES "C:/Users/User/Documents/Arduino/Arduino-Stream-Deck/Arduino_Stream_Deck_Windows/build/Desktop_Qt_6_12_0_MinGW_64_bit_Debug/appStreamDeck.exe")
   if(EXISTS "$ENV{DESTDIR}${CMAKE_INSTALL_PREFIX}/bin/appStreamDeck.exe" AND
      NOT IS_SYMLINK "$ENV{DESTDIR}${CMAKE_INSTALL_PREFIX}/bin/appStreamDeck.exe")
     if(CMAKE_INSTALL_DO_STRIP)
@@ -62,6 +62,6 @@ endif()
 if(NOT CMAKE_INSTALL_LOCAL_ONLY)
   string(REPLACE ";" "\n" CMAKE_INSTALL_MANIFEST_CONTENT
        "${CMAKE_INSTALL_MANIFEST_FILES}")
-  file(WRITE "C:/Users/Server/Documents/Arduino/Projects/Arduino Stream Deck/Arduino_Stream_Deck_Windows/build/Desktop_Qt_6_12_0_MinGW_64_bit_Debug/${CMAKE_INSTALL_MANIFEST}"
+  file(WRITE "C:/Users/User/Documents/Arduino/Arduino-Stream-Deck/Arduino_Stream_Deck_Windows/build/Desktop_Qt_6_12_0_MinGW_64_bit_Debug/${CMAKE_INSTALL_MANIFEST}"
      "${CMAKE_INSTALL_MANIFEST_CONTENT}")
 endif()
