@@ -385,10 +385,14 @@ int main(int argc, char *argv[]) {
                                      //toggle microphone mute
                                      qDebug() << "mic mute toggle triggered" << inputType << inputID << inputValue;
                                      setMicMute(!getMicMute());
+                                     QString message = "MMUTE," + QString::number(getMicMute());
+                                     serial.write(message.toUtf8());
                                  } else if(inputID == 1 && inputValue == 1) {
                                      //toggle speaker mute
                                      qDebug() << "mute toggle triggered" << inputType << inputID << inputValue;
                                      setMute(!getMute());
+                                     QString message = "SMUTE," + QString::number(getMute());
+                                     serial.write(message.toUtf8());
                                  }
                              } else if(inputType == "BTN") {
                                  if(inputID == 0 && inputValue == 1) {
@@ -416,10 +420,13 @@ int main(int argc, char *argv[]) {
                      });
 
     //open port
-    if (serial.open(QIODevice::ReadWrite))
+    if (serial.open(QIODevice::ReadWrite)) {
         qDebug() << "Port opened!";
-    else
-        qDebug() << "Failed:" << serial.errorString();
+        QString message = "SVOL," + QString::number(getVolume()) + "\nMVOL," + QString::number(getMicVolume()) + "\nSMUTE," + QString::number(getMute()) + "\nMMUTE," + QString::number(getMicMute());
+        serial.write(message.toUtf8());
+    } else {
+        qWarning() << "Failed:" << serial.errorString();
+    }
     ///////////////////// QSerialPort end
 
     //execute the app and return the exit code when done

@@ -131,14 +131,29 @@ void loop() {
   button6     = digitalRead(pinButton6);
   button7     = digitalRead(pinButton7);
 
+  static bool micMute;
+  static bool spkMute;
+
   if(encoder0val != lastEncoder0val) {
     changed = true; Serial.println(String("ENC,0,") + encoder0val);
   } else if(encoder1val != lastEncoder1val) {
     changed = true; Serial.println(String("ENC,1,") + encoder1val);
   } else if(encoder0SW != lastEncoder0SW) {
     changed = true; Serial.println(String("ESW,0,") + !encoder0SW);
+    if(encoder0SW == 0) {micMute = !micMute;}
+    if(micMute) {
+      encoder0.fillBarPattern(15, 0, 0);
+    } else {
+      encoder0.fixedGradientBarPattern(0, 35, 0, 40, 0, 0);
+    }
   } else if(encoder1SW != lastEncoder1SW) {
     changed = true; Serial.println(String("ESW,1,") + !encoder1SW);
+    if(encoder1SW == 0) {spkMute = !spkMute;}
+    if(spkMute) {
+      encoder1.fillBarPattern(15, 0, 0);
+    } else {
+      encoder1.fixedGradientBarPattern(0, 35, 0, 40, 0, 0);
+    }
   } else if(button0 != lastButton0) {
     changed = true; Serial.println(String("BTN,0,") + !button0);
   } else if(button1 != lastButton1) {
@@ -189,16 +204,20 @@ void loop() {
 
       //process message
       if(messageType == "SMUTE") {
-        if(messageContent == "true") {
+        if(messageContent == "1") {
           encoder1.fillBarPattern(15, 0, 0);
-        } else if(messageContent == "false") {
+          spkMute = true;
+        } else if(messageContent == "0") {
           encoder1.fixedGradientBarPattern(0, 35, 0, 40, 0, 0);
+          spkMute = false;
         }
       } else if(messageType == "MMUTE") {
-        if(messageContent == "true") {
+        if(messageContent == "1") {
           encoder0.fillBarPattern(15, 0, 0);
-        } else if(messageContent == "false") {
+          micMute = true;
+        } else if(messageContent == "0") {
           encoder0.fixedGradientBarPattern(0, 35, 0, 40, 0, 0);
+          micMute = false;
         }
       } else if(messageType == "SVOL") {
         encoder1.setPosition(messageContent.toInt());
