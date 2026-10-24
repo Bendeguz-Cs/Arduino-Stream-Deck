@@ -308,45 +308,70 @@ int main(int argc, char *argv[]) {
     ///////////////////// Qml steps end
 
     ///////////////////// Connection
-    /*QTimer reconnectTimer;
+    QTimer reconnectTimer;
     reconnectTimer.setInterval(5000);
 
-    QObject::connect(&reconnectTimer, &QTimer::timeout, [&]() {
-
-    })*/
-
-    ///////////////////// QSerialPortInfo start
-    const auto ports = QSerialPortInfo::availablePorts();
-
-    QSerialPortInfo targetPort;
-    QString targetDescription = "PicoStreamDeck";
-
-    for (const QSerialPortInfo &port : ports) {
-        if(port.description() == targetDescription) {
-            targetPort = port;
-            qDebug() << port.portName()
-                     << port.description()
-                     << port.manufacturer();
-            break;
-        }
-    }
-
-    if(targetPort.isNull()) {
-        qWarning() << "Target hardware not found";
-        return -1;
-    }
-    ///////////////////// QSerialPortInfo end
-
-    ///////////////////// QSerialPort start
     QSerialPort serial;
 
-    serial.setPortName(targetPort.portName());
+    QObject::connect(&reconnectTimer, &QTimer::timeout, [&]() {
+        //Already connected
+        if(serial.isOpen()) {
+            reconnectTimer.stop();
+            return;
+        }
 
-    serial.setBaudRate(QSerialPort::Baud9600);
-    serial.setDataBits(QSerialPort::Data8);
-    serial.setParity(QSerialPort::NoParity);
-    serial.setStopBits(QSerialPort::OneStop);
-    serial.setFlowControl(QSerialPort::NoFlowControl);
+        ///////////////////// QSerialPortInfo start
+        const auto ports = QSerialPortInfo::availablePorts();
+
+        QSerialPortInfo targetPort;
+        QString targetDescription = "PicoStreamDeck";
+
+        for (const QSerialPortInfo &port : ports) {
+            if(port.description() == targetDescription) {
+                targetPort = port;
+                qDebug() << port.portName()
+                         << port.description()
+                         << port.manufacturer();
+                break;
+            }
+        }
+
+        if(targetPort.isNull()) {
+            qWarning() << "Target hardware not found";
+            return;
+        }
+        ///////////////////// QSerialPortInfo end
+
+        ///////////////////// QSerialPort start
+        serial.setPort(targetPort);
+
+        serial.setBaudRate(QSerialPort::Baud9600);
+        serial.setDataBits(QSerialPort::Data8);
+        serial.setParity(QSerialPort::NoParity);
+        serial.setStopBits(QSerialPort::OneStop);
+        serial.setFlowControl(QSerialPort::NoFlowControl);
+
+        //Open port
+        if (serial.open(QIODevice::ReadWrite)) {
+            qDebug() << "Port opened!";
+
+            const bool dtrSet = serial.setDataTerminalReady(true);
+            qDebug() << "DTR set:" << dtrSet;
+            qDebug() << "Serial error:" << serial.errorString();
+
+            QString message = "SVOL," + QString::number(getVolume()) + "\nMVOL," + QString::number(getMicVolume()) + "\nSMUTE," + QString::number(getMute()) + "\nMMUTE," + QString::number(getMicMute()) + "\n";
+            serial.write(message.toUtf8());
+
+            reconnectTimer.stop();
+        } else {
+            qWarning() << "Failed:" << serial.errorString();
+        }
+        ///////////////////// QSerialPort end
+    });
+
+    //Try immediately, then retry every 5 seconds if needed
+    reconnectTimer.start();
+    QMetaObject::invokeMethod(&reconnectTimer, "timeout", Qt::DirectConnection);
 
     //Serial buffer, only print when full message arrived
     QByteArray buffer;
@@ -425,21 +450,6 @@ int main(int argc, char *argv[]) {
             }
         }
     });
-
-    //open port
-    if (serial.open(QIODevice::ReadWrite)) {
-        qDebug() << "Port opened!";
-
-        const bool dtrSet = serial.setDataTerminalReady(true);
-        qDebug() << "DTR set:" << dtrSet;
-        qDebug() << "Serial error:" << serial.errorString();
-
-        QString message = "SVOL," + QString::number(getVolume()) + "\nMVOL," + QString::number(getMicVolume()) + "\nSMUTE," + QString::number(getMute()) + "\nMMUTE," + QString::number(getMicMute()) + "\n";
-        serial.write(message.toUtf8());
-    } else {
-        qWarning() << "Failed:" << serial.errorString();
-    }
-    ///////////////////// QSerialPort end
 
     //execute the app and return the exit code when done
     return app.exec();
