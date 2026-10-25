@@ -72,8 +72,16 @@ ApplicationWindow {
         { action: "none", value: "" }
     ]
 
+    property bool loadingSettings: false
+
     Component.onCompleted: {
+        loadingSettings = true
+
         buttonConfigs = configManager.load()
+        followSystemTheme = configManager.loadFollowSystemTheme()
+        manualLightMode = configManager.loadManualLightMode()
+
+        loadingSettings = false
     }
 
     function setAction(action) {
@@ -97,6 +105,18 @@ ApplicationWindow {
     }
     function saveConfigs() {
         configManager.save(buttonConfigs)
+        configManager.saveFollowSystemTheme(followSystemTheme)
+        configManager.saveManualLightMode(manualLightMode)
+    }
+
+    onFollowSystemThemeChanged: {
+        if (!loadingSettings)
+            saveConfigs()
+    }
+
+    onManualLightModeChanged: {
+        if (!loadingSettings)
+            saveConfigs()
     }
 
     onClosing: function(close) {

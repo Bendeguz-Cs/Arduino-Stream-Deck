@@ -50,6 +50,30 @@ public:
                           QJsonDocument(array).toJson(QJsonDocument::Compact));
     }
 
+    Q_INVOKABLE bool loadFollowSystemTheme()
+    {
+        QSettings settings;
+        return settings.value("followSystemTheme", true).toBool();
+    }
+
+    Q_INVOKABLE bool loadManualLightMode()
+    {
+        QSettings settings;
+        return settings.value("manualLightMode", false).toBool();
+    }
+
+    Q_INVOKABLE void saveFollowSystemTheme(bool value)
+    {
+        QSettings settings;
+        settings.setValue("followSystemTheme", value);
+    }
+
+    Q_INVOKABLE void saveManualLightMode(bool value)
+    {
+        QSettings settings;
+        settings.setValue("manualLightMode", value);
+    }
+
     Q_INVOKABLE QVariantList availableApplications() const
     {
         QVariantList result;
