@@ -274,6 +274,14 @@ ApplicationWindow {
                     }
 
                     RadioButton {
+                        text: "Keyboard shortcut"
+                        ButtonGroup.group: actionGroup
+                        checked: window.buttonConfigs[window.selectedIndex].action
+                                 === "shortcut"
+                        onClicked: window.setAction("shortcut")
+                    }
+
+                    RadioButton {
                         text: "Screenshot"
                         ButtonGroup.group: actionGroup
                         checked: window.buttonConfigs[window.selectedIndex].action
@@ -382,6 +390,110 @@ ApplicationWindow {
 
                         onTextEdited: window.setValue(text)
                     }
+
+                    ColumnLayout {
+                        id: shortcutSettings
+
+                        Layout.fillWidth: true
+                        spacing: 8
+
+                        visible: window.buttonConfigs[window.selectedIndex].action
+                                 === "shortcut"
+
+                        Label {
+                            text: "Keyboard shortcut"
+                            font.bold: true
+                        }
+
+                        Rectangle {
+                            id: shortcutCaptureArea
+
+                            Layout.fillWidth: true
+                            height: 48
+
+                            radius: 6
+                            border.width: 1
+                            border.color: window.lightMode ? "#777777" : "#aaaaaa"
+                            color: window.lightMode ? "#eeeeee" : "#303030"
+
+                            focus: actionHandler.capturing
+
+                            Keys.enabled: actionHandler.capturing
+
+                            Keys.onPressed: function(event) {
+                                if (!actionHandler.capturing)
+                                    return
+
+                                actionHandler.captureShortcutKey(
+                                    event.key, event.modifiers)
+
+                                event.accepted = true
+                            }
+
+                            Label {
+                                anchors.fill: parent
+                                anchors.margins: 8
+
+                                verticalAlignment: Text.AlignVCenter
+                                horizontalAlignment: Text.AlignHCenter
+
+                                color: window.lightMode ? "#222222" : "#eeeeee"
+
+                                text: actionHandler.capturing
+                                      ? (actionHandler.capturedShortcut.length > 0
+                                         ? actionHandler.capturedShortcut
+                                         : "Press a key combination...")
+                                      : (window.buttonConfigs[window.selectedIndex].value
+                                         || "No shortcut configured")
+                            }
+
+                            MouseArea {
+                                anchors.fill: parent
+                                enabled: !actionHandler.capturing
+
+                                onClicked: {
+                                    actionHandler.startShortcutCapture()
+                                    shortcutCaptureArea.forceActiveFocus()
+                                }
+                            }
+                        }
+
+                        RowLayout {
+                            Layout.fillWidth: true
+
+                            Button {
+                                text: actionHandler.capturing ? "Accept" : "Record"
+
+                                onClicked: {
+                                    if (!actionHandler.capturing) {
+                                        actionHandler.startShortcutCapture()
+                                        shortcutCaptureArea.forceActiveFocus()
+                                    } else if (actionHandler.capturedShortcut.length > 0) {
+                                        window.setValue(actionHandler.capturedShortcut)
+                                        actionHandler.stopShortcutCapture()
+                                    }
+                                }
+                            }
+
+                            Button {
+                                text: "Cancel"
+                                enabled: actionHandler.capturing
+
+                                onClicked: {
+                                    actionHandler.stopShortcutCapture()
+                                }
+                            }
+                        }
+
+                        Label {
+                            Layout.fillWidth: true
+
+                            text: "Click Record, press a shortcut, then click Accept."
+                            wrapMode: Text.WordWrap
+                            opacity: 0.7
+                        }
+                    }
+
                 }
             }
         }
