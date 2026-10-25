@@ -11,18 +11,53 @@ ApplicationWindow {
     minimumHeight: 480
     visible: true
     title: qsTr("Arduino Stream Deck Configuration")
-    color: window.lightMode ? window.mainLight : window.mainDark
-    property bool lightMode: Application.styleHints.colorScheme === Qt.Light
-    property color titlebarDark: "#171717"
-    property color sidebarDark: "#1b1b1b"
-    property color mainDark: "#1f1f1f"
-    property color buttonDark: "#222222"
-    property color darkText: "#262626"
-    property color titlebarLight: "#e7e7e7"
-    property color sidebarLight: "#808080"
-    property color mainLight: "#111111"
-    property color lightText: "#e0e0e0"
-    property color buttonLight: "#000000"
+    color: window.windowBackground
+
+    // true = follow system theme; false = use manual selection
+    property bool followSystemTheme: true
+
+    // Used only when followSystemTheme is false
+    property bool manualLightMode: false
+
+    readonly property bool lightMode: followSystemTheme
+        ? Application.styleHints.colorScheme === Qt.Light
+        : manualLightMode
+
+    readonly property color windowBackground:
+        lightMode ? "#F5F6F8" : "#1F1F1F"
+
+    readonly property color titleBarBackground:
+        lightMode ? "#E7E9ED" : "#171717"
+
+    readonly property color sidebarBackground:
+        lightMode ? "#FFFFFF" : "#1B1B1B"
+
+    readonly property color surfaceBackground:
+        lightMode ? "#FFFFFF" : "#292929"
+
+    readonly property color primaryText:
+        lightMode ? "#202124" : "#F0F0F0"
+
+    readonly property color secondaryText:
+        lightMode ? "#5F6368" : "#B8B8B8"
+
+    readonly property color borderColor:
+        lightMode ? "#D0D4DA" : "#454545"
+
+    readonly property color buttonBackground:
+        lightMode ? "#E8EBF0" : "#303030"
+
+    readonly property color selectedBackground:
+        lightMode ? "#D5E4FA" : "#354D6B"
+
+    readonly property color selectedText:
+        lightMode ? "#163A67" : "#FFFFFF"
+
+    readonly property color inputBackground:
+        lightMode ? "#FFFFFF" : "#303030"
+
+    readonly property color placeholderText:
+        lightMode ? "#777777" : "#AAAAAA"
 
     property int selectedIndex: 0
 
@@ -71,7 +106,7 @@ ApplicationWindow {
 
     Rectangle {
         id: titleBar
-        color: window.lightMode ? window.titlebarLight : window.titlebarDark
+        color: window.titleBarBackground
         anchors.left: parent.left
         anchors.right: parent.right
         anchors.top: parent.top
@@ -80,7 +115,7 @@ ApplicationWindow {
 
         Label {
             id: title
-            color: window.lightMode ? window.darkText : window.lightText
+            color: window.primaryText
             font.pixelSize: titleBar.height * 0.80
             fontSizeMode: Text.Fit
             anchors.fill: parent
@@ -94,7 +129,7 @@ ApplicationWindow {
 
         Rectangle {
             id: titleBarIcons
-            color: window.lightMode ? window.titlebarLight : window.titlebarDark
+            color: window.titleBarBackground
             anchors.right: titleBar.right
             anchors.top: titleBar.top
             anchors.bottom: titleBar.bottom
@@ -103,24 +138,101 @@ ApplicationWindow {
             anchors.bottomMargin: titleBar.height * 0.10
             width: titleBar.width * 0.40
 
+            Switch {
+                id: themeModeSwitch
+
+                anchors.verticalCenter: parent.verticalCenter
+                anchors.right: lightModeSwitch.left
+                anchors.rightMargin: parent.width * 0.05
+
+                checked: !window.followSystemTheme
+
+                onToggled: {
+                    window.followSystemTheme = !checked
+                }
+
+                text: checked ? "Manual" : "System"
+
+                palette.windowText: window.primaryText
+                palette.buttonText: window.primaryText
+
+                indicator: Rectangle {
+                    implicitWidth: 40
+                    implicitHeight: 22
+
+                    x: themeModeSwitch.leftPadding
+                    y: parent.height / 2 - height / 2
+
+                    radius: height / 2
+
+                    color: themeModeSwitch.checked
+                           ? "#2E9E55"
+                           : (window.lightMode ? "#C9CDD2" : "#505050")
+
+                    border.width: 1
+                    border.color: themeModeSwitch.checked
+                                  ? "#258346"
+                                  : window.borderColor
+
+                    Rectangle {
+                        width: 16
+                        height: 16
+                        radius: height / 2
+
+                        y: (parent.height - height) / 2
+
+                        x: themeModeSwitch.checked
+                           ? parent.width - width - 3
+                           : 3
+
+                        color: "#FFFFFF"
+
+                        Behavior on x {
+                            NumberAnimation { duration: 120 }
+                        }
+                    }
+                }
+
+                contentItem: Text {
+                    text: themeModeSwitch.text
+                    font: themeModeSwitch.font
+                    color: window.primaryText
+                    verticalAlignment: Text.AlignVCenter
+                    leftPadding: themeModeSwitch.indicator.width
+                                 + themeModeSwitch.spacing
+                }
+            }
+
             Button {
                 id: lightModeSwitch
+
                 anchors.verticalCenter: parent.verticalCenter
                 anchors.right: parent.right
                 anchors.rightMargin: parent.width * 0.05
+
                 height: parent.height * 0.8
                 width: parent.width * 0.4
 
+                text: window.lightMode ? "\u263D Dark mode" : "\u263C Light mode"
+
+                palette.buttonText: window.primaryText
+
                 background: Rectangle {
-                    color: window.lightMode ? window.buttonLight : window.buttonDark
                     radius: parent.height * 0.15
+                    color: parent.down
+                           ? window.borderColor
+                           : parent.hovered
+                             ? window.buttonBackground
+                             : window.surfaceBackground
+
+                    border.width: 1
+                    border.color: window.borderColor
                 }
 
-                text: window.lightMode ? "\u263D Dark mode" : "\u263C Light Mode"
-                palette.buttonText: window.lightMode ? window.darkText : window.lightText
+                enabled: !window.followSystemTheme
 
                 onClicked: {
-                    window.lightMode = !window.lightMode
+                    window.manualLightMode = !window.manualLightMode
                 }
             }
         }
@@ -128,7 +240,7 @@ ApplicationWindow {
 
     Rectangle {
         id: mainDiv
-        color: window.lightMode ? window.mainLight : window.mainDark
+        color: window.windowBackground
         anchors.left: parent.left
         anchors.bottom: parent.bottom
         anchors.top: titleBar.bottom
@@ -169,15 +281,40 @@ ApplicationWindow {
 
                             text: modelData
                             checkable: true
-                            checked: index === selectedIndex
+                            checked: index === window.selectedIndex
 
                             ButtonGroup.group: buttonGroup
 
-                            onClicked: {
-                                selectedIndex = index
+                            Layout.fillWidth: true
+
+                            contentItem: Text {
+                                text: parent.text
+                                color: parent.checked
+                                       ? window.selectedText
+                                       : window.primaryText
+                                horizontalAlignment: Text.AlignHCenter
+                                verticalAlignment: Text.AlignVCenter
+                                elide: Text.ElideRight
                             }
 
-                            Layout.fillWidth: true
+                            background: Rectangle {
+                                color: parent.checked
+                                       ? window.selectedBackground
+                                       : parent.down
+                                         ? window.borderColor
+                                         : parent.hovered
+                                           ? window.buttonBackground
+                                           : window.surfaceBackground
+
+                                border.width: 1
+                                border.color: parent.checked
+                                              ? window.selectedBackground
+                                              : window.borderColor
+                            }
+
+                            onClicked: {
+                                window.selectedIndex = index
+                            }
                         }
                     }
                 }
@@ -187,7 +324,7 @@ ApplicationWindow {
 
     Rectangle {
         id: sidebarDiv
-        color: window.lightMode ? window.sidebarLight : window.sidebarDark
+        color: window.sidebarBackground
         anchors.left: mainDiv.right
         anchors.top: titleBar.bottom
         anchors.right: parent.right
@@ -198,11 +335,45 @@ ApplicationWindow {
             anchors.fill: parent
             anchors.margins: 12
 
+            background: Rectangle {
+                color: "transparent"
+                border.width: 0
+            }
+
             ScrollView {
+                id: settingsScrollView
+
                 anchors.fill: parent
-                clip: true
+                clip: false
                 contentWidth: availableWidth
-                ScrollBar.vertical.policy: ScrollBar.AsNeeded
+
+                ScrollBar.vertical: ScrollBar {
+                    id: settingsScrollBar
+
+                    parent: settingsScrollView
+                    anchors.top: settingsScrollView.top
+                    anchors.right: settingsScrollView.right
+                    anchors.bottom: settingsScrollView.bottom
+
+                    policy: ScrollBar.AlwaysOn
+                    width: 12
+
+                    background: Rectangle {
+                        color: window.lightMode ? "#E1E4E8" : "#252525"
+                        radius: width / 2
+                    }
+
+                    contentItem: Rectangle {
+                        implicitWidth: 8
+                        radius: width / 2
+
+                        color: settingsScrollBar.pressed
+                               ? (window.lightMode ? "#606770" : "#B0B0B0")
+                               : settingsScrollBar.hovered
+                                 ? (window.lightMode ? "#858C96" : "#909090")
+                                 : (window.lightMode ? "#A0A5AD" : "#686868")
+                    }
+                }
 
                 ColumnLayout {
                     anchors.fill: parent
@@ -213,11 +384,13 @@ ApplicationWindow {
                               + " Settings"
                         font.pixelSize: 22
                         font.bold: true
+                        color: window.primaryText
                     }
 
                     Label {
                         text: "Choose an action"
                         font.bold: true
+                        color: window.primaryText
                     }
 
                     ButtonGroup {
@@ -230,6 +403,14 @@ ApplicationWindow {
                         ButtonGroup.group: actionGroup
                         checked: window.buttonConfigs[window.selectedIndex].action
                                  === "none"
+                        contentItem: Text {
+                            text: parent.text
+                            color: window.primaryText
+                            font: parent.font
+                            verticalAlignment: Text.AlignVCenter
+                            leftPadding: parent.indicator.width + parent.spacing
+                            wrapMode: Text.WordWrap
+                        }
                         onClicked: window.setAction("none")
                     }
 
@@ -238,6 +419,14 @@ ApplicationWindow {
                         ButtonGroup.group: actionGroup
                         checked: window.buttonConfigs[window.selectedIndex].action
                                  === "application"
+                        contentItem: Text {
+                            text: parent.text
+                            color: window.primaryText
+                            font: parent.font
+                            verticalAlignment: Text.AlignVCenter
+                            leftPadding: parent.indicator.width + parent.spacing
+                            wrapMode: Text.WordWrap
+                        }
                         onClicked: window.setAction("application")
                     }
 
@@ -246,6 +435,14 @@ ApplicationWindow {
                         ButtonGroup.group: actionGroup
                         checked: window.buttonConfigs[window.selectedIndex].action
                                  === "website"
+                        contentItem: Text {
+                            text: parent.text
+                            color: window.primaryText
+                            font: parent.font
+                            verticalAlignment: Text.AlignVCenter
+                            leftPadding: parent.indicator.width + parent.spacing
+                            wrapMode: Text.WordWrap
+                        }
                         onClicked: window.setAction("website")
                     }
 
@@ -254,6 +451,14 @@ ApplicationWindow {
                         ButtonGroup.group: actionGroup
                         checked: window.buttonConfigs[window.selectedIndex].action
                                  === "copy"
+                        contentItem: Text {
+                            text: parent.text
+                            color: window.primaryText
+                            font: parent.font
+                            verticalAlignment: Text.AlignVCenter
+                            leftPadding: parent.indicator.width + parent.spacing
+                            wrapMode: Text.WordWrap
+                        }
                         onClicked: window.setAction("copy")
                     }
 
@@ -262,6 +467,14 @@ ApplicationWindow {
                         ButtonGroup.group: actionGroup
                         checked: window.buttonConfigs[window.selectedIndex].action
                                  === "cut"
+                        contentItem: Text {
+                            text: parent.text
+                            color: window.primaryText
+                            font: parent.font
+                            verticalAlignment: Text.AlignVCenter
+                            leftPadding: parent.indicator.width + parent.spacing
+                            wrapMode: Text.WordWrap
+                        }
                         onClicked: window.setAction("cut")
                     }
 
@@ -270,6 +483,14 @@ ApplicationWindow {
                         ButtonGroup.group: actionGroup
                         checked: window.buttonConfigs[window.selectedIndex].action
                                  === "paste"
+                        contentItem: Text {
+                            text: parent.text
+                            color: window.primaryText
+                            font: parent.font
+                            verticalAlignment: Text.AlignVCenter
+                            leftPadding: parent.indicator.width + parent.spacing
+                            wrapMode: Text.WordWrap
+                        }
                         onClicked: window.setAction("paste")
                     }
 
@@ -278,6 +499,14 @@ ApplicationWindow {
                         ButtonGroup.group: actionGroup
                         checked: window.buttonConfigs[window.selectedIndex].action
                                  === "shortcut"
+                        contentItem: Text {
+                            text: parent.text
+                            color: window.primaryText
+                            font: parent.font
+                            verticalAlignment: Text.AlignVCenter
+                            leftPadding: parent.indicator.width + parent.spacing
+                            wrapMode: Text.WordWrap
+                        }
                         onClicked: window.setAction("shortcut")
                     }
 
@@ -286,6 +515,14 @@ ApplicationWindow {
                         ButtonGroup.group: actionGroup
                         checked: window.buttonConfigs[window.selectedIndex].action
                                  === "screenshot"
+                        contentItem: Text {
+                            text: parent.text
+                            color: window.primaryText
+                            font: parent.font
+                            verticalAlignment: Text.AlignVCenter
+                            leftPadding: parent.indicator.width + parent.spacing
+                            wrapMode: Text.WordWrap
+                        }
                         onClicked: window.setAction("screenshot")
                     }
 
@@ -294,6 +531,14 @@ ApplicationWindow {
                         ButtonGroup.group: actionGroup
                         checked: window.buttonConfigs[window.selectedIndex].action
                                  === "playPause"
+                        contentItem: Text {
+                            text: parent.text
+                            color: window.primaryText
+                            font: parent.font
+                            verticalAlignment: Text.AlignVCenter
+                            leftPadding: parent.indicator.width + parent.spacing
+                            wrapMode: Text.WordWrap
+                        }
                         onClicked: window.setAction("playPause")
                     }
 
@@ -302,6 +547,14 @@ ApplicationWindow {
                         ButtonGroup.group: actionGroup
                         checked: window.buttonConfigs[window.selectedIndex].action
                                  === "lock"
+                        contentItem: Text {
+                            text: parent.text
+                            color: window.primaryText
+                            font: parent.font
+                            verticalAlignment: Text.AlignVCenter
+                            leftPadding: parent.indicator.width + parent.spacing
+                            wrapMode: Text.WordWrap
+                        }
                         onClicked: window.setAction("lock")
                     }
 
@@ -310,6 +563,14 @@ ApplicationWindow {
                         ButtonGroup.group: actionGroup
                         checked: window.buttonConfigs[window.selectedIndex].action
                                  === "forward"
+                        contentItem: Text {
+                            text: parent.text
+                            color: window.primaryText
+                            font: parent.font
+                            verticalAlignment: Text.AlignVCenter
+                            leftPadding: parent.indicator.width + parent.spacing
+                            wrapMode: Text.WordWrap
+                        }
                         onClicked: window.setAction("forward")
                     }
 
@@ -318,6 +579,14 @@ ApplicationWindow {
                         ButtonGroup.group: actionGroup
                         checked: window.buttonConfigs[window.selectedIndex].action
                                  === "backward"
+                        contentItem: Text {
+                            text: parent.text
+                            color: window.primaryText
+                            font: parent.font
+                            verticalAlignment: Text.AlignVCenter
+                            leftPadding: parent.indicator.width + parent.spacing
+                            wrapMode: Text.WordWrap
+                        }
                         onClicked: window.setAction("backward")
                     }
 
@@ -338,13 +607,11 @@ ApplicationWindow {
                             id: applicationCombo
 
                             Layout.fillWidth: true
-
                             model: configManager.availableApplications()
 
                             textRole: "name"
                             valueRole: "path"
 
-                            // Restore the saved selection for this button.
                             currentIndex: indexOfValue(
                                 window.buttonConfigs[window.selectedIndex].value
                             )
@@ -353,11 +620,32 @@ ApplicationWindow {
                                          ? currentText
                                          : "Select an application..."
 
+                            contentItem: Text {
+                                leftPadding: 8
+                                rightPadding: applicationCombo.indicator.width + 8
+
+                                text: applicationCombo.displayText
+                                color: applicationCombo.currentIndex >= 0
+                                       ? window.primaryText
+                                       : window.placeholderText
+
+                                verticalAlignment: Text.AlignVCenter
+                                elide: Text.ElideRight
+                            }
+
+                            background: Rectangle {
+                                radius: 5
+                                color: window.inputBackground
+                                border.width: 1
+                                border.color: applicationCombo.activeFocus
+                                              ? (window.lightMode ? "#316AC5" : "#8AB4F8")
+                                              : window.borderColor
+                            }
+
                             onActivated: function(index) {
                                 window.setValue(valueAt(index))
                             }
 
-                            // Keep the dropdown usable if the list is empty.
                             enabled: count > 0
                         }
 
@@ -369,10 +657,10 @@ ApplicationWindow {
                             text: "No Start Menu shortcuts found."
                             wrapMode: Text.WordWrap
                             opacity: 0.7
+                            color: window.secondaryText
                         }
                     }
 
-                    // Website URL
                     TextField {
                         id: websiteUrlField
 
@@ -387,6 +675,19 @@ ApplicationWindow {
                               === "website"
                               ? window.buttonConfigs[window.selectedIndex].value
                               : ""
+
+                        color: window.primaryText
+                        placeholderTextColor: window.placeholderText
+                        selectionColor: window.lightMode ? "#B7D1F5" : "#425D80"
+
+                        background: Rectangle {
+                            radius: 5
+                            color: window.inputBackground
+                            border.width: 1
+                            border.color: websiteUrlField.activeFocus
+                                          ? (window.lightMode ? "#316AC5" : "#8AB4F8")
+                                          : window.borderColor
+                        }
 
                         onTextEdited: window.setValue(text)
                     }
@@ -403,6 +704,7 @@ ApplicationWindow {
                         Label {
                             text: "Keyboard shortcut"
                             font.bold: true
+                            color: window.primaryText
                         }
 
                         Rectangle {
@@ -413,8 +715,8 @@ ApplicationWindow {
 
                             radius: 6
                             border.width: 1
-                            border.color: window.lightMode ? "#777777" : "#aaaaaa"
-                            color: window.lightMode ? "#eeeeee" : "#303030"
+                            border.color: window.borderColor
+                            color: window.inputBackground
 
                             focus: actionHandler.capturing
 
@@ -437,7 +739,8 @@ ApplicationWindow {
                                 verticalAlignment: Text.AlignVCenter
                                 horizontalAlignment: Text.AlignHCenter
 
-                                color: window.lightMode ? "#222222" : "#eeeeee"
+                                //color: window.lightMode ? "#222222" : "#eeeeee"
+                                color: window.primaryText
 
                                 text: actionHandler.capturing
                                       ? (actionHandler.capturedShortcut.length > 0
@@ -464,6 +767,27 @@ ApplicationWindow {
                             Button {
                                 text: actionHandler.capturing ? "Accept" : "Record"
 
+                                contentItem: Text {
+                                    text: parent.text
+                                    color: window.primaryText
+                                    horizontalAlignment: Text.AlignHCenter
+                                    verticalAlignment: Text.AlignVCenter
+                                    elide: Text.ElideRight
+                                }
+
+                                background: Rectangle {
+                                    radius: 6
+
+                                    color: parent.down
+                                           ? window.borderColor
+                                           : parent.hovered
+                                             ? window.buttonBackground
+                                             : window.surfaceBackground
+
+                                    border.width: 1
+                                    border.color: window.borderColor
+                                }
+
                                 onClicked: {
                                     if (!actionHandler.capturing) {
                                         actionHandler.startShortcutCapture()
@@ -479,6 +803,32 @@ ApplicationWindow {
                                 text: "Cancel"
                                 enabled: actionHandler.capturing
 
+                                contentItem: Text {
+                                    text: parent.text
+                                    color: parent.enabled
+                                           ? window.primaryText
+                                           : window.secondaryText
+
+                                    horizontalAlignment: Text.AlignHCenter
+                                    verticalAlignment: Text.AlignVCenter
+                                    elide: Text.ElideRight
+                                }
+
+                                background: Rectangle {
+                                    radius: 6
+
+                                    color: !parent.enabled
+                                           ? window.windowBackground
+                                           : parent.down
+                                             ? window.borderColor
+                                             : parent.hovered
+                                               ? window.buttonBackground
+                                               : window.surfaceBackground
+
+                                    border.width: 1
+                                    border.color: window.borderColor
+                                }
+
                                 onClicked: {
                                     actionHandler.stopShortcutCapture()
                                 }
@@ -491,9 +841,9 @@ ApplicationWindow {
                             text: "Click Record, press a shortcut, then click Accept."
                             wrapMode: Text.WordWrap
                             opacity: 0.7
+                            color: window.secondaryText
                         }
                     }
-
                 }
             }
         }
