@@ -333,8 +333,25 @@ int main(int argc, char *argv[]) {
 
     engine.loadFromModule("AppStreamDeckURI", "Main");
 
+    if (engine.rootObjects().isEmpty()) {
+        return -1;
+    }
+
     auto *window = qobject_cast<QQuickWindow *>(engine.rootObjects().first());
 
+    if (!window) {
+        return -1;
+    }
+
+    // Check whether this is the first launch.
+    QSettings settings;
+    const bool firstLaunch =
+        !settings.value("hasLaunchedBefore", false).toBool();
+
+    // Mark the application as launched.
+    if (firstLaunch) {
+        settings.setValue("hasLaunchedBefore", true);
+    }
     auto *tray = new QSystemTrayIcon(
         QApplication::style()->standardIcon(QStyle::SP_ComputerIcon), &app);
     auto *menu = new QMenu();
@@ -356,7 +373,14 @@ int main(int argc, char *argv[]) {
 
     tray->setContextMenu(menu);
     tray->show();
-    //window->hide();
+
+    // Show the window only on the first launch.
+    if (firstLaunch) {
+        window->show();
+    } else {
+        window->hide();
+    }
+    //settings.setValue("hasLaunchedBefore", false);
     ///////////////////// Qml steps end
 
     ///////////////////// Connection
