@@ -311,6 +311,8 @@ bool getMicMute() {
 int lastMinute = -1;
 int lastSpeakerMute = -1;
 int lastMicMute = -1;
+int lastSpeakerVolume = -1;
+int lastMicVolume = -1;
 
 int main(int argc, char *argv[]) {
     ///////////////////// Qml steps start
@@ -458,13 +460,16 @@ int main(int argc, char *argv[]) {
             //qDebug() << QTime::currentTime().hour() << ":" << QTime::currentTime().minute() << ":" << QTime::currentTime().second();
 
             ///Input actions handling
-            if(inputType == "ENC") {
-                if(inputID == 0) {
-                    //change microphone volume
+            if (inputType == "ENC") {
+                if (inputID == 0) {
+                    // Microphone encoder
                     setMicVolume(inputValue);
-                } else if(inputID == 1) {
-                    //change speaker volume
+                    lastMicVolume = getMicVolume();
+
+                } else if (inputID == 1) {
+                    // Speaker encoder
                     setVolume(inputValue);
+                    lastSpeakerVolume = getVolume();
                 }
             } else if(inputType == "ESW") {
                 if(inputID == 0 && inputValue == 1) {
@@ -521,6 +526,7 @@ int main(int argc, char *argv[]) {
             }
         });
 
+
     QObject::connect(&everySecond, &QTimer::timeout, [&]() {
 
         // Send the time when the minute changes
@@ -537,34 +543,58 @@ int main(int argc, char *argv[]) {
             }
         }
 
-        // Check mute states only while the Pico is connected
+        // Only synchronize audio states while the Pico is connected
         if (!serial.isOpen()) {
             return;
         }
 
+        // Read current Windows audio states
+        const int speakerVolume = getVolume();
+        const int micVolume = getMicVolume();
+
         const int speakerMute = getMute() ? 1 : 0;
         const int micMute = getMicMute() ? 1 : 0;
+
+        // Send speaker volume only when it changes
+        if (speakerVolume != lastSpeakerVolume) {
+            lastSpeakerVolume = speakerVolume;
+
+            const QString message =
+                "SVOL," + QString::number(speakerVolume) + "\n";
+
+            serial.write(message.toUtf8());
+            // qDebug() << "Speaker volume:" << speakerVolume;
+        }
+
+        // Send microphone volume only when it changes
+        if (micVolume != lastMicVolume) {
+            lastMicVolume = micVolume;
+
+            const QString message =
+                "MVOL," + QString::number(micVolume) + "\n";
+
+            serial.write(message.toUtf8());
+            // qDebug() << "Microphone volume:" << micVolume;
+        }
 
         // Send speaker mute state only when it changes
         if (speakerMute != lastSpeakerMute) {
             lastSpeakerMute = speakerMute;
 
-            QString message = "SMUTE," +
-                              QString::number(speakerMute) + "\n";
+            const QString message =
+                "SMUTE," + QString::number(speakerMute) + "\n";
 
             serial.write(message.toUtf8());
-            //qDebug() << "Speaker mute state:" << speakerMute;
         }
 
         // Send microphone mute state only when it changes
         if (micMute != lastMicMute) {
             lastMicMute = micMute;
 
-            QString message = "MMUTE," +
-                              QString::number(micMute) + "\n";
+            const QString message =
+                "MMUTE," + QString::number(micMute) + "\n";
 
             serial.write(message.toUtf8());
-            //qDebug() << "Microphone mute state:" << micMute;
         }
     });
 
