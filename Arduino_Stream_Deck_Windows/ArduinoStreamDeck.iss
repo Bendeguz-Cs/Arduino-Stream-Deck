@@ -26,8 +26,7 @@ Name: "desktopicon"; \
 
 Name: "autostart"; \
     Description: "Start Arduino Stream Deck when I sign in to Windows"; \
-    GroupDescription: "Startup options:"; \
-    Flags: unchecked
+    GroupDescription: "Startup options:";
 
 [Files]
 Source: "C:\Users\User\Documents\Arduino\Arduino-Stream-Deck\Arduino_Stream_Deck_Windows\build\Desktop_Qt_6_12_0_MinGW_64_bit_Release\*"; DestDir: "{app}"; Flags: ignoreversion recursesubdirs createallsubdirs
