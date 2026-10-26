@@ -309,6 +309,8 @@ bool getMicMute() {
 }
 
 int lastMinute = -1;
+int lastSpeakerMute = -1;
+int lastMicMute = -1;
 
 int main(int argc, char *argv[]) {
     ///////////////////// Qml steps start
@@ -365,6 +367,8 @@ int main(int argc, char *argv[]) {
         //Already connected
         if(serial.isOpen()) {
             reconnectTimer.stop();
+            lastSpeakerMute = -1;
+            lastMicMute = -1;
             return;
         }
 
@@ -518,14 +522,49 @@ int main(int argc, char *argv[]) {
         });
 
     QObject::connect(&everySecond, &QTimer::timeout, [&]() {
-        if(QTime::currentTime().minute() != lastMinute) {
+
+        // Send the time when the minute changes
+        if (QTime::currentTime().minute() != lastMinute) {
             lastMinute = QTime::currentTime().minute();
-            QString message = "TIME," +
-            QString("%1:%2")
-                .arg(QTime::currentTime().hour(), 2, 10, QChar('0'))
-                .arg(QTime::currentTime().minute(), 2, 10, QChar('0'));
+
+            QString timeMessage = "TIME," +
+                                  QString("%1:%2")
+                                      .arg(QTime::currentTime().hour(), 2, 10, QChar('0'))
+                                      .arg(QTime::currentTime().minute(), 2, 10, QChar('0'));
+
+            if (serial.isOpen()) {
+                serial.write((timeMessage + "\n").toUtf8());
+            }
+        }
+
+        // Check mute states only while the Pico is connected
+        if (!serial.isOpen()) {
+            return;
+        }
+
+        const int speakerMute = getMute() ? 1 : 0;
+        const int micMute = getMicMute() ? 1 : 0;
+
+        // Send speaker mute state only when it changes
+        if (speakerMute != lastSpeakerMute) {
+            lastSpeakerMute = speakerMute;
+
+            QString message = "SMUTE," +
+                              QString::number(speakerMute) + "\n";
+
             serial.write(message.toUtf8());
-            //qDebug() << message;
+            //qDebug() << "Speaker mute state:" << speakerMute;
+        }
+
+        // Send microphone mute state only when it changes
+        if (micMute != lastMicMute) {
+            lastMicMute = micMute;
+
+            QString message = "MMUTE," +
+                              QString::number(micMute) + "\n";
+
+            serial.write(message.toUtf8());
+            //qDebug() << "Microphone mute state:" << micMute;
         }
     });
 
