@@ -1,7 +1,7 @@
 //PS C:\Qt\6.12.0\mingw_64\bin> .\windeployqt.exe --release --qmldir C:\Users\User\Documents\Arduino\Arduino-Stream-Deck\Arduino_Stream_Deck_Windows C:\Users\User\Documents\Arduino\Arduino-Stream-Deck\Arduino_Stream_Deck_Windows\build\Desktop_Qt_6_12_0_MinGW_64_bit_Release\appStreamDeck.exe
 
 #define MyAppName "Arduino Stream Deck"
-#define MyAppVersion "1.2.3"
+#define MyAppVersion "1.2.4"
 #define MyAppExeName "appStreamDeck.exe"
 
 [Setup]
