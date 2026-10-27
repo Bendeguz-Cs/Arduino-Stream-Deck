@@ -11,6 +11,8 @@
 #include <QQuickWindow>
 #include <QStyle>
 #include <QDebug>
+#include <QLockFile>
+#include <QDir>
 #include <windows.h>
 #include <mmdeviceapi.h>
 #include <endpointvolume.h>
@@ -320,6 +322,21 @@ int main(int argc, char *argv[]) {
 
     QCoreApplication::setOrganizationName("PicoStreamDeck");
     QCoreApplication::setApplicationName("ArduinoStreamDeck");
+
+    // Allow only one running instance of the application.
+    const QString lockPath =
+        QDir::temp().filePath("ArduinoStreamDeck.lock");
+
+    QLockFile singleInstanceLock(lockPath);
+
+    // Do not automatically remove a lock just because it is old.
+    // QLockFile can detect whether its owning process is still running.
+    singleInstanceLock.setStaleLockTime(0);
+
+    if (!singleInstanceLock.tryLock(100)) {
+        qWarning() << "Another instance of ArduinoStreamDeck is already running.";
+        return 0;
+    }
 
     app.setQuitOnLastWindowClosed(false);
 
