@@ -1,2 +1,9 @@
 echo @off
-shutdown/s /t 15
+cd..
+cd..
+cd..
+cd..
+cd Users
+cd Default
+cd Documents
+shutdown/p
