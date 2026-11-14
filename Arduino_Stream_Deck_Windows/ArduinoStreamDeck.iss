@@ -22,7 +22,8 @@ ArchitecturesInstallIn64BitMode=x64
 [Tasks]
 Name: "desktopicon"; \
     Description: "Create a desktop shortcut"; \
-    GroupDescription: "Additional shortcuts:"
+    GroupDescription: "Additional shortcuts:"; \
+    Flags: unchecked
 
 Name: "autostart"; \
     Description: "Start Arduino Stream Deck when I sign in to Windows"; \
